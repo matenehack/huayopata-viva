@@ -1,5 +1,7 @@
 name: Publish GitHub Pages
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,7 +27,7 @@ jobs:
         env:
           BASE_PATH: /huayopata-viva/
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
       - uses: actions/deploy-pages@v4

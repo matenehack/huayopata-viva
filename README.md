@@ -18,7 +18,7 @@ Las fuentes de lugares y teléfonos constan en cada registro. No constituyen dis
 
 ## Publicación
 
-El flujo **Build and verify** compila el sitio en cada actualización. **Publish GitHub Pages** es manual y prepara la ruta `/huayopata-viva/`. Activa GitHub Pages con origen **GitHub Actions** para habilitarlo. Una rama o dominio propio puede usar `BASE_PATH=/` en la compilación. Hay copias HTML de las cinco historias para abrir sus URL directamente.
+El flujo **Build and verify** compila el sitio en cada actualización. **Publish GitHub Pages** se ejecuta al actualizar `main` y prepara la ruta `/huayopata-viva/`. Activa GitHub Pages con origen **GitHub Actions** para habilitarlo. Una rama o dominio propio puede usar `BASE_PATH=/` en la compilación. Hay copias HTML de las cinco historias para abrir sus URL directamente.
 
 ## Datos y seguridad
 
