@@ -1,0 +1,15 @@
+import {createRoot} from 'react-dom/client';
+import Home from './Home';
+import Topic,{topics} from './Topic';
+import {loadContent} from './lib/content';
+import './styles.css';
+const base=import.meta.env.BASE_URL;
+const path=decodeURIComponent(location.pathname.slice(base.length)).replace(/\/$/,'');
+async function start(){
+ await loadContent();
+ const match=path.match(/^descubre\/([^/]+)$/);
+ if(match&&topics[match[1]]){document.title=topics[match[1]].title+' | Huayopata Viva';document.querySelector('meta[name="description"]')?.setAttribute('content',topics[match[1]].intro)}
+ createRoot(document.getElementById('root')!).render(path===''?<Home/>:match?<Topic tema={match[1]}/>:<main className="hv-story-page hv-story-missing"><h1>Página no encontrada</h1><a href={base}>Volver a Huayopata Viva</a></main>);
+ if(location.hash)requestAnimationFrame(()=>document.getElementById(location.hash.slice(1))?.scrollIntoView());
+}
+void start();
