@@ -244,6 +244,7 @@ export function ScrollScrub({
     let layoutWidth = window.innerWidth;
     let userReady = false;
     let stageVisible = true;
+    let playbackSegment = runtime[0];
 
     // Native playback needs no animation loop. Wake only for scroll, media events,
     // visibility changes or an unfinished scroll-controlled seek.
@@ -333,14 +334,14 @@ export function ScrollScrub({
       video.addEventListener("loadeddata", () => {
         if (!isCurrent()) return;
         painted();
-        if (userReady && segment.visible && stageVisible && !document.hidden) void primeVideo(video);
+        if (userReady && segment.visible && stageVisible && !document.hidden && (!video.loop || segment === playbackSegment)) void primeVideo(video);
         schedule();
       }, { once: true });
       video.addEventListener("canplay", schedule);
       video.addEventListener("seeked", () => { if (isCurrent()) { painted(); schedule(); } });
       video.addEventListener("playing", () => {
         if (!isCurrent()) return;
-        if (!segment.visible || !stageVisible || document.hidden) video.pause();
+        if (!segment.visible || !stageVisible || document.hidden || (video.loop && segment !== playbackSegment)) video.pause();
         else painted();
       });
       video.addEventListener("error", () => {
@@ -365,6 +366,7 @@ export function ScrollScrub({
       for (const [index, segment] of runtime.entries()) {
         if (y >= segment.start) currentIndex = index;
       }
+      playbackSegment = runtime[currentIndex];
 
       for (const [index, segment] of runtime.entries()) {
 
@@ -421,7 +423,7 @@ export function ScrollScrub({
       for (const segment of runtime) {
         const { video } = segment;
         if (!video) continue;
-        const visible = segment.visible && stageVisible && !document.hidden;
+        const visible = segment.visible && stageVisible && !document.hidden && (!video.loop || segment === playbackSegment);
         if (segment.scene?.playback === "autoplay") {
           if (visible && segment.ready && video.paused && !video.dataset.playPending && !video.dataset.playBlocked) {
             video.dataset.playPending = "true";
@@ -467,7 +469,7 @@ export function ScrollScrub({
     const onFirstGesture = () => {
       userReady = true;
       for (const segment of runtime) {
-        if (!segment.visible || !stageVisible) continue;
+        if (!segment.visible || !stageVisible || (segment.video?.loop && segment !== playbackSegment)) continue;
         if (segment.video && segment.scene?.playback === "autoplay") delete segment.video.dataset.playBlocked;
         else void primeVideo(segment.video);
       }
