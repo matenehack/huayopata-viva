@@ -24,4 +24,4 @@ El flujo **Build and verify** compila el sitio en cada actualización. **Publish
 
 `supabase/001_content.sql` reproduce el esquema y las políticas de solo lectura pública. `supabase/seed-content.json` conserva una exportación editable de los datos. Para actualizar tablas tras cambiarla, ejecuta `SUPABASE_SERVICE_ROLE_KEY=... npm run seed` en un entorno confiable; esa clave jamás va al navegador ni al repositorio. Los cambios hechos en Supabase se aplican en la web al volver a abrirla. Actualiza también la copia del código si cambias contenido importante para que el modo sin conexión esté vigente.
 
-Los binarios viven en Storage para mantener el repositorio ligero. El archivo original de Higgsfield está respaldado de forma privada en Supabase; la nueva web no utiliza sus rutas de publicación ni requiere iniciar sesión allí.
+Los videos y fotografías viven en Storage; los dos pósteres de la portada también se guardan localmente para que la primera imagen aparezca de inmediato. El archivo original de Higgsfield está respaldado de forma privada en Supabase; la nueva web no utiliza sus rutas de publicación ni requiere iniciar sesión allí.
