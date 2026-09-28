@@ -178,9 +178,12 @@ export function ScrollScrub({
   const controllerRef = useRef<Controller | null>(null);
   const onActiveRef = useRef(onActiveSectionChange);
   const [activeSection, setActiveSection] = useState(0);
+  // Live content may update the scene objects in place. Rebuild the controller
+  // only when scene data actually changes, preserving playback on normal refresh.
+  const sceneSignature = JSON.stringify(scenes);
   const segments = useMemo(
     () => buildSegments(scenes, connectors ?? []),
-    [connectors, scenes]
+    [connectors, scenes, sceneSignature]
   );
 
   // Keep the latest callback reachable from the scroll loop without making it a

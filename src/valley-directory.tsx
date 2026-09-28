@@ -39,12 +39,12 @@ const markerArt:Record<string,string>={
 };
 function pinArt(p:ServicePlace){const kind=norm(p.kind);const path=/salud|posta|farmacia|hospital/.test(kind)?'<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3Z"/>':/combustible|grifo/.test(kind)?'<path d="M4 21V4a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v17M4 9h11m-11 9h12m2-12 3 3v9a2 2 0 0 1-4 0v-5h-2M2 21h16"/>':markerArt[p.category]||markerArt.servicios;return `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`}
 const visitTip=(p:ServicePlace)=>p.category==="emergencias"?"Indica qué ocurrió, tu ubicación y cuántas personas necesitan ayuda.":p.category==="dormir"?"Consulta habitaciones, precio y horario de ingreso.":p.category==="comer"?"Consulta el horario de atención y el menú del día.":p.category==="sabores"?"Coordina la visita o degustación antes de acudir.":"Consulta atención, horario y disponibilidad antes de ir.";
-export default function ValleyDirectory(){
+export default function ValleyDirectory({contentRevision=0}:{contentRevision?:number}){
  const [category,setCategory]=useState("todos"),[query,setQuery]=useState(""),[savedOnly,setSavedOnly]=useState(false),[saved,setSaved]=useState<string[]>([]),[ready,setReady]=useState(false),[selected,setSelected]=useState<ServicePlace|null>(null),[notice,setNotice]=useState(""),[expanded,setExpanded]=useState(false);
  const [mapReady,setMapReady]=useState(false),[mapError,setMapError]=useState(""),[loadMap,setLoadMap]=useState(false),[fit,setFit]=useState(0);
  const mount=useRef<HTMLDivElement>(null),map=useRef<LeafletMap|null>(null),layer=useRef<LayerGroup|null>(null),markers=useRef<Record<string,Marker>>({}),lib=useRef<typeof import("leaflet")|null>(null);
  const selectedRef=useRef(setSelected); selectedRef.current=setSelected;
- const visible=useMemo(()=>servicePlaces.filter(p=>(category==="todos"||p.category===category)&&(!savedOnly||saved.includes(p.id))&&norm(p.name+" "+p.area+" "+p.kind+" "+p.description+" "+(p.phone||"")).includes(norm(query))),[category,query,savedOnly,saved]);
+ const visible=useMemo(()=>servicePlaces.filter(p=>(category==="todos"||p.category===category)&&(!savedOnly||saved.includes(p.id))&&norm(p.name+" "+p.area+" "+p.kind+" "+p.description+" "+(p.phone||"")).includes(norm(query))),[category,query,savedOnly,saved,contentRevision]);
  const mapped=useMemo(()=>visible.filter(p=>p.lat!=null&&p.lng!=null),[visible]);
  const current=selected&&visible.some(p=>p.id===selected.id)?selected:null;
  useEffect(()=>{try{const s=JSON.parse(localStorage.getItem("hv-saved-services")||"[]");if(Array.isArray(s))setSaved(s.filter((id:unknown)=>typeof id==="string"&&servicePlaces.some(p=>p.id===id)))}catch{}setReady(true)},[]);

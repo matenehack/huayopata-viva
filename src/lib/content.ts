@@ -3,7 +3,7 @@ import {topics,type Topic} from '../Topic';
 import {scrollScrubScenes} from '../scroll-scrub-scenes';
 const url=import.meta.env.VITE_SUPABASE_URL||'https://rhghpitzpdstrraxuogz.supabase.co';
 const key=import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY||'sb_publishable_p71p3H-YyF4kmDRG7grkbA_4MRx19BJ';
-export let contentStatus:'live'|'backup'='backup';
+export let contentStatus:'loading'|'live'|'backup'='loading';
 export async function loadContent(){
  try{
   const get=async(table:string)=>{const response=await fetch(`${url}/rest/v1/${table}`,{headers:{apikey:key},signal:AbortSignal.timeout(7000)});if(!response.ok)throw new Error(`Content ${response.status}`);return response.json()};
@@ -14,5 +14,5 @@ export async function loadContent(){
   servicePlaces.splice(0,servicePlaces.length,...validPlaces);
   for(const row of chapters as {id:string,data:{topic:Topic,scene?:Record<string,unknown>}}[]){if(row.data.topic&&topics[row.id])topics[row.id]=row.data.topic;const scene=scrollScrubScenes.find(s=>s.id===row.data.scene?.id);if(scene&&row.data.scene){const {actions,...data}=row.data.scene;Object.assign(scene,data);if(scene.id==='abra'){scene.poster=import.meta.env.BASE_URL+'assets/world/huayopata-intro-poster.webp';scene.mobilePoster=import.meta.env.BASE_URL+'assets/world/huayopata-intro-mobile-poster.webp'}}}
   contentStatus='live';
- }catch(error){console.warn('Using bundled Huayopata content:',error)}
+ }catch(error){contentStatus='backup';console.warn('Using bundled Huayopata content:',error)}
 }
