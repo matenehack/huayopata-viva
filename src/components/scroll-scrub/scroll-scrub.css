@@ -55,6 +55,11 @@
 
 .scroll-scrub__video {
   z-index: 1;
+  opacity: 0;
+}
+
+.scroll-scrub__layer[data-video-painted="true"] .scroll-scrub__video {
+  opacity: 1;
 }
 
 .scroll-scrub__layer[data-video-painted="true"] .scroll-scrub__poster {

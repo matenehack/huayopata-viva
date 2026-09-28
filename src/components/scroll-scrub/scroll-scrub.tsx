@@ -84,8 +84,6 @@ interface RuntimeSegment extends Segment {
   failed: boolean;
   loadedSource?: string;
   video?: HTMLVideoElement;
-  objectUrl?: string;
-  abort?: AbortController;
 }
 
 interface Controller {
@@ -245,16 +243,25 @@ export function ScrollScrub({
     let viewportHeight = window.innerHeight;
     let layoutWidth = window.innerWidth;
     let userReady = false;
+    let stageVisible = true;
+
+    // Native playback needs no animation loop. Wake only for scroll, media events,
+    // visibility changes or an unfinished scroll-controlled seek.
+    const schedule = () => {
+      if (!destroyed && !document.hidden && !frame) {
+        frame = window.requestAnimationFrame(tick);
+      }
+    };
 
     const unloadClip = (segment: RuntimeSegment) => {
-      segment.abort?.abort();
-      segment.video?.remove();
-      if (segment.objectUrl) {
-        URL.revokeObjectURL(segment.objectUrl);
-      }
-      delete segment.abort;
+      const video = segment.video;
       delete segment.video;
-      delete segment.objectUrl;
+      if (video) {
+        video.pause();
+        video.removeAttribute("src");
+        video.load(); // Cancel network activity and release the decoder/buffer.
+        video.remove();
+      }
       delete segment.loadedSource;
       segment.loading = false;
       segment.ready = false;
@@ -283,6 +290,7 @@ export function ScrollScrub({
       }
       total = Math.max(runtime.at(-1)?.end ?? viewportHeight, viewportHeight);
       dirty = true;
+      schedule();
     };
 
     const primeVideo = async (video?: HTMLVideoElement) => {
@@ -297,120 +305,54 @@ export function ScrollScrub({
       }
     };
 
-    const loadClip = async (segment: RuntimeSegment) => {
+    const loadClip = (segment: RuntimeSegment) => {
       const source = sourceFor(segment);
-      if (
-        reduceMotion ||
-        destroyed ||
-        segment.loading ||
-        segment.ready ||
-        segment.failed ||
-        !source
-      ) {
-        return;
-      }
+      if (reduceMotion || destroyed || segment.loading || segment.ready || segment.failed || !source) return;
 
       segment.loading = true;
       segment.loadedSource = source;
-      segment.abort = new AbortController();
-      const request = segment.abort;
-
-      try {
-        const response = await fetch(source, {
-          signal: request.signal,
-        });
-        if (!response.ok) {
-          throw new Error(`Clip failed: ${response.status}`);
-        }
-        const blob = await response.blob();
-        if (
-          destroyed ||
-          request.signal.aborted ||
-          segment.loadedSource !== source
-        ) {
-          return;
-        }
-
-        const objectUrl = URL.createObjectURL(blob);
-        const video = document.createElement("video");
-        video.className = "scroll-scrub__video";
-        video.muted = true;
-        video.playsInline = true;
-        video.preload = "auto";
-        video.loop = segment.scene?.playback === "autoplay";
-        video.addEventListener("playing", () => { segment.layer.dataset.videoPainted = "true"; });
-        video.setAttribute("muted", "");
-        video.setAttribute("playsinline", "");
-        video.src = objectUrl;
-
-        video.addEventListener(
-          "loadedmetadata",
-          () => {
-            if (segment.video !== video || segment.loadedSource !== source) {
-              return;
-            }
-            segment.ready = true;
-            segment.loading = false;
-            dirty = true;
-          },
-          { once: true }
-        );
-        video.addEventListener(
-          "loadeddata",
-          () => {
-            if (
-              userReady &&
-              segment.video === video &&
-              segment.loadedSource === source
-            ) {
-              void primeVideo(video);
-            }
-          },
-          { once: true }
-        );
-        video.addEventListener(
-          "error",
-          () => {
-            if (segment.video !== video) {
-              return;
-            }
-            video.remove();
-            URL.revokeObjectURL(objectUrl);
-            delete segment.video;
-            delete segment.objectUrl;
-            segment.failed = true;
-            segment.loading = false;
-            segment.ready = false;
-            delete segment.layer.dataset.videoPainted;
-            segment.layer.dataset.videoFailed = "true";
-          },
-          { once: true }
-        );
-        video.addEventListener(
-          "seeked",
-          () => {
-            if (segment.video === video && segment.loadedSource === source) {
-              segment.layer.dataset.videoPainted = "true";
-            }
-          },
-          { once: true }
-        );
-
-        segment.layer.append(video);
-        segment.objectUrl = objectUrl;
-        segment.video = video;
-      } catch (error) {
-        if (
-          request.signal.aborted ||
-          (error instanceof Error && error.name === "AbortError") ||
-          segment.loadedSource !== source
-        ) {
-          return;
-        }
-        segment.layer.dataset.videoFailed = "true";
-        segment.failed = true;
+      const video = document.createElement("video");
+      segment.video = video;
+      video.className = "scroll-scrub__video";
+      video.muted = true;
+      video.playsInline = true;
+      video.preload = "auto";
+      video.loop = segment.scene?.playback === "autoplay";
+      video.setAttribute("muted", "");
+      video.setAttribute("playsinline", "");
+      const isCurrent = () => !destroyed && segment.video === video && segment.loadedSource === source;
+      const painted = () => {
+        if (isCurrent() && video.readyState >= 2) segment.layer.dataset.videoPainted = "true";
+      };
+      video.addEventListener("loadedmetadata", () => {
+        if (!isCurrent()) return;
+        segment.ready = true;
         segment.loading = false;
-      }
+        schedule();
+      }, { once: true });
+      video.addEventListener("loadeddata", () => {
+        if (!isCurrent()) return;
+        painted();
+        if (userReady && segment.visible && stageVisible && !document.hidden) void primeVideo(video);
+        schedule();
+      }, { once: true });
+      video.addEventListener("canplay", schedule);
+      video.addEventListener("seeked", () => { if (isCurrent()) { painted(); schedule(); } });
+      video.addEventListener("playing", () => {
+        if (!isCurrent()) return;
+        if (!segment.visible || !stageVisible || document.hidden) video.pause();
+        else painted();
+      });
+      video.addEventListener("error", () => {
+        if (!isCurrent()) return;
+        unloadClip(segment);
+        segment.failed = true;
+        segment.layer.dataset.videoFailed = "true";
+      }, { once: true });
+      // Let the browser request byte ranges and decode before the whole file
+      // arrives, rather than fetching a complete Blob for each scene.
+      video.src = source;
+      segment.layer.append(video);
     };
 
     const readScroll = () => {
@@ -418,11 +360,13 @@ export function ScrollScrub({
       const y = clamp(pageY - rootTop, 0, total);
       const crossfade = 0.1 * viewportHeight;
       let currentIndex = 0;
+      const bounds = root.getBoundingClientRect();
+      stageVisible = bounds.bottom > 0 && bounds.top < viewportHeight;
+      for (const [index, segment] of runtime.entries()) {
+        if (y >= segment.start) currentIndex = index;
+      }
 
       for (const [index, segment] of runtime.entries()) {
-        if (y >= segment.start) {
-          currentIndex = index;
-        }
 
         const length = Math.max(segment.end - segment.start, 1);
         const local = clamp((y - segment.start) / length);
@@ -446,11 +390,11 @@ export function ScrollScrub({
         segment.layer.style.opacity = String(opacity);
         segment.layer.style.zIndex = index === currentIndex ? "2" : "1";
 
-        if (
-          y > segment.start - 1.5 * viewportHeight &&
-          y < segment.end + 1.5 * viewportHeight
-        ) {
-          void loadClip(segment);
+        const nearby = Math.abs(index - currentIndex) <= 1;
+        if (!nearby || !stageVisible) {
+          if (segment.video) unloadClip(segment);
+        } else if (y > segment.start - 1.5 * viewportHeight && y < segment.end + 1.5 * viewportHeight) {
+          loadClip(segment);
         }
       }
 
@@ -473,72 +417,61 @@ export function ScrollScrub({
     };
 
     const updateVideos = () => {
+      let needsFrame = false;
       for (const segment of runtime) {
         const { video } = segment;
-        if (video && segment.scene?.playback === "autoplay") {
-          const bounds = root.getBoundingClientRect();
-          const visible = segment.visible && bounds.bottom > 0 && bounds.top < window.innerHeight && !document.hidden;
+        if (!video) continue;
+        const visible = segment.visible && stageVisible && !document.hidden;
+        if (segment.scene?.playback === "autoplay") {
           if (visible && segment.ready && video.paused && !video.dataset.playPending && !video.dataset.playBlocked) {
             video.dataset.playPending = "true";
-            void video.play().catch(() => { video.dataset.playBlocked = "true"; }).finally(() => { delete video.dataset.playPending; });
-          } else if (!visible && !video.paused) {
-            video.pause();
-          }
+            void video.play().catch((error: DOMException) => {
+              if (error.name === "NotAllowedError") video.dataset.playBlocked = "true";
+              if (error.name === "AbortError") schedule();
+            }).finally(() => { delete video.dataset.playPending; });
+          } else if (!visible && !video.paused) video.pause();
           continue;
         }
-        if (!video || !segment.ready || video.seeking) {
-          continue;
-        }
-        if (
-          !segment.visible &&
-          Math.abs(segment.current - segment.target) < 0.002
-        ) {
-          continue;
-        }
-
-        segment.current += (segment.target - segment.current) * 0.2;
-        const targetTime =
-          clamp(segment.current, 0, 0.999) * (video.duration || 1);
-        const epsilon = isMobile() ? 0.02 : 0.008;
+        if (!visible || !segment.ready || video.seeking || !Number.isFinite(video.duration)) continue;
+        const delta = segment.target - segment.current;
+        segment.current = Math.abs(delta) < 0.001 ? segment.target : segment.current + delta * 0.2;
+        const targetTime = clamp(segment.current, 0, 0.999) * video.duration;
+        const epsilon = isMobile() ? 0.02 : 0.016;
         if (Math.abs(video.currentTime - targetTime) > epsilon) {
-          try {
-            video.currentTime = targetTime;
-          } catch {
-            // Keep the last painted frame while the browser catches up.
-          }
+          try { video.currentTime = targetTime; } catch { /* Keep the current frame. */ }
         }
+        // A pending seek wakes us via seeked; stop once the target settles.
+        if (!video.seeking && Math.abs(segment.current - segment.target) >= 0.001) needsFrame = true;
       }
+      return needsFrame;
     };
 
     const tick = () => {
-      if (destroyed) {
-        return;
-      }
-      if (dirty) {
-        dirty = false;
-        readScroll();
-      }
-      updateVideos();
-      frame = window.requestAnimationFrame(tick);
+      frame = 0;
+      if (destroyed || document.hidden) return;
+      if (dirty) { dirty = false; readScroll(); }
+      if (updateVideos()) schedule();
     };
-
-    const onScroll = () => {
-      dirty = true;
-    };
+    const onScroll = () => { dirty = true; schedule(); };
     const onResize = () => {
-      if (coarsePointer && window.innerWidth === layoutWidth) {
-        return;
-      }
+      if (coarsePointer && window.innerWidth === layoutWidth) return;
       layout();
     };
+    const onVisibility = () => {
+      if (document.hidden) {
+        window.cancelAnimationFrame(frame);
+        frame = 0;
+        runtime.forEach(segment => segment.video?.pause());
+      } else onScroll();
+    };
     const onFirstGesture = () => {
-      if (userReady) {
-        return;
-      }
       userReady = true;
       for (const segment of runtime) {
-        if (segment.video && segment.scene?.playback === "autoplay") { delete segment.video.dataset.playBlocked; } else { void primeVideo(segment.video); }
+        if (!segment.visible || !stageVisible) continue;
+        if (segment.video && segment.scene?.playback === "autoplay") delete segment.video.dataset.playBlocked;
+        else void primeVideo(segment.video);
       }
+      schedule();
     };
 
     controllerRef.current = {
@@ -563,21 +496,20 @@ export function ScrollScrub({
     window.addEventListener("resize", onResize);
     window.addEventListener("orientationchange", layout);
     window.addEventListener("pointerdown", onFirstGesture, {
-      once: true,
       passive: true,
     });
     window.addEventListener("touchstart", onFirstGesture, {
-      once: true,
       passive: true,
     });
 
+    document.addEventListener("visibilitychange", onVisibility);
     layout();
-    frame = window.requestAnimationFrame(tick);
 
     return () => {
       destroyed = true;
       controllerRef.current = null;
       window.cancelAnimationFrame(frame);
+      document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("orientationchange", layout);
