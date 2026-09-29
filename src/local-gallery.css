@@ -1,0 +1,31 @@
+/* Authentic territorial gallery, with documented source instead of stand-in stock photos */
+.hv-local-gallery{padding:clamp(70px,9vw,125px) 7%;background:#f1e8ce;color:#123c30}
+.hv-gallery-heading{display:grid;grid-template-columns:1fr 3fr;gap:15px 5vw;margin-bottom:40px}
+.hv-gallery-heading>span{font-size:11px;font-weight:800;letter-spacing:.17em;color:#87513b;padding-top:12px}
+.hv-gallery-heading h2{font:400 clamp(42px,5.5vw,78px)/1.03 Georgia,serif;letter-spacing:-.045em}
+.hv-gallery-heading p{grid-column:2;font-size:17px;line-height:1.65;max-width:690px}
+.hv-gallery-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+.hv-gallery-feature{margin:0;position:relative;min-height:590px;background:#173c30;overflow:hidden;border-radius:12px;color:#f4f0d8;isolation:isolate}
+.hv-gallery-feature>button{position:absolute;inset:0;display:block;width:100%;height:100%;overflow:hidden;text-align:left;cursor:zoom-in}
+.hv-gallery-feature>button:after{content:"";position:absolute;inset:25% 0 0;background:linear-gradient(transparent,#071c19e8);pointer-events:none}
+.hv-gallery-feature img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.hv-gallery-feature button:hover img{transform:scale(1.025)}
+.hv-gallery-expand{position:absolute;right:23px;top:22px;background:#082b23dd;border:1px solid #ffffff80;border-radius:999px;color:white;display:flex;gap:9px;align-items:center;font-size:12px;padding:10px 15px;z-index:1}
+.hv-gallery-feature figcaption{position:absolute;inset:auto 0 0;padding:35px;pointer-events:none;display:flex;flex-direction:column;align-items:flex-start;gap:13px}
+.hv-gallery-feature figcaption>span{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:800;letter-spacing:.12em;color:#d7f36b}
+.hv-gallery-feature strong{font:400 clamp(31px,3.6vw,54px)/1.05 Georgia,serif;max-width:540px}
+.hv-gallery-feature small{font-size:11px;line-height:1.45;color:#e3e7d9}
+.hv-gallery-feature figcaption>a{pointer-events:auto;color:#f4f0d8;display:inline-flex;gap:9px;align-items:center;border-bottom:1px solid #d7f36b;padding:9px 0;font-size:13px;font-weight:750}
+.hv-gallery-side{display:grid;grid-template-rows:1fr 1fr;gap:16px}
+.hv-gallery-side article{display:flex;flex-direction:column;align-items:flex-start;padding:clamp(25px,3vw,42px);background:#e0e5ce;border-radius:12px}
+.hv-gallery-side article:last-child{background:#d0decd}
+.hv-gallery-side article>span{font-size:11px;font-weight:800;letter-spacing:.17em;color:#6a4e36}
+.hv-gallery-side h3{font:400 clamp(27px,2.6vw,42px)/1.11 Georgia,serif;margin:18px 0}
+.hv-gallery-side p{font-size:14px;line-height:1.65;margin-bottom:20px}
+.hv-gallery-side a{display:inline-flex;gap:8px;align-items:center;border-bottom:1px solid #69886f;padding:8px 0;font-size:13px;font-weight:750}
+.hv-gallery-credit{margin-top:16px;font-size:11px;color:#536456;line-height:1.6}.hv-gallery-credit a{text-decoration:underline}
+.hv-gallery-lightbox{position:fixed;z-index:500;inset:0;background:#051a16ee;color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;padding:60px 20px 20px}.hv-gallery-lightbox>button{position:absolute;right:25px;top:18px;background:#d7f36b;color:#062f26;padding:11px 18px;border-radius:999px;font-size:13px;font-weight:800}.hv-gallery-lightbox img{max-width:100%;max-height:76vh;object-fit:contain}.hv-gallery-lightbox p{font-size:12px}
+.hv-local-gallery :is(a,button):focus-visible{outline:3px solid #a75d37;outline-offset:4px}
+@media(max-width:800px){.hv-local-gallery{padding:75px 6%}.hv-gallery-heading{display:block}.hv-gallery-heading>span{display:block;margin-bottom:20px}.hv-gallery-heading p{margin-top:20px;font-size:15px}.hv-gallery-grid{grid-template-columns:1fr}.hv-gallery-feature{min-height:500px}.hv-gallery-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}.hv-gallery-side article{padding:26px}}
+@media(max-width:550px){.hv-gallery-feature{min-height:460px}.hv-gallery-feature figcaption{padding:24px}.hv-gallery-side{grid-template-columns:1fr}.hv-gallery-feature strong{font-size:35px}}
+@media(prefers-reduced-motion:reduce){.hv-gallery-feature img{transition:none}.hv-gallery-feature button:hover img{transform:none}}
