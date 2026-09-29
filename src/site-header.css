@@ -8,3 +8,6 @@
 .hv-global-sub{display:flex;flex-direction:column;border-top:1px solid #ffffff35;padding-top:10px;margin-top:10px}.hv-global-sub small{padding:10px 0;color:#d7f36b;font-size:10px;letter-spacing:.14em}
 @media(max-width:1100px){.hv-global-nav{gap:12px}.hv-global-links{gap:12px}.hv-global-links a{font-size:12px}.hv-global-cta{font-size:12px;padding-inline:12px}}
 @media(max-width:850px){.hv-global-nav{grid-template-columns:1fr auto;min-height:64px;padding:10px 17px}.hv-global-links,.hv-global-cta{display:none}.hv-global-menu{display:block}.hv-global-menu>nav{position:absolute;top:54px;right:0;display:flex;flex-direction:column;max-height:calc(100svh - 78px);overflow-y:auto;width:min(345px,calc(100vw - 30px));padding:14px 22px 22px;background:#103b30;border:1px solid #759382;border-radius:12px;box-shadow:0 20px 45px #0005}.hv-global-menu>nav>a,.hv-global-sub a{display:flex;align-items:center;min-height:46px;padding:12px 0;border-bottom:1px solid #ffffff25;font-size:14px;font-weight:650}.hv-global-sub a:last-child{border-bottom:0}}
+
+/* Defeat legacy homepage navigation selectors without changing page content */
+@media(max-width:850px){.hv-global-nav .hv-global-menu{display:block}.hv-global-nav .hv-global-menu>nav{display:flex;flex-direction:column}.hv-global-nav .hv-global-links{display:none}}
