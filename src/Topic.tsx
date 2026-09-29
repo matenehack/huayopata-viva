@@ -1,4 +1,5 @@
 import {TopicExperience,TopicFilm,useEditorialReveal} from './Editorial';
+import SiteHeader from './SiteHeader';
 import { sitePath } from "@/lib/site";
 export type Topic = {
   number: string; title: string; eyebrow: string; intro: string; image: string; imageAlt: string;
@@ -82,11 +83,11 @@ export default function TopicPage({tema}:{tema:string}) {
   const topic = topics[tema];
   if (!topic) return <main className="hv-story-page hv-story-missing"><a href={sitePath("/")}>← Volver a Huayopata Viva</a><h1>Esta historia aún no está disponible.</h1></main>;
   return <main className={"hv-story-page hv-topic-"+tema}>
-    <header className="hv-story-nav"><a className="hv-story-brand" href={sitePath("/")} aria-label="Volver al inicio de Huayopata Viva"><img className="hv-official-shield" src={sitePath("assets/identity/escudo-huayopata.webp")} alt="Escudo de Huayopata" width="34" height="34"/> HUAYOPATA VIVA</a><a href={sitePath(`/#${chapterIds[tema]}`)}>← Volver al recorrido</a></header>
+    <SiteHeader section="stories"/><a className="hv-story-back" href={sitePath(`/#${chapterIds[tema]}`)}>← Volver al recorrido cinematográfico</a>
     <section className="hv-story-hero" style={{ backgroundImage: `url('${topicImage(tema)}')` }} aria-labelledby="story-title">
       <div><span>{topic.number} · {topic.eyebrow}</span><h1 id="story-title">{topic.title}</h1><p>{topic.intro}</p><a href="#historia">Adentrarse en esta historia ↓</a></div>
     </section>
-    <nav className="hv-story-toc" aria-label="Contenido de esta historia"><a href="#historia">La historia</a><a href="#experiencias">Qué descubrir</a><a href="#visita">Antes de ir</a><a href={sitePath("/#mapa")}>Mapa del valle ↗</a><a href={sitePath("/calendario/")}>Calendario vivo ↗</a></nav>
+    <nav className="hv-story-toc" aria-label="Contenido de esta historia"><a href="#historia">La historia</a><a href="#experiencias">Qué descubrir</a><a href="#visita">Antes de ir</a><a href={sitePath("/#mapa")}>Mapa y servicios ↗</a></nav>
     <section className="hv-story-intro" data-reveal id="historia"><span>HUAYOPATA · CUSCO</span><p>{topic.passage}</p></section>
     <TopicExperience tema={tema}/><TopicFilm tema={tema}/>
     <section className="hv-story-visit" data-reveal id="visita" aria-labelledby="visit-title"><div><span>ANTES DE IR</span><h2 id="visit-title">Haz espacio para descubrir.</h2><p>Una buena visita comienza con información actual y respeto por el lugar.</p><a href={sitePath("/#mapa")}>Ver mapa y servicios ↗</a></div><ul>{topic.visit.map(item => <li key={item}>{item}</li>)}</ul></section>
