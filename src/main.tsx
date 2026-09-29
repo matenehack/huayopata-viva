@@ -1,6 +1,7 @@
 import {createRoot} from 'react-dom/client';
 import {useEffect,useState} from 'react';
 import Home from './Home';
+import Calendar from './calendar/Calendar';
 import Topic,{topics} from './Topic';
 import {loadContent} from './lib/content';
 import './styles.css';
@@ -22,6 +23,7 @@ function App(){
  useEffect(()=>{
   if(match&&topics[match[1]]){document.title=topics[match[1]].title+' | Huayopata Viva';document.querySelector('meta[name="description"]')?.setAttribute('content',topics[match[1]].intro)}
  },[contentRevision]);
- return path===''?<Home contentRevision={contentRevision}/>:match?<Topic tema={match[1]}/>:<main className="hv-story-page hv-story-missing"><h1>Página no encontrada</h1><a href={base}>Volver a Huayopata Viva</a></main>;
+ const calendarMatch=path.match(/^calendario(?:\/([a-z0-9-]+))?$/);
+ return calendarMatch?<Calendar slug={calendarMatch[1]}/>:path===''?<Home contentRevision={contentRevision}/>:match?<Topic tema={match[1]}/>:<main className="hv-story-page hv-story-missing"><h1>Página no encontrada</h1><a href={base}>Volver a Huayopata Viva</a></main>;
 }
 createRoot(document.getElementById('root')!).render(<App/>);

@@ -12,3 +12,11 @@ for(const [route,[title,description]] of Object.entries(pages)){
  await mkdir('dist/descubre/'+route,{recursive:true});await writeFile('dist/descubre/'+route+'/index.html',page)
 }
 await writeFile('dist/404.html',html);await writeFile('dist/.nojekyll','');
+
+const calendar=JSON.parse(await readFile('src/calendar/seed.json','utf8'));
+const escape=value=>value.replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
+for(const item of [{slug:'',title:'Huayopata celebra · Calendario vivo',summary:'Celebraciones, instituciones educativas y actividades documentadas de Huayopata.'},...calendar.events]){
+ const route='dist/calendario/'+(item.slug?item.slug+'/':'');
+ const page=html.replace(/<title>.*?<\/title>/,`<title>${escape(item.title)} | Huayopata Viva</title>`).replace(/<meta name="description" content="[^"]*"\s*\/>/,`<meta name="description" content="${escape(item.summary)}"/>`).replace(/<meta property="og:title" content="[^"]*"\s*\/>/,`<meta property="og:title" content="${escape(item.title)} | Huayopata Viva"/>`).replace(/<meta property="og:image" content="[^"]*"\s*\/>/,`<meta property="og:image" content="${calendar.media[0].url}"/>`);
+ await mkdir(route,{recursive:true});await writeFile(route+'index.html',page);
+}
