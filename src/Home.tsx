@@ -2,17 +2,18 @@ import {NatureSection,useEditorialReveal} from './Editorial';
 import {UpcomingCalendar} from './calendar/Calendar';
 import IntroShieldCurtain from './IntroShieldCurtain';
 import { sitePath } from "@/lib/site";
-import { useEffect, useRef } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 
 import { ScrollScrub } from "@/components/scroll-scrub/scroll-scrub";
 import { scrollScrubScenes, scrollScrubTheme } from "@/scroll-scrub-scenes";
-import ValleyDirectory from "@/valley-directory";
+const ValleyDirectory = lazy(() => import("@/valley-directory"));
 
 export default function Index({contentRevision=0}:{contentRevision?:number}){
 useEditorialReveal();
 const mapRef = useRef<HTMLDetailsElement>(null);
+const [mapOpen,setMapOpen] = useState(false);
 useEffect(() => {
- const revealMap = () => { if (["#mapa", "#quedate", "#mapa-servicios", "#emergencias"].includes(window.location.hash) && mapRef.current) { mapRef.current.open = true; requestAnimationFrame(() => document.getElementById(window.location.hash.slice(1))?.scrollIntoView({block:"start"})); } };
+ const revealMap = () => { if (["#mapa", "#quedate", "#mapa-servicios", "#emergencias"].includes(window.location.hash) && mapRef.current) { mapRef.current.open = true; setMapOpen(true); requestAnimationFrame(() => document.getElementById(window.location.hash.slice(1))?.scrollIntoView({block:"start"})); } };
  revealMap(); window.addEventListener("hashchange", revealMap); return () => window.removeEventListener("hashchange", revealMap);
 }, []);
 return <main className="hv-site"><IntroShieldCurtain/><a className="hv-skip-link" href="#mapa">Ir al mapa y servicios</a>
@@ -24,7 +25,7 @@ return <main className="hv-site"><IntroShieldCurtain/><a className="hv-skip-link
 <UpcomingCalendar/>
 <section className="hv-map-preview" id="servicios-del-valle" aria-labelledby="map-preview-title">
 <div><span>MAPA DEL VALLE</span><h2 id="map-preview-title">Encuentra tu próxima parada.</h2><p>Elige un atractivo, consulta los servicios cercanos y confirma los accesos antes de salir.</p></div>
-<details ref={mapRef} className="hv-map-disclosure"><summary onClick={event=>{if(mapRef.current&&!mapRef.current.open){event.preventDefault();mapRef.current.open=true;requestAnimationFrame(()=>document.getElementById("mapa")?.scrollIntoView({block:"start"}));}}}>Abrir mapa interactivo <b aria-hidden="true">+</b></summary><ValleyDirectory contentRevision={contentRevision}/></details>
+<details ref={mapRef} className="hv-map-disclosure" onToggle={event=>setMapOpen(event.currentTarget.open)}><summary>Explorar mapa y servicios <b aria-hidden="true">+</b></summary>{mapOpen&&<Suspense fallback={<div className="hv-map-module-loading" role="status">Preparando el directorio y el mapa…</div>}><ValleyDirectory active={mapOpen} contentRevision={contentRevision}/></Suspense>}</details>
 </section>
 <section className="hv-guide" id="planifica" aria-labelledby="guide-title"><div className="hv-section-head"><span>LO ESENCIAL</span><h2 id="guide-title">Lo justo antes de venir.</h2></div><div className="hv-guide-grid hv-guide-grid-compact">
 <article><span>CLIMA</span><h3>Prepárate para el cambio</h3><p>La ruta atraviesa distintos pisos altitudinales. Lleva una capa ligera para lluvia, abrigo y protección solar.</p></article><article><span>CAMINO</span><h3>Consulta antes de salir</h3><p>El estado de la carretera puede variar durante la temporada de lluvias.</p><a href="https://www.gob.pe/sutran" target="_blank" rel="noreferrer">Consultar SUTRAN ↗</a></article><article><span>RESPETO</span><h3>Conoce sin invadir</h3><p>Pide permiso antes de ingresar a cultivos, fotografiar personas o utilizar drones.</p></article></div>
