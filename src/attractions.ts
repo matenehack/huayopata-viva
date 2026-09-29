@@ -1,0 +1,10 @@
+import {sitePath} from './lib/site';
+import type {ServicePlace} from './service-data';
+const inventory=(id:number)=>`https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=${id}`;
+const media=sitePath('assets/content/');
+// Kept separate from the live service feed so a refresh never drops the tourism layer.
+export const attractions:ServicePlace[]=[
+ {id:'attraction-wamanmarka',name:'Wamanmarka · Huamanmarca',category:'patrimonio',kind:'Sitio arqueológico',area:'Valle de Amaybamba',lat:-13.02074,lng:-72.49567,description:'Conjunto arqueológico con recintos, patio y ushnu descritos en el inventario MINCETUR. Recorre sin subir a las estructuras y consulta el acceso vigente.',source:inventory(6915),sourceLabel:'MINCETUR · ficha 6915',note:'Punto de referencia cartográfica: OpenStreetMap way 771625883; no representa un acceso habilitado.',coordinateSource:'https://www.openstreetmap.org/way/771625883',image:media+'wamanmarka.webp',topic:'wamanmarka'},
+ {id:'attraction-abra-malaga',name:'Abra Málaga · paso de montaña',category:'naturaleza',kind:'Paisaje de altura',area:'Abra Málaga',lat:-13.135,lng:-72.30389,description:'Paso entre el paisaje andino y el descenso al valle. El área de conservación cercana reúne queuña, bofedales y bosque de neblina; su ingreso requiere permiso previo.',source:inventory(3700),sourceLabel:'MINCETUR · ficha 3700',note:'Referencia geográfica del paso: GeoNames 6393172. No es la entrada del área de conservación ni un punto autorizado de parada.',coordinateSource:'https://www.geonames.org/6393172/abra-malaga.html',image:media+'valley.webp',topic:'abra-malaga'},
+ {id:'attraction-pasto-grande',name:'Cascada de Pasto Grande',category:'naturaleza',kind:'Cascada y caminata',area:'Sector Pasto Grande · San Pablo',lat:null,lng:null,description:'MINCETUR registra esta cascada en Huayopata, rodeada de vegetación, con observación de paisaje y caminatas. Confirma sendero, clima y caudal antes de ir.',source:inventory(12460),sourceLabel:'MINCETUR · ficha 12460',note:'Sin coordenadas verificadas: se muestra como ficha, sin marcador. Coordina la ubicación y el acceso localmente.'},
+];

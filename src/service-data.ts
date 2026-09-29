@@ -1,4 +1,4 @@
-export interface ServicePlace {id:string;name:string;category:string;kind:string;area:string;lat:number|null;lng:number|null;description:string;source:string;sourceLabel:string;note:string;phone?:string|null;phoneDisplay?:string;phoneSource?:string;contactOnly?:boolean;whatsapp?:string|null}
+export interface ServicePlace {image?:string;topic?:string;coordinateSource?:string;id:string;name:string;category:string;kind:string;area:string;lat:number|null;lng:number|null;description:string;source:string;sourceLabel:string;note:string;phone?:string|null;phoneDisplay?:string;phoneSource?:string;contactOnly?:boolean;whatsapp?:string|null}
 export const servicePlaces:ServicePlace[] = [
   {
     "id": "node-5642053422",

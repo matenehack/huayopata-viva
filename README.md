@@ -25,3 +25,13 @@ El flujo **Build and verify** compila el sitio en cada actualización. **Publish
 `supabase/001_content.sql` reproduce el esquema y las políticas de solo lectura pública. `supabase/seed-content.json` conserva una exportación editable de los datos. Para actualizar tablas tras cambiarla, ejecuta `SUPABASE_SERVICE_ROLE_KEY=... npm run seed` en un entorno confiable; esa clave jamás va al navegador ni al repositorio. Los cambios hechos en Supabase se aplican en la web al volver a abrirla. Actualiza también la copia del código si cambias contenido importante para que el modo sin conexión esté vigente.
 
 Los videos y fotografías viven en Storage; los dos pósteres de la portada también se guardan localmente para que la primera imagen aparezca de inmediato. El archivo original de Higgsfield está respaldado de forma privada en Supabase; la nueva web no utiliza sus rutas de publicación ni requiere iniciar sesión allí.
+
+## Versión editorial · septiembre 2026
+
+Las páginas interiores tienen módulos propios: paisaje y conservación, proceso del té, proceso del café, lectura del patrimonio y vida comunitaria. Las etapas son interactivas y admiten navegación con teclado. Los vídeos interiores se activan a petición, usan `preload=none`, se pausan fuera de pantalla y al ocultar la pestaña. La composición y el controlador de los cinco vídeos de portada se conservan.
+
+La capa inicial del mapa muestra atractivos. `src/attractions.ts` mantiene sus fichas separadas del contenido de servicios en Supabase; no modifica tablas ni políticas. Wamanmarka usa una referencia del polígono OSM 771625883; Abra Málaga usa el punto geográfico GeoNames 6393172, expresamente distinto del acceso al área de conservación. Pasto Grande no tiene marcador hasta verificar coordenadas. Las referencias cartográficas no garantizan acceso, estacionamiento ni seguridad.
+
+El escudo procede de la ficha municipal en Gob.pe; procedencia registrada en `public/assets/identity/SOURCE.md`. La cortina inicial dura 2,1 segundos, una vez por sesión, no aparece al abrir un enlace con ancla ni con movimiento reducido, y se retira por temporizador o error de imagen. Su uso no implica aprobación municipal.
+
+Pendientes editoriales: fotografías locales autorizadas para sustituir las imágenes culturales de contexto; coordenadas y acceso de Pasto Grande; programas de festividades y horarios confirmados directamente con responsables.

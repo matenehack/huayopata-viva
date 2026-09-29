@@ -1,3 +1,4 @@
+import {TopicExperience,TopicFilm,useEditorialReveal} from './Editorial';
 import { sitePath } from "@/lib/site";
 export type Topic = {
   number: string; title: string; eyebrow: string; intro: string; image: string; imageAlt: string;
@@ -74,20 +75,22 @@ export const topics: Record<string, Topic> = {
 };
 
 const chapterIds: Record<string, string> = { "abra-malaga": "abra", te: "tea", cafe: "coffee", wamanmarka: "wamanmarka", comunidades: "community" };
+const topicImage=(key:string)=>sitePath("assets/content/"+({"abra-malaga":"valley",te:"tea",cafe:"coffee",wamanmarka:"wamanmarka",comunidades:"culture"}[key]||"valley")+".webp");
 const order = ["abra-malaga", "te", "cafe", "wamanmarka", "comunidades"];
 export default function TopicPage({tema}:{tema:string}) {
+  useEditorialReveal(tema);
   const topic = topics[tema];
   if (!topic) return <main className="hv-story-page hv-story-missing"><a href={sitePath("/")}>← Volver a Huayopata Viva</a><h1>Esta historia aún no está disponible.</h1></main>;
-  return <main className="hv-story-page">
-    <header className="hv-story-nav"><a className="hv-story-brand" href={sitePath("/")} aria-label="Volver al inicio de Huayopata Viva"><span className="hv-brand-mark">HV</span> HUAYOPATA VIVA</a><a href={sitePath(`/#${chapterIds[tema]}`)}>← Volver al recorrido</a></header>
-    <section className="hv-story-hero" style={{ backgroundImage: `url('${topic.image}')` }} aria-labelledby="story-title">
+  return <main className={"hv-story-page hv-topic-"+tema}>
+    <header className="hv-story-nav"><a className="hv-story-brand" href={sitePath("/")} aria-label="Volver al inicio de Huayopata Viva"><img className="hv-official-shield" src={sitePath("assets/identity/escudo-huayopata.webp")} alt="Escudo de Huayopata" width="34" height="34"/> HUAYOPATA VIVA</a><a href={sitePath(`/#${chapterIds[tema]}`)}>← Volver al recorrido</a></header>
+    <section className="hv-story-hero" style={{ backgroundImage: `url('${topicImage(tema)}')` }} aria-labelledby="story-title">
       <div><span>{topic.number} · {topic.eyebrow}</span><h1 id="story-title">{topic.title}</h1><p>{topic.intro}</p><a href="#historia">Adentrarse en esta historia ↓</a></div>
     </section>
     <nav className="hv-story-toc" aria-label="Contenido de esta historia"><a href="#historia">La historia</a><a href="#experiencias">Qué descubrir</a><a href="#visita">Antes de ir</a><a href={sitePath("/#mapa")}>Mapa del valle ↗</a></nav>
-    <section className="hv-story-intro" id="historia"><span>HUAYOPATA · CUSCO</span><p>{topic.passage}</p></section>
-    <section className="hv-story-process" id="experiencias" aria-labelledby="process-title"><div className="hv-story-section-title"><span>EXPLORA</span><h2 id="process-title">Tres maneras de acercarte.</h2></div><div className="hv-story-steps">{topic.steps.map((step, i) => <article key={step.title}><span>0{i+1}</span><h3>{step.title}</h3><p>{step.body}</p></article>)}</div></section>
-    <section className="hv-story-visit" id="visita" aria-labelledby="visit-title"><div><span>ANTES DE IR</span><h2 id="visit-title">Haz espacio para descubrir.</h2><p>Una buena visita comienza con información actual y respeto por el lugar.</p><a href={sitePath("/#mapa")}>Ver mapa y servicios ↗</a></div><ul>{topic.visit.map(item => <li key={item}>{item}</li>)}</ul></section>
-    <section className="hv-story-next" aria-labelledby="next-title"><div className="hv-story-section-title"><span>CONTINÚA</span><h2 id="next-title">Sigue por el valle.</h2></div><div>{order.filter(key => key !== tema).map(key => <a key={key} href={sitePath(`/descubre/${key}`)}><span>{topics[key].number}</span><strong>{topics[key].title}</strong><span aria-hidden="true">↗</span></a>)}</div></section>
+    <section className="hv-story-intro" data-reveal id="historia"><span>HUAYOPATA · CUSCO</span><p>{topic.passage}</p></section>
+    <TopicExperience tema={tema}/><TopicFilm tema={tema}/>
+    <section className="hv-story-visit" data-reveal id="visita" aria-labelledby="visit-title"><div><span>ANTES DE IR</span><h2 id="visit-title">Haz espacio para descubrir.</h2><p>Una buena visita comienza con información actual y respeto por el lugar.</p><a href={sitePath("/#mapa")}>Ver mapa y servicios ↗</a></div><ul>{topic.visit.map(item => <li key={item}>{item}</li>)}</ul></section>
+    <section className="hv-story-next" aria-labelledby="next-title"><div className="hv-story-section-title"><span>CONTINÚA</span><h2 id="next-title">Sigue por el valle.</h2></div><div>{order.filter(key => key !== tema).map(key => <a key={key} href={sitePath(`/descubre/${key}`)}><img src={topicImage(key)} alt="" loading="lazy"/><span>{topics[key].number}</span><strong>{topics[key].title}</strong><span aria-hidden="true">↗</span></a>)}</div></section>
     <footer className="hv-story-footer"><a href={sitePath("/")}>HUAYOPATA VIVA ↑</a><div><span>REFERENCIAS PARA PROFUNDIZAR</span>{topic.sources.map(source => <a key={source.url} href={source.url} target="_blank" rel="noreferrer">{source.title} ↗</a>)}</div><small>Información orientativa. Confirma accesos y actividades localmente.</small></footer>
   </main>;
 }

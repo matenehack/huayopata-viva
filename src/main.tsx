@@ -4,6 +4,7 @@ import Home from './Home';
 import Topic,{topics} from './Topic';
 import {loadContent} from './lib/content';
 import './styles.css';
+import './editorial.css';
 const base=import.meta.env.BASE_URL;
 const path=decodeURIComponent(location.pathname.slice(base.length)).replace(/\/$/,'');
 function App(){
