@@ -4,3 +4,19 @@
 @media(max-width:950px){.cal-toolbar{align-items:start;flex-direction:column}.cal-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.cal-event-body{grid-template-columns:minmax(0,1fr) 270px;gap:28px}.cal-section-heading{align-items:start;flex-direction:column}.cal-editor-note{max-width:100%!important}.cal-filters{grid-template-columns:repeat(3,minmax(0,1fr))}.cal-reset{justify-self:start}.cal-hero{min-height:610px}.cal-hero-copy{padding-top:80px}.cal-schools{padding:30px}}
 @media(max-width:650px){.cal-nav{padding:12px 18px}.cal-nav>a{font-size:9px;letter-spacing:.03em}.cal-nav nav{gap:12px;font-size:11px}.cal-nav nav a:last-child{display:none}.cal-hero{height:680px;min-height:0;max-height:85svh}.cal-hero-copy{padding:60px 24px}.cal-hero h1{font-size:48px}.cal-hero-copy>p:not(.cal-eyebrow){font-size:14px}.cal-hero-shade{background:linear-gradient(90deg,#092c23cf,#092c234a),linear-gradient(0deg,#092c237d,transparent)}.cal-hero-place{left:24px;right:auto;bottom:18px}.cal-credit{padding:14px 24px;font-size:10px}.cal-shell{padding:50px 18px}.cal-filters{grid-template-columns:1fr;gap:13px}.cal-filters label{font-size:11px}.cal-month-nav{width:100%;gap:2px}.cal-month-nav select{max-width:120px;font-size:14px}.cal-month-nav label:last-of-type select{width:72px;font-size:14px}.cal-month-nav button{padding:8px;font-size:11px}.cal-month-nav label{min-width:0}.cal-weekdays span{padding:10px 0;font-size:10px}.cal-day,.cal-day-empty{height:70px;padding:5px}.cal-day-labels{display:none}.cal-day-number{font-size:12px}.cal-day-dots{left:9px;bottom:12px}.cal-cards{grid-template-columns:1fr;gap:22px}.cal-card-image{height:200px}.cal-card h3{font-size:27px}.cal-result-heading h3{font-size:24px}.cal-result-heading button{font-size:12px}.cal-agenda-item{gap:12px;flex-wrap:wrap;padding:22px 4px}.cal-agenda-date{width:100%;font-size:11px}.cal-agenda-item strong{font-size:23px}.cal-agenda-item>svg:first-of-type{width:22px}.cal-pending,.cal-schools{margin-top:60px}.cal-school-grid{grid-template-columns:1fr}.cal-schools{padding:24px 18px}.cal-upcoming{padding:60px 24px}.cal-upcoming .cal-section-heading h2{font-size:36px}.cal-event-hero{height:480px}.cal-event-heading{bottom:40px;left:24px}.cal-event-heading h1{font-size:42px}.cal-event-heading .cal-eyebrow{font-size:9px!important}.cal-event-body{display:flex;flex-direction:column;gap:45px}.cal-event-main h2{font-size:31px}.cal-info-card{padding:24px}.cal-footer{padding:45px 24px}.cal-footer strong{font-size:27px}}
 @media(prefers-reduced-motion:reduce){.cal-site *,.cal-upcoming *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Shared Huayopata navigation and control rhythm */
+.cal-site,.cal-upcoming{--cal-ink:#123c30;--cal-line:#d8d8c8}
+.cal-nav{min-height:70px;background:#031a16;padding-inline:clamp(18px,3vw,48px);border-bottom:1px solid #ffffff24}
+.cal-nav nav{gap:24px}
+.cal-nav nav a{min-height:44px;display:inline-flex;align-items:center;font-weight:650}
+.cal-button{border-radius:999px;padding:13px 23px;min-height:48px}
+.cal-card{border-radius:12px;box-shadow:0 7px 25px #173d3109}
+.cal-card-image{border-radius:11px 11px 0 0}
+.cal-card-copy>small{color:#315e43}
+.cal-filters select,.cal-month-nav select{border-radius:8px}
+.cal-view{border-radius:999px}
+.cal-view button{border-radius:999px}
+.cal-day{border-radius:7px}
+.cal-info-card{border-radius:12px}
+@media(max-width:650px){.cal-nav{min-height:66px}.cal-nav nav a{font-size:12px}.cal-card{border-radius:10px}}
