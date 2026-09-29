@@ -17,6 +17,16 @@ useEffect(() => {
  const revealMap = () => { if (["#mapa", "#quedate", "#mapa-servicios", "#emergencias"].includes(window.location.hash) && mapRef.current) { mapRef.current.open = true; setMapOpen(true); requestAnimationFrame(() => document.getElementById(window.location.hash.slice(1))?.scrollIntoView({block:"start"})); } };
  revealMap(); window.addEventListener("hashchange", revealMap); return () => window.removeEventListener("hashchange", revealMap);
 }, []);
+useEffect(() => {
+ if(!mapOpen || !mapRef.current)return;
+ const id=window.location.hash.slice(1);
+ if(!["mapa","quedate","mapa-servicios","emergencias"].includes(id))return;
+ const scrollWhenReady=()=>{const target=document.getElementById(id);if(target){target.scrollIntoView({block:"start"});return true}return false};
+ if(scrollWhenReady())return;
+ const observer=new MutationObserver(()=>{if(scrollWhenReady())observer.disconnect()});
+ observer.observe(mapRef.current,{childList:true,subtree:true});
+ return()=>observer.disconnect();
+},[mapOpen]);
 return <main className="hv-site"><IntroShieldCurtain/><a className="hv-skip-link" href="#mapa">Ir al mapa y servicios</a>
 <header className="hv-nav"><a className="hv-brand" href="#inicio" aria-label="Huayopata Viva, inicio"><img className="hv-official-shield" src={sitePath("assets/identity/escudo-huayopata.webp")} alt="" width="34" height="34"/><span>HUAYOPATA VIVA</span></a><nav aria-label="Navegación principal"><a href="#inicio">Inicio</a><a href="#rutas">Rutas</a><a href={sitePath("/calendario/")}>Calendario</a><a href="#mapa">Mapa y servicios</a></nav><a className="hv-plan-link hv-action hv-action-accent" href="#planifica">Prepara tu visita <span aria-hidden="true">↗</span></a><details className="hv-mobile-menu"><summary aria-label="Abrir menú de navegación">Menú <span aria-hidden="true">+</span></summary><nav aria-label="Navegación móvil" onClick={(event) => { const el = event.currentTarget.closest("details"); if(el) el.open = false; }}><a href="#inicio">Inicio</a><a href="#naturaleza">Descubrir</a><a href={sitePath("/calendario/")}>Calendario</a><a href="#mapa">Mapa y servicios</a><a href="#planifica">Prepara tu visita</a><div className="hv-menu-detail"><span>HISTORIAS DEL VALLE</span><a href={sitePath("/descubre/abra-malaga")}>Abra Málaga</a><a href={sitePath("/descubre/te")}>Té</a><a href={sitePath("/descubre/cafe")}>Café</a><a href={sitePath("/descubre/wamanmarka")}>Wamanmarka</a><a href={sitePath("/descubre/comunidades")}>Comunidades</a></div></nav></details></header>
 <div id="inicio"><ScrollScrub scenes={scrollScrubScenes} theme={scrollScrubTheme}/></div>
