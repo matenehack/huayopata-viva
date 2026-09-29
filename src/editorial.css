@@ -26,3 +26,12 @@
 .hv-faq summary:after{content:"+";position:absolute;right:0;top:20px;font-size:24px;line-height:1;font-weight:400}
 .hv-faq details[open] summary:after{content:"−"}
 .hv-story-toc a:focus-visible,.hv-faq summary:focus-visible{outline:3px solid #b8dc54;outline-offset:4px}
+
+/* Shared top navigation on chapter pages */
+.hv-story-page{padding-top:70px}
+.hv-story-back{position:absolute;top:calc(70px + 18px);left:7vw;z-index:8;display:inline-flex;align-items:center;min-height:44px;color:#f4f0d8;background:#082b23b9;border:1px solid #ffffff55;border-radius:999px;padding:8px 18px;font-size:12px;font-weight:750;text-decoration:none}
+.hv-story-back:hover{background:#123c30}
+.hv-story-hero{min-height:calc(100svh - 70px)}
+.hv-story-toc{top:70px}
+.hv-story-page section[id]{scroll-margin-top:145px}
+@media(max-width:850px){.hv-story-page{padding-top:64px}.hv-story-back{top:calc(64px + 13px);left:6vw;font-size:11px}.hv-story-hero{min-height:calc(94svh - 64px)}.hv-story-toc{top:64px}}
