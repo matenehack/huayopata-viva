@@ -19,3 +19,10 @@
 .hv-story-page{overflow:clip}
 
 .hv-process-tabs button{min-height:44px}
+
+/* Consistent chapter action affordances */
+.hv-nature-cta,.hv-topic-film button{border-radius:999px;min-height:48px}
+.hv-faq summary{position:relative;padding-right:35px}
+.hv-faq summary:after{content:"+";position:absolute;right:0;top:20px;font-size:24px;line-height:1;font-weight:400}
+.hv-faq details[open] summary:after{content:"−"}
+.hv-story-toc a:focus-visible,.hv-faq summary:focus-visible{outline:3px solid #b8dc54;outline-offset:4px}
