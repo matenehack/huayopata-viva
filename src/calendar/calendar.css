@@ -20,3 +20,10 @@
 .cal-day{border-radius:7px}
 .cal-info-card{border-radius:12px}
 @media(max-width:650px){.cal-nav{min-height:66px}.cal-nav nav a{font-size:12px}.cal-card{border-radius:10px}}
+
+/* Shared navigation offset and aligned tokens */
+.cal-site{padding-top:70px}
+.cal-hero{height:calc(90svh - 70px)}
+.cal-site #calendar-content,.cal-site section[id]{scroll-margin-top:88px}
+.cal-site .cal-global-nav{position:fixed}
+@media(max-width:850px){.cal-site{padding-top:64px}.cal-hero{height:calc(85svh - 64px)}}
