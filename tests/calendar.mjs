@@ -25,5 +25,5 @@ for(const e of data.events){assert.ok(e.sources.length);assert.ok(data.organizer
 for(const i of data.institutions){assert.match(i.modularCode,/^\d{7}$/);if(i.id==='ie-0236380'){assert.equal(i.anniversary,'06-14');assert.equal(find('aniversario-'+i.id).dateRule.day,14)}else{assert.equal(i.anniversary,null);assert.equal(find('aniversario-'+i.id).dateRule.kind,'unknown')}}
 for(const a of data.activities){assert.equal(a.date,null);assert.equal(a.time,null);assert.equal(a.status,'Tradición documentada');}
 for(const p of data.media){assert.ok(p.author&&p.source&&p.license&&p.authorization);assert.match(p.url,/supabase.co\/storage/);assert.match(p.represented,/No muestra/);}
-assert.equal(find('educacion-secundaria').dateRule.day,27);
+assert.equal(find('educacion-secundaria').dateRule.day,27);assert.deepEqual(m.localityNames(find('educacion-secundaria')),['Distrito de Huayopata']);
 console.log('PASS recurrence, month ranges, year-specific confirmation, pending dates, all source and rights records');

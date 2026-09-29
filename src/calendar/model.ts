@@ -39,3 +39,5 @@ export function occursOn(e:Event,d:Date){
  const start=occurrence(e,d.getFullYear());return !!start&&dateKey(start)===dateKey(d);
 }
 export function datesInMonth(e:Event,year:number,month:number){return Array.from({length:new Date(year,month+1,0).getDate()},(_,i)=>new Date(year,month,i+1,12)).filter(d=>occursOn(e,d));}
+
+export function localityNames(e:Event){return e.locality.split(' · ').filter(l=>l!=='referencia nacional').map(l=>l.toLocaleLowerCase('es')==='distrito de huayopata'?'Distrito de Huayopata':l);}
