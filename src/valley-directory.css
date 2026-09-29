@@ -36,3 +36,12 @@
 .vd-emergency,.vd-emergency-contacts article{border-radius:12px}
 .vd-emergency-call{overflow-wrap:anywhere}
 @media(prefers-reduced-motion:reduce){.vd-primary,.vd-category,.vd-category-picture img{transition:none}.vd-category:hover,.vd-primary:hover{transform:none}}
+
+/* Map resilience: keep the directory usable while tiles initialize or fail */
+.vd-map-side{position:relative;min-width:0}
+.vd-map{min-height:420px;background:#e1e9d9}
+.vd-map-loading,.vd-map-recovery{position:absolute;z-index:450;top:80px;left:50%;transform:translateX(-50%);width:min(340px,calc(100% - 30px));border-radius:12px;border:1px solid #c7d4bd;background:#fffdf7f2;box-shadow:0 12px 35px #173d3122;padding:18px 20px;text-align:center;font-size:14px;line-height:1.5;color:#203d31}
+.vd-map-recovery p{margin:0 0 14px}
+.vd-map-recovery button{border-radius:999px;background:#203d31;color:#fffdf7;padding:12px 18px;min-height:44px;font-weight:700}
+.vd-map-recovery button:hover{background:#3b644c}
+@media(max-width:760px){.vd-map{min-height:340px}.vd-map-loading,.vd-map-recovery{top:72px}}
