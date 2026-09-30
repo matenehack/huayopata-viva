@@ -27,3 +27,14 @@
 .cal-site #calendar-content,.cal-site section[id]{scroll-margin-top:88px}
 .cal-site .cal-global-nav{position:fixed}
 @media(max-width:850px){.cal-site{padding-top:64px}.cal-hero{height:calc(85svh - 64px)}}
+
+/* Share the editorial palette and type used by the territorial experience. */
+.cal-site,.cal-upcoming{--cal-paper:var(--hv-paper,#f4f0d8);--cal-ink:var(--hv-forest,#062f26);font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+.cal-card,.cal-info-card,.cal-schools,.cal-program-pending,.cal-school-grid a{border-radius:var(--hv-radius-card,12px)}
+.cal-status{border-radius:999px;letter-spacing:.015em}
+.cal-empty,.cal-program-pending,.cal-photo-pending{background:#e7ebd9;color:#234c3b}
+.cal-card-copy>small{min-height:44px}
+
+.cal-results-enter{animation:hv-calendar-enter .18s ease-out both}
+@keyframes hv-calendar-enter{from{opacity:.6}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.cal-results-enter{animation:none}}

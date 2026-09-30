@@ -11,3 +11,20 @@
 
 /* Defeat legacy homepage navigation selectors without changing page content */
 @media(max-width:850px){.hv-global-nav .hv-global-menu{display:block}.hv-global-nav .hv-global-menu>nav{display:flex;flex-direction:column}.hv-global-nav .hv-global-links{display:none}}
+
+/* Identical destinations and location cues on both navigation surfaces. */
+.hv-global-links .hv-nav-item{display:flex;align-items:center;position:relative}
+.hv-global-links a[aria-current],.hv-global-menu a[aria-current],.hv-story-menu a[aria-current]{color:var(--hv-sun,#d7f36b);border-bottom-color:currentColor}
+.hv-story-menu{position:relative}
+.hv-story-menu summary{display:grid;place-items:center;width:44px;min-height:44px;cursor:pointer;list-style:none;border-radius:50%;font-size:18px}
+.hv-story-menu summary::-webkit-details-marker{display:none}
+.hv-story-menu summary:hover,.hv-story-menu[open] summary{background:#ffffff15;color:#d7f36b}
+.hv-global-nav .hv-story-menu>nav{position:absolute;top:52px;left:-90px;width:245px;padding:18px 22px;display:flex;flex-direction:column;gap:0;background:#103b30;border:1px solid #759382;border-radius:12px;box-shadow:0 20px 45px #0005}
+.hv-story-menu small{color:#d7f36b;font-size:10px;letter-spacing:.14em;margin-bottom:10px}
+.hv-story-menu nav a{min-height:44px;border-bottom:1px solid #ffffff25}
+.hv-global-nav :is(a,summary){transition:background .18s,color .18s,border-color .18s}
+@media(min-width:851px) and (max-width:1150px){.hv-global-nav{grid-template-columns:auto 1fr auto;gap:14px;padding-inline:18px}.hv-global-links{justify-content:center;gap:9px}.hv-global-nav .hv-brand{font-size:10px;gap:8px}}
+@media(prefers-reduced-motion:reduce){.hv-global-nav :is(a,summary){transition:none}}
+
+.hv-global-nav .hv-global-links{gap:clamp(13px,1.7vw,27px)}
+@media(min-width:851px) and (max-width:1150px){.hv-global-nav .hv-global-links{gap:9px}}

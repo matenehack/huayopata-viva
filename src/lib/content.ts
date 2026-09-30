@@ -12,7 +12,7 @@ export async function loadContent(){
   const validPlaces=places.map((row:{data:ServicePlace})=>row.data).filter((p:ServicePlace)=>p&&typeof p.id==='string'&&typeof p.name==='string'&&typeof p.kind==='string'&&typeof p.description==='string');
   if(validPlaces.length!==places.length)throw new Error('Invalid places');
   servicePlaces.splice(0,servicePlaces.length,...validPlaces);
-  for(const row of chapters as {id:string,data:{topic:Topic,scene?:Record<string,unknown>}}[]){if(row.data.topic&&topics[row.id])topics[row.id]=row.data.topic;const scene=scrollScrubScenes.find(s=>s.id===row.data.scene?.id);if(scene&&row.data.scene){const {actions,...data}=row.data.scene;Object.assign(scene,data);if(scene.id==='abra'){scene.poster=import.meta.env.BASE_URL+'assets/world/huayopata-intro-poster.webp';scene.mobilePoster=import.meta.env.BASE_URL+'assets/world/huayopata-intro-mobile-poster.webp'}}}
+  for(const row of chapters as {id:string,data:{topic:Topic,scene?:Record<string,unknown>}}[]){if(row.data.topic&&topics[row.id])topics[row.id]=row.data.topic;const scene=scrollScrubScenes.find(s=>s.id===row.data.scene?.id);if(scene&&row.data.scene){const {actions,...data}=row.data.scene;Object.assign(scene,data);if(scene.id==='community')scene.playback='autoplay';if(scene.id==='abra'){scene.poster=import.meta.env.BASE_URL+'assets/world/huayopata-intro-poster.webp';scene.mobilePoster=import.meta.env.BASE_URL+'assets/world/huayopata-intro-mobile-poster.webp'}}}
   contentStatus='live';
  }catch(error){contentStatus='backup';console.warn('Using bundled Huayopata content:',error)}
 }

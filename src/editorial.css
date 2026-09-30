@@ -35,3 +35,27 @@
 .hv-story-toc{top:70px}
 .hv-story-page section[id]{scroll-margin-top:145px}
 @media(max-width:850px){.hv-story-page{padding-top:64px}.hv-story-back{top:calc(64px + 13px);left:6vw;font-size:11px}.hv-story-hero{min-height:calc(94svh - 64px)}.hv-story-toc{top:64px}}
+
+/* Editorial links remain distinct from the primary pill actions. */
+.hv-story-toc a,.hv-story-visit a,.hv-story-hero a,.hv-story-footer a,.hv-faq a{min-height:44px;display:inline-flex;align-items:center}
+.hv-story-visit a,.hv-story-hero a{transition:color .18s,border-color .18s}
+@media(prefers-reduced-motion:reduce){.hv-story-visit a,.hv-story-hero a{transition:none}}
+
+.hv-valley-experiences{padding:clamp(65px,9vw,125px) 7%;background:var(--hv-paper);color:var(--hv-forest)}
+.hv-valley-experiences .hv-editorial-heading p{max-width:630px;line-height:1.65}
+.hv-valley-experience-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:38px}
+.hv-valley-experience-grid article{padding:clamp(25px,3vw,45px);border:1px solid #bfcbb1;border-radius:12px;background:#e7ebd9;scroll-margin-top:150px}
+.hv-valley-experience-grid article>svg{color:#52724d;margin-bottom:24px}
+.hv-valley-experience-grid article>span{display:block;font-size:10px;letter-spacing:.15em;font-weight:750;color:#665238}
+.hv-valley-experience-grid h3{font:400 clamp(32px,3.6vw,50px)/1.08 Georgia,serif;margin:18px 0}
+.hv-valley-experience-grid p,.hv-valley-experience-grid li{font-size:15px;line-height:1.75}
+.hv-valley-experience-grid details{margin-top:24px;border-top:1px solid #bac8ad;border-bottom:1px solid #bac8ad;padding-block:8px}
+.hv-valley-experience-grid summary{display:flex;align-items:center;justify-content:space-between;gap:16px;list-style:none;cursor:pointer;min-height:48px;font-size:13px;font-weight:750}
+.hv-valley-experience-grid summary::-webkit-details-marker{display:none}
+.hv-valley-experience-grid details[open] summary svg{transform:rotate(90deg)}
+.hv-valley-experience-grid ul{padding-left:20px;margin:15px 0}
+.hv-valley-experience-grid details a{display:flex;align-items:center;min-height:44px;text-decoration:underline;font-size:12px}
+.hv-valley-experience-grid article>small{display:block;margin-top:18px;font-size:11px;line-height:1.6;color:#536456}
+.hv-valley-experiences :is(a,summary):focus-visible{outline:3px solid #98613d;outline-offset:4px}
+.hv-valley-directory-link{display:inline-flex;align-items:center;gap:12px;min-height:48px;margin-top:26px;border-bottom:1px solid #52724d;font-size:13px;font-weight:750}
+@media(max-width:750px){.hv-valley-experience-grid{grid-template-columns:1fr}.hv-valley-experience-grid article{scroll-margin-top:145px}}
