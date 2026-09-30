@@ -29,4 +29,4 @@ export function loadCalendar(){
   data={events:rows[0],activities:rows[1],media:rows[2],organizers:rows[3],institutions:rows[4],updatedAt:seed.updatedAt} as CalendarData;status='live';
  }catch{status='backup'}})();
 }
-export function useCalendar(){const [,revise]=useState(0);useEffect(()=>{let active=true;void loadCalendar().then(()=>{if(active)revise(n=>n+1)});return()=>{active=false}},[]);return {data,status}}
+export function useCalendar(enabled=true){const [,revise]=useState(0);useEffect(()=>{if(!enabled)return;let active=true;void loadCalendar().then(()=>{if(active)revise(n=>n+1)});return()=>{active=false}},[enabled]);return {data,status}}

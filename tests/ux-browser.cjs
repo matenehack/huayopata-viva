@@ -8,7 +8,7 @@ const poll=async(fn)=>{for(let i=0;i<100;i++){if(await fn())return;await new Pro
  await new Promise(r=>server.listen(4177,'127.0.0.1',r));
  const b=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE,args:['--no-sandbox']});
  try{
- for(const width of [1440,900,390,320]){
+ for(const width of [320,390,768,1024,1440]){
   const p=await b.newPage({viewport:{width,height:900},reducedMotion:'reduce'}),errors=[];p.on('pageerror',e=>errors.push(e.message));
   await p.route('**/rest/v1/**',r=>r.abort());await p.route('**/*.mp4',r=>r.abort());
   let failTiles=true;await p.route('**/tile.openstreetmap.org/**',r=>failTiles?r.abort():r.fulfill({contentType:'image/png',body:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScLbtAAAAABJRU5ErkJggg==','base64')}));

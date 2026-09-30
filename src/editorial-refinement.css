@@ -1,0 +1,70 @@
+/* Territorial reading and compact travel tools. RouteExplorer is intentionally excluded. */
+.hv-site .hv-discovery .hv-gallery-side nav{display:grid;gap:10px;border:0}
+.hv-site .hv-discovery .hv-gallery-side .hv-discovery-card{padding:17px 20px;border:1px solid #afba9e;border-radius:6px;background:#f7f1df;min-height:76px;transition:background .18s,border-color .18s}
+.hv-site .hv-discovery .hv-gallery-side .hv-discovery-card:hover{background:#e5e9d7;border-color:#52704f;color:#123c30}
+.hv-site .hv-discovery .hv-gallery-side .hv-discovery-card:nth-child(2){border-left:3px solid #65805b}
+.hv-site .hv-discovery .hv-gallery-side .hv-discovery-card:nth-child(3){border-left:3px solid #986344}
+.hv-site .hv-discovery .hv-gallery-side .hv-discovery-card strong{font:400 24px/1.15 Georgia,serif}
+.hv-site .hv-discovery .hv-gallery-side .hv-discovery-card small{font-size:12px}
+.hv-site .hv-gallery-heading p{max-width:620px}
+.hv-planning-bridge{padding:clamp(70px,9vw,125px) 7%;text-align:center;background:linear-gradient(180deg,#173e32,#244d40);color:#f4f0d8}
+.hv-territory-marks{display:flex;justify-content:center;align-items:center;gap:28px;margin-bottom:34px;color:#c5d796}
+.hv-territory-marks svg{width:28px;height:28px;stroke-width:1.3}
+.hv-planning-bridge>span{font-size:10px;letter-spacing:.18em}
+.hv-planning-bridge h2{font:400 clamp(42px,5.7vw,80px)/1.05 Georgia,serif;letter-spacing:-.035em;margin:26px auto;max-width:850px}
+.hv-planning-bridge h2 em{font-weight:400;color:#cad9ad}
+.hv-planning-bridge p{font-size:16px;line-height:1.75;color:#e2e9d7}
+.hv-site .hv-planning-unified{background:#edf0e5;padding:clamp(70px,9vw,120px) 7%}
+.hv-planning-unified .hv-section-head{margin-bottom:28px}
+.hv-site .hv-planning-unified .hv-arrival-intro{margin-bottom:40px;font-size:16px}
+.hv-planning-panels{border-top:1px solid #a7b59e}
+.hv-planning-panel{border-bottom:1px solid #a7b59e;scroll-margin-top:100px}
+.hv-site .hv-planning-unified .hv-planning-panel>summary{display:flex;align-items:center;gap:24px;width:100%;max-width:none;min-height:110px;padding:25px 12px;background:transparent;color:#123c30;border:0;border-radius:0;list-style:none;margin:0;text-align:left;box-shadow:none}
+.hv-planning-panel>summary::-webkit-details-marker{display:none}
+.hv-planning-panel>summary>.hv-planning-number{font:italic 20px Georgia,serif;color:#6e7555;min-width:24px}
+.hv-planning-panel>summary>span:nth-child(2){flex:1}
+.hv-planning-panel>summary strong{display:block;font:400 clamp(26px,3vw,38px)/1.1 Georgia,serif}
+.hv-planning-panel>summary small{display:block;font:13px/1.5 Inter,system-ui,sans-serif;color:#4c6554;margin-top:8px}
+.hv-planning-panel>summary>svg{width:22px;height:22px;flex-shrink:0;transition:transform .18s}
+.hv-site .hv-planning-unified .hv-planning-panel>summary:hover{background:#e2e8d7}
+.hv-planning-panel[open]>summary>svg{transform:rotate(180deg)}
+.hv-planning-panel[open]{background:#f6f6ed}
+.hv-planning-body{padding:8px clamp(18px,3vw,42px) 35px}
+.hv-planning-unified .hv-planning-body.hv-faq{margin:0;max-width:none}
+.hv-planning-unified .hv-arrival-grid{gap:30px}
+.hv-planning-unified .hv-arrival-grid article{border:0;padding:24px 0}
+.hv-planning-unified .hv-arrival-icon{background:transparent;border-radius:0;padding:0;width:30px;height:30px;margin-bottom:22px}
+.hv-planning-unified .hv-arrival-grid h3{font:400 28px/1.15 Georgia,serif;margin-bottom:18px}
+.hv-site .hv-planning-unified .hv-map-disclosure .vd{margin-inline:0}
+.hv-integrated-state{display:flex;align-items:center;gap:20px;padding:35px;border:1px solid #b5c2a6;border-radius:6px;background:#e7ebdc;color:#234c3b;min-height:130px}
+.hv-integrated-state svg{flex-shrink:0;width:28px;height:28px}
+.hv-integrated-state p{font-size:16px;line-height:1.6}
+.hv-integrated-state small{font-size:13px}
+.hv-calendar-entry{scroll-margin-top:90px}
+.hv-calendar-entry>.hv-integrated-state{margin:80px 7%}
+.hv-site .cal-upcoming .cal-section-heading h2{font-size:clamp(40px,5.2vw,70px);line-height:1.05}
+.hv-site .cal-upcoming .cal-section-heading p:not(.cal-eyebrow){font-size:15px;max-width:560px}
+.hv-event-editions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.hv-event-edition{position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;min-height:345px;padding:32px;background:#e4e9d6;color:#123c30;border-radius:6px;border:1px solid #bdc9ae;transition:background .18s}
+.hv-event-edition:nth-child(2){background:#eee0c8;border-color:#cbb99d}
+.hv-event-edition:hover{background:#d7e1c9}
+.hv-event-edition:nth-child(2):hover{background:#e7d5b7}
+.hv-event-edition>time{display:flex;align-items:center;gap:18px;margin-bottom:42px}
+.hv-event-edition>time>strong{font:400 clamp(60px,7vw,95px)/.85 Georgia,serif;letter-spacing:-.06em}
+.hv-event-edition>time>span{text-transform:uppercase;font-size:13px;letter-spacing:.1em}
+.hv-event-edition time small{display:block;font-size:11px;margin-top:6px}
+.hv-event-edition-copy>span:first-child{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#6c5940}
+.hv-event-edition h3{font:400 clamp(29px,3vw,43px)/1.08 Georgia,serif;margin:12px 28px 15px 0}
+.hv-event-edition-copy>p{font-size:14px;margin-bottom:18px;line-height:1.5}
+.hv-event-edition .cal-status{font-size:11px;background:transparent;border:1px solid #6b805966;border-radius:4px;padding:6px 9px}
+.hv-event-arrow{position:absolute;right:28px;bottom:32px}
+.hv-event-edition>picture{position:absolute;inset:0;z-index:-2}
+.hv-event-edition>picture img{width:100%;height:100%;object-fit:cover}
+.hv-event-edition.has-photo{color:#f4f0d8;background:#123c30}
+.hv-event-edition.has-photo:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(#05261bb3,#05261bef)}
+.hv-event-edition.has-photo .hv-event-edition-copy>span:first-child,.hv-event-edition.has-photo .cal-status{color:#f4f0d8}
+.hv-calendar-sync{min-height:22px;margin-top:18px;font-size:11px;line-height:1.6;color:inherit;opacity:.85}
+.hv-event-edition:focus-visible{outline:3px solid #87513b;outline-offset:5px}
+@media(max-width:800px){.hv-event-editions{gap:16px}.hv-event-edition{padding:26px;min-height:330px}.hv-planning-unified .hv-arrival-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.hv-event-editions{grid-template-columns:1fr}.hv-event-edition{min-height:280px}.hv-event-edition>time{margin-bottom:30px}.hv-planning-bridge{padding:70px 6%}.hv-planning-bridge p{font-size:14px}.hv-site .hv-planning-unified{padding-inline:6%}.hv-site .hv-planning-unified .hv-planning-panel>summary{gap:14px;padding:24px 4px;min-height:100px}.hv-planning-panel>summary small{font-size:12px}.hv-planning-body{padding:0 16px 25px}.hv-planning-unified .hv-map-disclosure>.hv-planning-body{padding:0 0 24px}.hv-integrated-state{padding:24px;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.hv-event-edition,.hv-planning-panel>summary>svg,.hv-site .hv-discovery .hv-gallery-side .hv-discovery-card{transition:none}}
