@@ -167,7 +167,7 @@ html{scroll-behavior:smooth;background:var(--hv-forest)}body{margin:0;background
 /* UX 2.0 shared rhythm and arrival guide */
 :root{--hv-space-xs:8px;--hv-space-sm:16px;--hv-space-md:28px;--hv-space-lg:48px;--hv-space-xl:80px;--hv-radius-card:12px;--hv-radius-control:999px}
 html{scroll-padding-top:90px}
-.hv-site .hv-nav.hv-global-nav{z-index:90;grid-template-columns:minmax(190px,1fr) auto minmax(190px,1fr)}
+.hv-site .hv-nav.hv-global-nav{z-index:90;grid-template-columns:1fr auto}
 .hv-arrival .hv-arrival-intro{font-size:17px;line-height:1.65;max-width:750px;margin:0 0 40px}
 .hv-arrival-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .hv-arrival-grid article{min-width:0;display:flex;flex-direction:column;align-items:flex-start;padding:32px;background:#e7ebd9;border:1px solid #cad4bd;border-radius:12px}

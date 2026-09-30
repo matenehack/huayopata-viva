@@ -87,7 +87,7 @@ export default function TopicPage({tema}:{tema:string}) {
     <section className="hv-story-hero" style={{ backgroundImage: `url('${topicImage(tema)}')` }} aria-labelledby="story-title">
       <div><span>{topic.number} · {topic.eyebrow}</span><h1 id="story-title">{topic.title}</h1><p>{topic.intro}</p><a href="#historia">Adentrarse en esta historia ↓</a></div>
     </section>
-    <nav className="hv-story-toc" aria-label="Contenido de esta historia"><a href="#historia">La historia</a><a href="#experiencias">Qué descubrir</a><a href="#visita">Antes de ir</a><a href={sitePath("/#mapa")}>Mapa y servicios ↗</a></nav>
+    <nav className="hv-story-toc" aria-label="Contenido de esta historia"><a href="#historia">La historia</a><a href="#experiencias">Qué descubrir</a><a href="#visita">Antes de ir</a></nav>
     <section className="hv-story-intro" data-reveal id="historia"><span>HUAYOPATA · CUSCO</span><p>{topic.passage}</p></section>
     <TopicExperience tema={tema}/><TopicFilm tema={tema}/>
     <section className="hv-story-visit" data-reveal id="visita" aria-labelledby="visit-title"><div><span>ANTES DE IR</span><h2 id="visit-title">Haz espacio para descubrir.</h2><p>Una buena visita comienza con información actual y respeto por el lugar.</p><a href={sitePath("/#mapa")}>Ver mapa y servicios ↗</a></div><ul>{topic.visit.map(item => <li key={item}>{item}</li>)}</ul></section>

@@ -13,15 +13,22 @@ const poll=async(fn)=>{for(let i=0;i<100;i++){if(await fn())return;await new Pro
   await p.route('**/rest/v1/**',r=>r.abort());await p.route('**/*.mp4',r=>r.abort());
   let failTiles=true;await p.route('**/tile.openstreetmap.org/**',r=>failTiles?r.abort():r.fulfill({contentType:'image/png',body:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScLbtAAAAABJRU5ErkJggg==','base64')}));
   await p.goto(base+'#galeria');await p.locator('#gallery-title').waitFor();
-  await p.locator('.hv-municipal-close-impact').scrollIntoViewIfNeeded();
-  assert.equal(await p.locator('.hv-municipal-close-impact .hv-action').evaluate(e=>{const a=e.getBoundingClientRect(),parent=e.parentElement.getBoundingClientRect();return a.height>=48&&a.height<70&&Math.abs((a.left+a.width/2)-(parent.left+parent.width/2))<2&&getComputedStyle(e).display==='inline-flex'}),true,'closing button alignment');
+  assert.equal(await p.locator('.hv-municipal-close-impact a').count(),0,'closing passage does not repeat calendar access');
+  assert.equal(await p.locator('.hv-explore-hub').count(),0,'duplicate story hub removed');
+  assert.equal(await p.locator('#descubre #galeria').count(),1,'authentic gallery belongs to discovery');
+  assert.equal(await p.locator('#planifica .hv-map-disclosure').count(),1,'directory belongs to planning');
+  assert.equal(await p.locator('.hv-global-cta').count(),0,'no competing header CTA');
+  assert.deepEqual(await p.locator('.hv-global-links .hv-nav-item>a').allTextContents(),['Descubre','Experiencias','Calendario','Planifica']);
   const trigger=p.getByRole('button',{name:'Ampliar fotografía documental de Wamanmarka'});await trigger.click();await p.locator('dialog[open]').waitFor();
   assert.equal(await p.evaluate(()=>document.activeElement.getAttribute('aria-label')),'Cerrar fotografía');
   for(let i=0;i<5;i++){await p.keyboard.press('Tab');assert.equal(await p.evaluate(()=>!!document.activeElement.closest('dialog')),true)}
   await p.keyboard.press('Escape');assert.equal(await p.locator('dialog').count(),0);assert.equal(await trigger.evaluate(e=>e===document.activeElement),true);assert.equal(await p.evaluate(()=>document.body.style.overflow),'');
-  await p.locator('#gallery-title').scrollIntoViewIfNeeded();await poll(async()=>await p.locator('.hv-global-links a[aria-current],.hv-global-menu>nav>a[aria-current]').first().innerText()==='Descubrir');
-  if(width>850){assert.equal(await p.evaluate(()=>document.querySelector('.hv-global-links').getBoundingClientRect().right<=document.querySelector('.hv-global-cta').getBoundingClientRect().left),true,'desktop navigation collision');await p.getByLabel('Abrir historias del valle').click();assert.equal(await p.getByRole('navigation',{name:'Historias del valle',exact:true}).getByRole('link').count(),5);await p.keyboard.press('Escape');assert.equal(await p.locator('.hv-story-menu').getAttribute('open'),null)}
-  else{await p.locator('.hv-global-menu>summary').click();assert.equal(await p.getByRole('navigation',{name:'Navegación móvil'}).getByRole('link').count(),11);await p.keyboard.press('Escape');assert.equal(await p.locator('.hv-global-menu').getAttribute('open'),null)}
+  await p.locator('#gallery-title').scrollIntoViewIfNeeded();await poll(async()=>await p.locator('.hv-global-links a[aria-current],.hv-global-menu>nav>a[aria-current]').first().innerText()==='Descubre');
+  if(width>850){assert.equal(await p.evaluate(()=>document.querySelector('.hv-brand').getBoundingClientRect().right<document.querySelector('.hv-global-links').getBoundingClientRect().left&&document.querySelector('.hv-global-links').getBoundingClientRect().right<=innerWidth),true,'desktop navigation collision');await p.getByLabel('Abrir historias del valle').click();assert.equal(await p.getByRole('navigation',{name:'Historias del valle',exact:true}).getByRole('link').count(),5);await p.keyboard.press('Escape');assert.equal(await p.locator('.hv-story-menu').first().getAttribute('open'),null)}
+  else{await p.locator('.hv-global-menu>summary').click();assert.deepEqual(await p.locator('.hv-global-menu>nav>a').allTextContents(),['Descubre','Experiencias','Calendario','Planifica']);await p.locator('.hv-mobile-group').getByText('Herramientas de viaje',{exact:true}).click();assert.equal(await p.getByRole('link',{name:'Contactos de emergencia',exact:true}).isVisible(),true);await p.keyboard.press('Escape');assert.equal(await p.locator('.hv-global-menu').getAttribute('open'),null)}
+  await p.goto(base+'#planifica');assert.equal(await p.locator('.vd').count(),0,'map is deferred until requested');
+  await p.locator('.hv-map-disclosure>summary').click();await p.locator('.vd').waitFor();
+  await p.goto(base+'#emergencias');await p.locator('#emergencias').waitFor();assert.equal(await p.locator('.vd-emergency-call').count(),7);
   await p.goto(base+'#mapa');await p.locator('.vd').waitFor();await p.locator('.vd-map-entry').scrollIntoViewIfNeeded();
   if(width<=760){assert.equal(await p.locator('.vd-results').isVisible(),false);await p.locator('.vd-mobile-tabs').getByRole('button',{name:'Lugares',exact:true}).click();assert.equal(await p.locator('.vd-map').isVisible(),false);assert.equal(await p.locator('.vd-results').isVisible(),true)}
   await p.locator('.vd-select').first().click();await p.locator('.vd-detail-head h3').waitFor();
@@ -34,10 +41,10 @@ const poll=async(fn)=>{for(let i=0;i<100;i++){if(await fn())return;await new Pro
   assert.equal(await p.locator('.vd-emergency-call').count(),7);assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'horizontal overflow at '+width);
   fs.mkdirSync(dir+'/test-results',{recursive:true});await p.locator('.vd-mobile-tabs').isVisible().then(v=>v?p.locator('.vd-mobile-tabs').scrollIntoViewIfNeeded():p.locator('.vd-map-entry').scrollIntoViewIfNeeded());await p.screenshot({path:dir+'/test-results/ux-map-'+width+'.png'});
   await p.goto(base+'descubre/te/');await p.getByRole('heading',{level:1}).waitFor();assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'theme overflow at '+width);
-  const menu=width>850?'.hv-story-menu>summary':'.hv-global-menu>summary';await p.locator(menu).click();assert.equal(await p.locator('header a[aria-current=page]:visible').innerText(),'Té');await p.keyboard.press('Escape');
+  const menu=width>850?'.hv-nav-item:first-child .hv-story-menu>summary':'.hv-global-menu>summary';await p.locator(menu).click();if(width<=850)await p.locator('.hv-mobile-group').getByText('Historias del valle',{exact:true}).click();assert.equal(await p.locator('header a[aria-current=page]:visible').innerText(),'Té');await p.keyboard.press('Escape');
   await p.goto(base+'descubre/comunidades/#aves');await p.locator('#aves').waitFor();assert.equal(await p.locator('#ciclismo').count(),1);await p.locator('#aves summary').click();assert.equal(await p.locator('#aves details').getAttribute('open'),'');assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'valley activities overflow');
   fs.mkdirSync(dir+'/test-results',{recursive:true});await p.locator('#aves').scrollIntoViewIfNeeded();await p.screenshot({path:dir+'/test-results/valley-activities-'+width+'.png'});
-  await p.goto(base+'#community');assert.equal(await p.locator('#community .hv-valley-actions a').count(),2);assert.equal(await p.getByRole('link',{name:'Conocer el valle vivo',exact:true}).count(),0);
+  await p.goto(base+'#community');assert.equal(await p.locator('#community .hv-valley-actions a').count(),2);assert.equal(await p.getByRole('link',{name:'Conocer el valle vivo',exact:true}).count(),0);assert.equal(await p.locator('.hv-valley-actions a').last().evaluate(e=>getComputedStyle(e).borderRadius==='0px'&&getComputedStyle(e).backgroundColor==='rgba(0, 0, 0, 0)'),true,'birdwatching is an editorial link');
   assert.deepEqual(errors,[]);console.log('PASS shared navigation, gallery focus/Escape, directory views, saved reset, selection, tile retry, emergencies, theme',width);await p.close();
  }
  if(fs.existsSync('/tmp/hv-test-video.mp4')){

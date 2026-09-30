@@ -1,0 +1,76 @@
+/* Visual cleanup 3.0: editorial discovery first, travel tools on demand.
+   Deliberately excludes RouteExplorer and its duration/itinerary components. */
+.hv-global-nav.hv-nav,.hv-site .hv-global-nav.hv-nav{grid-template-columns:1fr auto;gap:36px}
+.hv-global-nav .hv-global-links{gap:clamp(16px,3vw,42px)}
+.hv-global-nav .hv-story-menu:last-child>nav{left:auto;right:0}
+.hv-global-nav .hv-global-menu .hv-mobile-group{padding-top:10px;border-top:1px solid #ffffff25;margin-top:12px}
+.hv-global-nav .hv-mobile-group>summary{min-height:44px;justify-content:space-between;font-size:12px;font-weight:500;color:#d7e3d2;letter-spacing:.03em}
+.hv-global-nav .hv-mobile-group>summary:after{content:'+';font-size:19px}
+.hv-global-nav .hv-mobile-group[open]>summary:after{content:'−'}
+.hv-global-nav .hv-mobile-group .hv-global-sub{border:0;padding-top:0;margin-top:0}
+.hv-global-nav .hv-mobile-group .hv-global-sub a{font-size:13px;font-weight:500}
+.hv-global-nav nav a:after{display:none}
+.hv-discovery{background:#f1e8ce;color:var(--hv-forest);scroll-margin-top:80px}
+.hv-discovery .hv-local-gallery{padding:clamp(84px,10vw,150px) 7% 42px}
+.hv-discovery .hv-gallery-heading{margin-bottom:clamp(38px,5vw,70px)}
+.hv-discovery .hv-gallery-grid{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:clamp(30px,5vw,75px);align-items:center}
+.hv-discovery .hv-gallery-feature{min-height:clamp(550px,48vw,740px);border-radius:6px}
+.hv-discovery .hv-gallery-expand{background:#082b23c9;border:0;border-radius:4px;font-size:11px}
+.hv-discovery .hv-gallery-side{display:block;background:transparent;padding:0;min-width:0}
+.hv-discovery .hv-gallery-side>span{font-size:10px;font-weight:750;letter-spacing:.16em;color:#78563d}
+.hv-discovery .hv-gallery-side h3{font:400 clamp(35px,4vw,58px)/1.05 Georgia,serif;letter-spacing:-.03em;margin:22px 0}
+.hv-discovery .hv-gallery-side>p{font-size:15px;line-height:1.8;margin-bottom:28px;max-width:430px}
+.hv-discovery .hv-gallery-side nav{border-top:1px solid #a9b59a}
+.hv-discovery .hv-gallery-side nav a{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px;width:100%;border-bottom:1px solid #a9b59a;padding:16px 0;font-weight:500;transition:color .18s}
+.hv-discovery .hv-gallery-side nav a:hover{color:#8c4934}
+.hv-discovery .hv-gallery-side nav a strong{display:block;font-size:16px;font-weight:600}
+.hv-discovery .hv-gallery-side nav a small{display:block;font-size:11px;color:#536456;font-weight:400;margin-top:3px}
+.hv-discovery .hv-gallery-credit{max-width:850px;font-size:11px;margin-top:22px}
+.hv-landscape-reading{margin:0 7%;border-top:1px solid #a9b59a;border-bottom:1px solid #a9b59a;padding-bottom:0}
+.hv-landscape-reading>summary{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:68px;padding:18px 0;list-style:none;font-size:14px;font-weight:600}
+.hv-landscape-reading>summary::-webkit-details-marker{display:none}
+.hv-landscape-reading>summary>span{font-size:24px;font-weight:400}
+.hv-landscape-reading[open]>summary>span{transform:rotate(45deg)}
+.hv-landscape-reading .hv-nature{margin-top:12px;padding:clamp(40px,6vw,80px);border-radius:6px}
+.hv-discovery:after{content:'';display:block;height:clamp(75px,9vw,125px)}
+.hv-landscape-reading .hv-nature-cta{border:0;border-bottom:1px solid currentColor;background:transparent;color:inherit;border-radius:0;padding-inline:0;box-shadow:none}
+.hv-site .hv-arrival{padding-block:clamp(90px,11vw,155px)}
+.hv-arrival .hv-map-preview{margin-top:clamp(65px,8vw,115px);padding:clamp(36px,4vw,60px) 0 0;border-top:1px solid #a6b499;background:transparent}
+.hv-arrival .hv-map-preview>div{margin-bottom:28px}
+.hv-arrival .hv-map-preview>div h3{font:400 clamp(34px,4.5vw,62px)/1.07 Georgia,serif;letter-spacing:-.035em;margin:20px 0}
+.hv-arrival .hv-map-preview>div p{font-size:16px;line-height:1.8;max-width:650px}
+.hv-arrival .hv-map-disclosure>summary{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:54px;padding:15px 24px;width:fit-content;max-width:100%;background:var(--hv-forest);color:var(--hv-paper);border:1px solid var(--hv-forest);border-radius:999px;font-size:14px;font-weight:650;transition:background .18s}
+.hv-arrival .hv-map-disclosure>summary:hover{background:var(--hv-valley)}
+.hv-arrival .hv-map-disclosure[open]>summary{margin-bottom:32px}
+.hv-arrival .hv-arrival-grid article{padding:32px 28px;background:transparent;border-radius:0;border:0;border-top:1px solid #a9b59a}
+.hv-arrival .hv-arrival-grid a{font-weight:500;text-decoration:underline;text-underline-offset:5px;border:0}
+.hv-arrival .hv-faq{margin-top:clamp(55px,7vw,95px)}
+.hv-site .hv-municipal-close-impact{background:transparent;color:var(--hv-forest);border-top:1px solid #a9b59a;margin-top:clamp(60px,8vw,115px);padding:clamp(60px,7vw,100px) 0 0}
+.hv-site .hv-municipal-close-impact>span{color:#78563d}
+.hv-site .hv-municipal-close-impact p{color:#405e4b}
+.hv-site .cal-upcoming{padding:clamp(85px,10vw,140px) 7%}
+.hv-site .cal-upcoming .cal-section-heading{gap:35px;margin-bottom:45px}
+.hv-site .cal-upcoming .cal-card{box-shadow:none;border-radius:6px}
+.hv-site .cal-upcoming .cal-card:hover{transform:none}
+.hv-site .cal-upcoming .cal-card-copy>small{font-weight:500}
+.hv-site .hv-valley-actions{gap:18px 24px}
+.hv-site .hv-valley-actions a:last-child{padding:10px 0;background:transparent;border:0;border-bottom:1px solid #f4f0d8a0;border-radius:0;font-weight:500}
+.hv-site .hv-valley-actions a:last-child:hover{color:var(--hv-sun);transform:none}
+.hv-site .hv-valley-actions a:last-child:focus-visible{outline-color:var(--hv-paper)}
+.hv-story-page .hv-story-back{background:transparent;border:0;border-radius:0;padding-inline:0;text-shadow:0 1px 6px #000;font-weight:500}
+.hv-story-page .hv-story-back:hover{text-decoration:underline;text-underline-offset:5px;background:transparent}
+.hv-story-page .hv-story-visit a{font-weight:500}
+.hv-discovery :is(a,summary,button):focus-visible,.hv-arrival :is(a,summary):focus-visible{outline:3px solid #87513b;outline-offset:5px}
+@media(min-width:851px) and (max-width:1150px){.hv-global-nav.hv-nav{gap:20px}.hv-global-nav .hv-global-links{gap:20px}}
+@media(max-width:850px){.hv-global-nav.hv-nav{gap:12px}.hv-global-nav .hv-global-menu>nav{padding:16px 22px 20px}.hv-global-nav .hv-global-menu>nav>a{font-size:17px;min-height:52px}}
+@media(max-width:800px){.hv-discovery .hv-local-gallery{padding:80px 6% 28px}.hv-discovery .hv-gallery-grid{grid-template-columns:1fr;gap:40px}.hv-discovery .hv-gallery-feature{min-height:540px}.hv-discovery .hv-gallery-side h3{font-size:40px}.hv-landscape-reading{margin-inline:6%}.hv-landscape-reading .hv-nature{padding:35px 22px}.hv-arrival .hv-arrival-grid article{padding-inline:0}.hv-site .cal-upcoming{padding-inline:6%}.hv-site .hv-municipal-close-impact{margin-inline:0}.hv-arrival .hv-map-disclosure .vd{margin-inline:0}}
+@media(max-width:550px){.hv-discovery .hv-gallery-feature{min-height:470px}.hv-site .hv-valley-actions{align-items:flex-start}.hv-site .hv-valley-actions a:last-child{padding-inline:0}.hv-arrival .hv-map-disclosure .vd{margin-inline:-6vw}.hv-landscape-reading>summary{font-size:13px}.hv-arrival .hv-map-preview>div h3{font-size:35px}}
+@media(prefers-reduced-motion:reduce){.hv-discovery .hv-gallery-side nav a,.hv-arrival .hv-map-disclosure>summary{transition:none}.hv-landscape-reading[open]>summary>span{transform:none}}
+
+.cal-site .cal-info-card .cal-editorial-link{display:inline-flex;align-items:center;gap:10px;min-height:44px;background:transparent;padding:12px 0;border:0;border-bottom:1px solid #a9b59a;border-radius:0;font-weight:500;font-size:13px}
+.cal-site .cal-info-card .cal-editorial-link:hover{color:#87513b}
+
+.hv-gallery-feature[data-photo-error=true]>button:after{display:none}
+.hv-gallery-feature[data-photo-error=true] figcaption{display:none}
+.hv-gallery-feature[data-photo-error=true] .hv-gallery-unavailable{height:100%;max-width:100%;padding:70px 30px}
+.hv-gallery-feature[data-photo-error=true] .hv-gallery-unavailable>span{max-width:360px}
