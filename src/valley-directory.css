@@ -104,3 +104,6 @@
  .vd-filter-panel .vd-filters{position:static;width:100%;margin-top:8px;box-shadow:none}
  .vd-download-link{display:none}
 }
+
+/* Keep saved-place export available where mobile visitors expect it. */
+@media(max-width:760px){.vd-filter-row{flex-wrap:wrap}.vd-download-link.is-saved-view{display:inline-flex;min-height:44px}}
