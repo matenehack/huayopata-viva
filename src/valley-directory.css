@@ -72,3 +72,35 @@
 .vd-map-recovery,.vd-empty{border-radius:var(--hv-radius-card,12px)}
 .vd-detail-actions button[aria-pressed=true]{color:#944334}
 @media(max-width:760px){.vd-map-tools>span{display:none}.vd-map-tools{min-height:53px;height:auto;padding-block:5px}.vd-map-tools>div{width:100%;justify-content:space-between}}
+
+/* UX step 2 — compact directory entry and progressive filters */
+.vd-tool-intro{display:grid;grid-template-columns:.7fr 1.3fr;gap:28px 6vw;align-items:end;padding:18px 0 34px;border-bottom:1px solid #c7d1bf}
+.vd-tool-intro>span{align-self:start;padding-top:8px}
+.vd-tool-intro h2{font:400 clamp(38px,4.8vw,64px)/1.03 Georgia,serif;letter-spacing:-.04em;margin:0 0 14px;color:#173d31}
+.vd-tool-intro p{max-width:670px;font-size:15px;line-height:1.7;color:#536456}
+.vd-directory{margin-top:34px}
+.vd-directory-head{display:none}
+.vd-map-access{margin-top:0}
+.vd-controls-simplified{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center}
+.vd-controls-simplified .vd-search{min-width:0}
+.vd-filter-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:12px 0 18px}
+.vd-filter-panel{position:relative}
+.vd-filter-panel>summary{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:10px 14px;border:1px solid #c7d1bf;border-radius:999px;background:#f7f8f1;cursor:pointer;list-style:none;font-size:13px;font-weight:700;color:#203d31}
+.vd-filter-panel>summary::-webkit-details-marker{display:none}
+.vd-filter-panel>summary>span{font-weight:500;color:#627266}
+.vd-filter-panel[open]>summary{background:#203d31;color:#fff9e9;border-color:#203d31}
+.vd-filter-panel[open]>summary>span{color:#d9e6d9}
+.vd-filter-panel .vd-filters{position:absolute;z-index:520;top:52px;left:0;display:grid;grid-template-columns:repeat(2,minmax(120px,1fr));gap:6px;width:min(420px,calc(100vw - 50px));padding:12px;background:#fffdf7;border:1px solid #c7d1bf;border-radius:12px;box-shadow:0 18px 45px #173d3122}
+.vd-filter-panel .vd-filters button{justify-content:space-between;border-radius:8px}
+.vd-download-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 0;border:0;background:transparent;color:#536456;font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.vd-download-link:hover{color:#203d31}
+.vd-map-access a{font-weight:650}
+@media(max-width:760px){
+ .vd-tool-intro{display:block;padding:6px 0 24px}.vd-tool-intro>span{display:block;margin-bottom:12px}.vd-tool-intro h2{font-size:38px}.vd-tool-intro p{font-size:14px}
+ .vd-directory{margin-top:22px}
+ .vd-map-access p{display:none}
+ .vd-controls-simplified{grid-template-columns:1fr}.vd-controls-simplified .vd-saved{display:none}
+ .vd-filter-row{align-items:flex-start}.vd-filter-panel{width:100%}.vd-filter-panel>summary{width:100%;justify-content:space-between}
+ .vd-filter-panel .vd-filters{position:static;width:100%;margin-top:8px;box-shadow:none}
+ .vd-download-link{display:none}
+}
