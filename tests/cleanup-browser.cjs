@@ -24,9 +24,8 @@ const server=http.createServer((req,res)=>{let f=root+'/dist'+req.url.split('?')
   assert.equal(await p.locator('.hv-event-edition').count(),2);assert.equal(await p.locator('.hv-event-edition time[datetime]').count(),2);
   await p.locator('#celebra').scrollIntoViewIfNeeded();await p.screenshot({path:root+'/test-results/editorial-events-'+width+'.png'});
 
-  const tools=width>850?p.getByLabel('Abrir herramientas de viaje'):p.locator('.hv-mobile-group').getByText('Herramientas de viaje',{exact:true});
-  if(width<=850)await p.locator('.hv-global-menu>summary').click();await tools.click();
-  await p.getByRole('link',{name:'Mapa y servicios',exact:true}).click();await p.locator('.vd').waitFor();assert.equal(await p.locator('.hv-global-menu').getAttribute('open'),null);
+  if(width<=850){await p.locator('.hv-global-menu>summary').click();assert.deepEqual(await p.locator('.hv-global-menu>nav>a').allTextContents(),['Descubre','Experiencias','Calendario','Planifica']);await p.keyboard.press('Escape')}
+  await p.goto(base+'#mapa');await p.locator('.vd').waitFor();assert.equal(await p.locator('.hv-global-menu').getAttribute('open'),null);
   assert.equal(await p.locator('#planifica #mapa').count(),1);assert.equal(await p.locator('.vd-emergency-call').count(),7);
   assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   await p.goto(base+'calendario/virgen-del-carmen/');await p.getByRole('heading',{level:1}).waitFor();
