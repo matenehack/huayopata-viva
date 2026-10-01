@@ -107,3 +107,5 @@
 
 /* Keep saved-place export available where mobile visitors expect it. */
 @media(max-width:760px){.vd-filter-row{flex-wrap:wrap}.vd-download-link.is-saved-view{display:inline-flex;min-height:44px}}
+
+.vd-topic-context{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px;margin:16px 0;border-left:3px solid #52724d;background:#e7ecdf;color:#203d31}.vd-topic-context strong{font:400 24px/1.2 Georgia,serif}.vd-topic-context p{font-size:14px;line-height:1.6;margin:8px 0}.vd-topic-context a,.vd-topic-context button{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px;font-size:13px}.vd-topic-context button{flex-shrink:0}.vd-topic-context :is(a,button):focus-visible{outline:3px solid #87513b;outline-offset:3px}@media(max-width:760px){.vd-topic-context{align-items:flex-start;flex-direction:column;gap:6px;padding:16px}}
