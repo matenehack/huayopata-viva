@@ -1,0 +1,40 @@
+/* Scoped accents: RouteExplorer and its inherited tokens stay unchanged. */
+:root{--hv-clay:#87513b;--hv-clay-dark:#70422f;--hv-harvest:#e5c37e;--hv-cloud-paper:#f6f1e3}
+.hv-site .hv-story-button{background:var(--hv-harvest);color:#123c30;border-color:var(--hv-harvest)}
+.hv-site .hv-discovery .hv-local-gallery{
+ background-color:#f1e8ce;
+ background-image:radial-gradient(ellipse at 5% 12%,#fffdf775,transparent 60%);
+}
+.hv-site .hv-planning-bridge{position:relative;isolation:isolate;overflow:hidden;background:#173e32}
+.hv-site .hv-planning-bridge::before{
+ content:"";position:absolute;inset:-80px -80px -80px auto;width:min(52%,620px);
+ background:url('./assets/valley-lines.svg') right center/contain no-repeat;
+ opacity:.2;z-index:-1;pointer-events:none;
+}
+.hv-site .hv-planning-bridge::after{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:radial-gradient(ellipse at 5% 100%,#cad9ad12,transparent 65%);
+}
+.hv-site .hv-territory-marks{color:var(--hv-harvest)}
+.hv-site .hv-territory-marks svg:nth-child(2){color:#cad9ad}
+.hv-site .hv-territory-marks svg:nth-child(3){color:#dfb59a}
+.hv-site .hv-planning-bridge>span{color:var(--hv-harvest)}
+.hv-site .hv-planning-unified{background:#edf0e5}
+.hv-site .hv-planning-panel>summary>.hv-planning-number{color:var(--hv-clay)}
+.hv-site .hv-event-edition:not(.has-photo)>time>strong{color:var(--hv-clay)}
+.hv-site .hv-event-edition:not(.has-photo):nth-child(2)>time>strong{color:#385d42}
+.cal-site{--cal-paper:var(--hv-cloud-paper);--cal-rust:var(--hv-clay);--cal-gold:#99702e}
+.cal-site .cal-button{background:var(--hv-clay);border-color:var(--hv-clay);color:#fffdf7!important}
+.cal-site .cal-empty{background:#ecebdc;border-left:3px solid var(--hv-clay)}
+.cal-site :is(a,button,input,select,summary):focus-visible{outline-color:var(--hv-clay)}
+.hv-story-page .hv-story-visit>div>a{border-color:var(--hv-clay)}
+@media(hover:hover) and (pointer:fine){
+ .hv-site .hv-story-button:hover{background:#f0d69f;border-color:#f0d69f}
+ .cal-site .cal-button:hover{background:var(--hv-clay-dark);border-color:var(--hv-clay-dark)}
+}
+@media(hover:none){.hv-site .hv-story-button:hover{background:var(--hv-harvest)}}
+@media(max-width:600px){.hv-site .hv-planning-bridge::before{width:80%;inset:-40px -120px -40px auto;opacity:.13}}
+@media(forced-colors:active){
+ .hv-site .hv-planning-bridge::before,.hv-site .hv-planning-bridge::after{display:none}
+ .hv-site .hv-story-button,.cal-site .cal-button{border:1px solid ButtonText;color:ButtonText!important}
+}

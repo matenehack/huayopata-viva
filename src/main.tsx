@@ -7,6 +7,7 @@ import {loadContent} from './lib/content';
 import './styles.css';
 import './editorial.css';
 import './interaction-refinement.css';
+import './territorial-palette.css';
 const base=import.meta.env.BASE_URL;
 const path=decodeURIComponent(location.pathname.slice(base.length)).replace(/\/$/,'');
 function App(){
