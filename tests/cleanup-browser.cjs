@@ -11,6 +11,13 @@ const server=http.createServer((req,res)=>{let f=root+'/dist'+req.url.split('?')
   await p.goto(base+'#descubre');await p.locator('#gallery-title').waitFor();await p.locator('#galeria').scrollIntoViewIfNeeded();await p.waitForFunction(()=>!!document.querySelector('.hv-gallery-unavailable')||document.querySelector('.hv-gallery-feature img')?.complete);
   assert.equal(await p.locator('.hv-discovery .hv-local-gallery').count(),1);
   assert.equal(await p.getByRole('navigation',{name:'Descubrir Huayopata'}).getByRole('link').count(),5);
+  assert.equal(await p.locator('.hv-territorial-photos button').count(),3);
+  const archive=p.getByRole('button',{name:'Ampliar fotografía de Huyro',exact:true});
+  await archive.click();assert.equal(await p.getByRole('dialog',{name:'Fotografía de Huyro',exact:true}).isVisible(),true);
+  await p.keyboard.press('Escape');assert.equal(await p.getByRole('dialog',{name:'Fotografía de Huyro',exact:true}).count(),0);
+  assert.equal(await archive.evaluate(e=>e===document.activeElement),true);
+  await p.locator('.hv-territorial-archive').scrollIntoViewIfNeeded();
+  await p.screenshot({path:root+'/test-results/territorial-archive-'+width+'.png'});
   assert.equal(await p.locator('.hv-landscape-reading').getAttribute('open'),null);
   assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   fs.mkdirSync(root+'/test-results',{recursive:true});await p.screenshot({path:root+'/test-results/cleanup-discovery-'+width+'.png'});

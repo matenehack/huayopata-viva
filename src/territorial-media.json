@@ -1,0 +1,53 @@
+[
+  {
+    "id": "huyro",
+    "title": "Huyro",
+    "category": "VIDA EN EL VALLE",
+    "description": "Una mirada al poblado y su plaza entre las laderas del valle.",
+    "source": "https://commons.wikimedia.org/wiki/File:PobladoHuyro.jpg",
+    "url": "https://rhghpitzpdstrraxuogz.supabase.co/storage/v1/object/public/huayopata-media/assets/territorial/huyro.webp",
+    "mobileUrl": "https://rhghpitzpdstrraxuogz.supabase.co/storage/v1/object/public/huayopata-media/assets/territorial/huyro-mobile.webp",
+    "alt": "Huyro en Huayopata. Archivo municipal publicado en 2015.",
+    "width": 720,
+    "height": 540,
+    "author": "Munihuayopata",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "authorization": "Publicación del autor bajo licencia abierta en Wikimedia Commons.",
+    "transformation": "Redimensionado a WebP sin cambiar encuadre ni rótulos. EXIF de mayo de 2014; publicación en 2015."
+  },
+  {
+    "id": "catarata-oso",
+    "title": "Catarata del Oso",
+    "category": "AGUA Y BOSQUE",
+    "description": "El agua abre su camino entre la vegetación de Huayopata. Esta es la Catarata del Oso, no Pasto Grande.",
+    "source": "https://commons.wikimedia.org/wiki/File:CATARAAS_DE_OSO.jpg",
+    "url": "https://rhghpitzpdstrraxuogz.supabase.co/storage/v1/object/public/huayopata-media/assets/territorial/catarata-oso.webp",
+    "mobileUrl": "https://rhghpitzpdstrraxuogz.supabase.co/storage/v1/object/public/huayopata-media/assets/territorial/catarata-oso-mobile.webp",
+    "alt": "Catarata del Oso en Huayopata. Archivo municipal publicado en 2015.",
+    "width": 636,
+    "height": 960,
+    "author": "Munihuayopata",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "authorization": "Publicación del autor bajo licencia abierta en Wikimedia Commons.",
+    "transformation": "Redimensionado a WebP sin cambiar encuadre ni rótulos. EXIF de mayo de 2014; publicación en 2015."
+  },
+  {
+    "id": "inca-tambo",
+    "title": "Inca Tambo",
+    "category": "PATRIMONIO",
+    "description": "Muros de piedra que forman parte de la memoria territorial del distrito.",
+    "source": "https://commons.wikimedia.org/wiki/File:INCA_TAMBO.jpg",
+    "url": "https://rhghpitzpdstrraxuogz.supabase.co/storage/v1/object/public/huayopata-media/assets/territorial/inca-tambo.webp",
+    "mobileUrl": "https://rhghpitzpdstrraxuogz.supabase.co/storage/v1/object/public/huayopata-media/assets/territorial/inca-tambo-mobile.webp",
+    "alt": "Inca Tambo en Huayopata. Archivo municipal publicado en 2015.",
+    "width": 720,
+    "height": 540,
+    "author": "Munihuayopata",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "authorization": "Publicación del autor bajo licencia abierta en Wikimedia Commons.",
+    "transformation": "Redimensionado a WebP sin cambiar encuadre ni rótulos. EXIF de mayo de 2014; publicación en 2015."
+  }
+]
