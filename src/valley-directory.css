@@ -114,7 +114,7 @@
 .vd .vd-map-layout{border-radius:18px;border-color:#c9cebb;background:#fffdf7;box-shadow:0 12px 36px #173d3108}
 .vd .vd-result{border-radius:0;padding:10px 12px}
 .vd .vd-select{min-height:100px;gap:14px}
-.vd .vd-select strong{font:400 21px/1.2 Georgia,serif;margin:7px 0}
+.vd .vd-select strong{font:400 21px/1.2 Georgia,serif;margin:7px 0;overflow-wrap:anywhere}
 .vd .vd-select small,.vd .vd-location-label{font-size:11px;line-height:1.5}
 .vd .vd-result.is-selected{background:#edf0e3;box-shadow:inset 3px 0 #87513b}
 .vd .vd-color-naturaleza{background:#e1e8d7;color:#385d42}
@@ -148,7 +148,7 @@
 }
 @media(min-width:761px) and (max-width:1000px){
  .vd .vd-map-layout{grid-template-columns:minmax(245px,.9fr) minmax(0,1.2fr)}
- .vd .vd-select{gap:10px}.vd .vd-select strong{font-size:19px}
+ .vd .vd-select{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}.vd .vd-select strong{font-size:19px}
  .vd .vd-detail{padding:22px}
  .vd .vd-detail-head{display:grid;grid-template-columns:42px minmax(0,1fr) 44px;gap:12px}
  .vd .vd-detail-head>.vd-list-icon{grid-column:1;grid-row:1}
