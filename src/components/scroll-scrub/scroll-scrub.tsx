@@ -359,7 +359,7 @@ export function ScrollScrub({
     const readScroll = () => {
       const pageY = window.scrollY || window.pageYOffset;
       const y = clamp(pageY - rootTop, 0, total);
-      const crossfade = 0.1 * viewportHeight;
+      const crossfade = 0.22 * viewportHeight;
       let currentIndex = 0;
       const bounds = root.getBoundingClientRect();
       stageVisible = bounds.bottom > 0 && bounds.top < viewportHeight;
@@ -390,7 +390,8 @@ export function ScrollScrub({
 
         segment.visible = opacity > 0.001;
         segment.layer.style.opacity = String(opacity);
-        segment.layer.style.zIndex = index === currentIndex ? "2" : "1";
+        segment.layer.style.zIndex = String(index + 1);
+        segment.layer.style.setProperty("--ss-media-offset", reduceMotion || isMobile() ? "0px" : `${(local - 0.5) * 24}px`);
 
         const nearby = Math.abs(index - currentIndex) <= 1;
         if (!nearby || !stageVisible) {
@@ -523,6 +524,7 @@ export function ScrollScrub({
       for (const segment of runtime) {
         unloadClip(segment);
         segment.layer.style.removeProperty("opacity");
+        segment.layer.style.removeProperty("--ss-media-offset");
         segment.layer.style.removeProperty("z-index");
       }
     };

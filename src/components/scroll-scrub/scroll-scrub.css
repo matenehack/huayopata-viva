@@ -56,6 +56,7 @@
 .scroll-scrub__video {
   z-index: 1;
   opacity: 0;
+  transition: opacity 450ms ease;
 }
 
 .scroll-scrub__layer[data-video-painted="true"] .scroll-scrub__video {
@@ -63,7 +64,8 @@
 }
 
 .scroll-scrub__layer[data-video-painted="true"] .scroll-scrub__poster {
-  visibility: hidden;
+  opacity: 0;
+  transition: opacity 450ms ease;
 }
 
 .scroll-scrub__progress {
@@ -284,4 +286,12 @@
   .scroll-scrub__progress span {
     transition: none;
   }
+}
+
+/* Quiet depth follows scroll; no continuous decorative animation. */
+@media (min-width:861px) and (prefers-reduced-motion:no-preference){
+ .scroll-scrub__poster,.scroll-scrub__video{transform:translateY(var(--ss-media-offset,0px)) scale(1.035)}
+}
+@media(prefers-reduced-motion:reduce){
+ .scroll-scrub__poster,.scroll-scrub__video{transform:none;transition:none}
 }
