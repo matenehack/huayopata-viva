@@ -3,7 +3,7 @@ import { createElement } from "react";
 import {Bike,Bird,ArrowUpRight} from "lucide-react";
 import type { ScrollScrubScene, ScrollScrubTheme } from "@/components/scroll-scrub/scroll-scrub";
 export const scrollScrubTheme: ScrollScrubTheme = { accent:"#D7F36B", background:"#062F26", ink:"#F4F0D8", muted:"#DDE7DF" };
-const explore = (path: string, label: string) => createElement("a", { href: sitePath(`/descubre/${path}`), className: "hv-story-button" }, label, " ↗");
+const explore = (path: string, label: string) => createElement("a", { href: sitePath(`/descubre/${path}`), className: "hv-story-button" }, label, createElement("span", {className:"hv-action-arrow", "aria-hidden":true}, "↗"));
 const valleyActions=createElement("div",{className:"hv-valley-actions"},
  createElement("a",{href:sitePath("/descubre/comunidades/#ciclismo")},createElement(Bike,{size:18,"aria-hidden":true}),"Descenso en bicicleta",createElement(ArrowUpRight,{size:16,"aria-hidden":true})),
  createElement("a",{href:sitePath("/descubre/comunidades/#aves")},createElement(Bird,{size:18,"aria-hidden":true}),"Observación de aves",createElement(ArrowUpRight,{size:16,"aria-hidden":true}))

@@ -1,0 +1,24 @@
+/* One clear response per action, shared by the cinematic and practical sections. */
+.hv-site .hv-story-button{gap:10px;box-shadow:0 6px 20px #001c1926;transition:background 180ms ease,box-shadow 180ms ease,transform 180ms ease}
+.hv-action-arrow{display:inline-block;transition:transform 180ms ease}
+.hv-site .hv-story-button:active{transform:translateY(1px);box-shadow:0 2px 8px #001c1926}
+.hv-site .hv-story-button:focus-visible{outline:3px solid #f4f0d8;outline-offset:5px;box-shadow:0 0 0 2px #123c30}
+.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card{transition:color 180ms ease,background 180ms ease}
+.hv-site .hv-story-index .hv-discovery-card>svg{flex-shrink:0;transition:transform 180ms ease}
+.hv-site .hv-story-index .hv-discovery-card:focus-visible{outline:3px solid #87513b;outline-offset:5px;background:#e9e5d5}
+.hv-site .hv-story-index .hv-discovery-card:active{background:#e2e8d7}
+.hv-site .hv-planning-unified .hv-planning-panel>summary{transition:background 180ms ease,color 180ms ease}
+.hv-site .hv-planning-unified .hv-planning-panel[open]>summary{background:#e2e8d7}
+.hv-site .hv-planning-unified .hv-planning-panel>summary:focus-visible{outline:3px solid #87513b;outline-offset:3px}
+.hv-site .hv-planning-unified .hv-planning-panel>summary:active{background:#d7dfca}
+@media(hover:hover) and (pointer:fine){
+ .hv-site .hv-story-button:hover{transform:translateY(-2px);background:#f4f0d8;box-shadow:0 9px 24px #001c1933}
+ .hv-story-button:hover .hv-action-arrow{transform:translate(3px,-2px)}
+ .hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card:hover{color:#87513b;background:#ede7d6}
+ .hv-site .hv-story-index .hv-discovery-card:hover>svg{transform:translate(3px,-2px)}
+}
+@media(hover:none){.hv-site .hv-story-button:hover{transform:none;box-shadow:0 6px 20px #001c1926;background:var(--hv-sun)}}
+@media(prefers-reduced-motion:reduce){
+ .hv-site .hv-story-button,.hv-action-arrow,.hv-site .hv-story-index .hv-discovery-card,.hv-site .hv-story-index .hv-discovery-card>svg,.hv-site .hv-planning-unified .hv-planning-panel>summary{transition:none}
+ .hv-site .hv-story-button:hover,.hv-story-button:hover .hv-action-arrow,.hv-site .hv-story-index .hv-discovery-card:hover>svg{transform:none}
+}
