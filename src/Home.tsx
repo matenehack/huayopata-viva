@@ -34,7 +34,7 @@ useEffect(() => {
 return <main className="hv-site"><IntroShieldCurtain/><a className="hv-skip-link" href="#mapa">Ir al mapa y servicios</a>
 <SiteHeader/>
 <div id="inicio"><ScrollScrub scenes={scrollScrubScenes} theme={scrollScrubTheme}/></div>
-<section className="hv-manifesto hv-manifesto-impact" aria-labelledby="manifesto-title"><p className="hv-index">HUAYOPATA · CUSCO</p><h2 id="manifesto-title">Donde los Andes<br/><em>se vuelven valle.</em></h2><p>En pocos kilómetros, la altura se convierte en bosque de nubes, cultivos y vida local. Descubre el territorio desde sus propias historias.</p></section>
+
 <section id="descubre" className="hv-discovery" aria-labelledby="gallery-title"><LocalGallery/><details className="hv-landscape-reading"><summary>Leer el paisaje: bosque, agua y aventura <span aria-hidden="true">+</span></summary><NatureSection/></details></section>
 <RouteExplorer/>
 <UpcomingCalendar/>

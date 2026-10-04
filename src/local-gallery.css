@@ -43,3 +43,38 @@
 .hv-gallery-unavailable strong{font:34px Georgia,serif}
 .hv-gallery-unavailable button{min-height:44px;padding:10px 18px;border:1px solid #d7f36b;border-radius:999px;background:#d7f36b;color:#062f26}
 .hv-gallery-side a,.hv-gallery-feature figcaption>a{min-height:44px}
+
+/* A territorial opening with one documentary photograph and a quiet story index. */
+.hv-site .hv-discovery .hv-local-gallery{padding:clamp(90px,11vw,170px) 7% 55px;overflow:visible}
+.hv-site .hv-discovery .hv-territory-spread{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center;gap:7vw}
+.hv-site .hv-discovery .hv-territory-copy{display:block;margin:0;padding:35px 0}
+.hv-territory-copy>span{display:block;margin-bottom:30px}
+.hv-territory-copy h2{font-size:clamp(42px,5.2vw,78px);line-height:1.04;letter-spacing:-.035em}
+.hv-territory-copy h2 em{font-weight:400;color:#6f6747}
+.hv-territory-copy>p{margin-top:28px;max-width:34ch;font-size:17px;line-height:1.7}
+.hv-territory-note{border-left:1px solid #a28860;padding-left:22px;margin-top:50px;max-width:34ch}
+.hv-territory-note>span{font-size:10px;letter-spacing:.14em;color:#87513b}
+.hv-territory-note>p{font-size:13px;line-height:1.65;margin-top:12px}
+.hv-site .hv-discovery .hv-territory-spread .hv-gallery-feature{min-height:630px;margin-top:-40px;border-radius:3px}
+.hv-site .hv-discovery .hv-story-index{display:grid;grid-template-columns:1fr 2fr;grid-template-rows:auto;gap:7vw;margin-top:95px;padding-top:40px;border-top:1px solid #a6b39c;background:transparent}
+.hv-story-index>div>span{font-size:10px;letter-spacing:.16em;color:#87513b}
+.hv-story-index h3{font-size:clamp(32px,3.5vw,48px);margin:15px 0}
+.hv-site .hv-discovery .hv-story-index.hv-gallery-side nav{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.hv-site .hv-discovery .hv-story-index .hv-site .hv-discovery-card{min-height:94px;padding:18px 0;border-radius:0;background:transparent;border-bottom:1px solid #a6b39c}
+.hv-story-index .hv-site .hv-discovery-card:last-child{grid-column:1/-1}
+.hv-site .hv-discovery .hv-gallery-credit{max-width:800px;margin-top:35px}
+@media(max-width:800px){
+ .hv-site .hv-discovery .hv-local-gallery{padding:85px 6% 35px}
+ .hv-site .hv-discovery .hv-territory-spread{grid-template-columns:1fr;gap:45px}
+ .hv-site .hv-discovery .hv-territory-copy{padding:0}
+ .hv-territory-copy>p{max-width:40ch;font-size:16px}
+ .hv-territory-note{margin-top:30px}
+ .hv-site .hv-discovery .hv-territory-spread .hv-gallery-feature{margin:0 -2vw;min-height:520px}
+ .hv-site .hv-discovery .hv-story-index{grid-template-columns:1fr;margin-top:60px;gap:25px}
+ .hv-site .hv-discovery .hv-story-index.hv-gallery-side nav{gap:0 24px}
+}
+@media(max-width:450px){
+ .hv-site .hv-discovery .hv-territory-spread .hv-gallery-feature{min-height:440px}
+ .hv-site .hv-discovery .hv-story-index.hv-gallery-side nav{grid-template-columns:1fr}
+ .hv-site .hv-discovery .hv-story-index .hv-site .hv-discovery-card{min-height:84px}
+}
