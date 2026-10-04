@@ -90,14 +90,17 @@ export default function ValleyDirectory({contentRevision=0,active=true}:{content
   const marker=current?markers.current[current.id]:undefined,m=map.current;
   let cancelled=false;
   Object.entries(markers.current).forEach(([id,item])=>item.getElement()?.classList.toggle("is-active",id===current?.id));
+  m?.stop();
+  m?.closePopup();
   if(marker&&m){
    const open=()=>{if(!cancelled&&current&&markers.current[current.id]===marker){const popup=marker.getPopup();if(popup)popup.setLatLng(marker.getLatLng()).openOn(m);marker.getElement()?.classList.add("is-active")}};
    const reveal=()=>{if(!cancelled)open()};
+   m.invalidateSize({pan:false});
    m.setView(marker.getLatLng(),Math.max(m.getZoom(),17),{animate:false});
    requestAnimationFrame(reveal);
   }
   return()=>{cancelled=true};
- },[current,mapReady,mapped]);
+ },[current,mapReady,mapped,mobileView]);
  function choose(id:string){setMobileView("lugares");setCategory(id);setQuery("");setSavedOnly(false);setSelected(null);document.getElementById("resultados-servicios")?.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"})}
  function selectPlace(p:ServicePlace,trigger:HTMLButtonElement){selectionTrigger.current=trigger;setMobileView("lugares");setSelected(p);if(window.innerWidth<=760)requestAnimationFrame(()=>document.querySelector(".vd-detail")?.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth",block:"start"}))}
  function toggle(p:ServicePlace){setSaved(s=>s.includes(p.id)?s.filter(id=>id!==p.id):[...s,p.id]);setNotice(saved.includes(p.id)?"Lugar retirado de tus guardados.":"Lugar guardado en este navegador.")}
