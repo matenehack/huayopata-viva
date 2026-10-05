@@ -1,0 +1,50 @@
+{
+  "abra-malaga": {
+    "eyebrow": "GEOGRAFÍA Y CONSERVACIÓN",
+    "title": "Abra Málaga: bosques y aves",
+    "intro": "En el sector de Abra Málaga, Huayopata, se encuentra el área de conservación privada Thastayoc–Royal Cinclodes. MINCETUR registra pajonales, bosques de queuña y bosque de neblina.",
+    "passage": "La ficha turística del área describe ambientes situados entre 2 200 y 4 400 metros de altitud. Registra aves como el churrete real y el tijeral de ceja blanca. El ingreso al área de conservación requiere permiso previo de la asociación administradora."
+  },
+  "te": {
+    "eyebrow": "PRODUCCIÓN AGRÍCOLA",
+    "title": "Té de Huayopata: cultivo y elaboración",
+    "intro": "En Huyro se produce té negro y té verde. La Municipalidad Distrital de Huayopata documenta un proyecto de mejora de estos procesos en la asociación Agroindustrias Té Huyro S. A.",
+    "passage": "La resolución municipal 109-2026, publicada el 23 de junio de 2026, aprueba la liquidación de ese proyecto productivo. Para una visita, confirma con el productor qué labores de campo o elaboración estarán disponibles.",
+    "sources": [
+      {
+        "title": "Municipalidad: producción de té negro y verde en Huyro · 2026",
+        "url": "https://www.gob.pe/institucion/munihuayopata/normas-legales/8293357-109-2026-a-mdh-lc"
+      }
+    ]
+  },
+  "cafe": {
+    "eyebrow": "CULTIVO Y POSCOSECHA",
+    "title": "Café: cosecha y procesamiento",
+    "intro": "La cosecha y el procesamiento influyen en la calidad del café. Una visita a una finca permite consultar cómo se recolecta el fruto y qué método de beneficio utiliza el productor.",
+    "passage": "El INIA describe el despulpado, la fermentación, el lavado y el secado dentro del beneficio húmedo del café. Esta referencia explica el proceso agrícola; el método y las actividades disponibles en cada finca deben confirmarse con su responsable.",
+    "sources": [
+      {
+        "title": "INIA: cosecha y beneficio húmedo para cafés especiales · 2022",
+        "url": "https://repositorio.inia.gob.pe/items/e294abb4-a9bf-4774-b0be-35bba0ec6331"
+      }
+    ]
+  },
+  "wamanmarka": {
+    "eyebrow": "ARQUEOLOGÍA INCA",
+    "title": "Wamanmarka: arquitectura y administración inca",
+    "intro": "Wamanmarka se ubica en Huayopata, junto a la carretera Cusco–Quillabamba. MINCETUR lo sitúa a 11 kilómetros de Huyro y a 1 848 metros de altitud.",
+    "passage": "El inventario describe 13 recintos rectangulares distribuidos alrededor de un patio central, además de una kallanka, un ushnu y andenerías. Vincula el conjunto con la administración política y social del valle de Amaybamba."
+  },
+  "comunidades": {
+    "eyebrow": "ACTIVIDADES Y CELEBRACIONES",
+    "title": "Comunidades y celebraciones de Huayopata",
+    "intro": "El calendario del distrito reúne fiestas religiosas, ferias y actividades culturales. Sus fichas distinguen las tradiciones documentadas de los programas confirmados para cada año.",
+    "passage": "MINCETUR registra Huamanmarca Raymi en el sitio arqueológico de Wamanmarka. Consulta la ficha de la celebración y el programa del organizador antes de fijar la fecha de tu visita.",
+    "sources": [
+      {
+        "title": "MINCETUR: Huamanmarca Raymi",
+        "url": "https://consultasenlinea.mincetur.gob.pe/fichaInventario/index.aspx?cod_Ficha=12953"
+      }
+    ]
+  }
+}

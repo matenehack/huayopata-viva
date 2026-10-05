@@ -1,0 +1,10 @@
+/* Readable editorial destinations and explicit source links. */
+.hv-story-page .hv-story-hero a,.hv-story-page .hv-story-visit>div>a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;max-width:100%;padding:13px 20px;border-radius:14px;background:#f4f0d8;color:#123c30;border:1px solid #d5ddc8;font:650 14px/1.5 Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 3px 10px #001c1920;transition:transform .18s,box-shadow .18s}
+.hv-story-page .hv-story-toc a{min-height:48px;padding:14px 8px;text-underline-offset:7px}
+.hv-story-page .hv-story-footer>div>a{display:block;padding:12px 0;border-bottom:1px solid #ffffff35;text-decoration:underline;text-underline-offset:5px;font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+.hv-story-page .hv-story-next a{border-radius:12px;overflow:hidden;transition:box-shadow .18s,transform .18s}
+.hv-story-page :is(a,button,summary):focus-visible{outline:3px solid #b88a45;outline-offset:4px}
+@media(hover:hover){.hv-story-page .hv-story-next a:hover{transform:translateY(-2px);box-shadow:0 6px 20px #001c1929}.hv-story-page .hv-story-hero a:hover,.hv-story-page .hv-story-visit>div>a:hover{box-shadow:0 5px 16px #001c1933}.hv-story-page .hv-story-footer a:hover{text-decoration-thickness:2px}}
+.hv-story-page .hv-story-hero a:active,.hv-story-page .hv-story-visit>div>a:active{transform:scale(.97)}
+@media(max-width:600px){.hv-story-page .hv-story-toc{gap:12px}.hv-story-page .hv-story-toc a{font-size:12px;white-space:nowrap}.hv-story-page .hv-story-hero h1{font-size:clamp(34px,9vw,54px);overflow-wrap:break-word}}
+@media(prefers-reduced-motion:reduce){.hv-story-page a{transition:none!important;transform:none!important}}
