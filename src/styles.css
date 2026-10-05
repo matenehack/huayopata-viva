@@ -38,7 +38,7 @@ html{scroll-behavior:smooth;background:var(--hv-forest)}body{margin:0;background
 
 .hv-optional-tools{background:#f5f1e6;color:#203d31;padding:0 max(24px,6vw) 42px}.hv-optional-tools>summary{padding:24px 0;border-top:1px solid #bdc7ac;font:28px Georgia;cursor:pointer}.hv-optional-tools>summary span{font:13px system-ui;display:block;margin-top:10px}.hv-optional-tools .hv-tools{padding-left:0;padding-right:0}.hv-nav a{transition:color .2s,opacity .2s}.hv-nav a:hover{color:#d7f36b}
 
-.hv-nav{background:rgba(4,29,23,.96)!important;backdrop-filter:blur(12px)}
+.hv-nav{background:rgba(4,29,23,.96);backdrop-filter:blur(12px)}
 
 /* MVP municipal refinement */
 .hv-discovery-grid{grid-template-columns:1.35fr 1fr 1fr}
