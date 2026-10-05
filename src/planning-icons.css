@@ -1,0 +1,8 @@
+.hv-planning-illustration{display:block;flex:0 0 58px;width:58px;height:58px;margin-left:auto;filter:drop-shadow(0 3px 2px #244d4314);transition:transform 220ms ease}
+.hv-planning-illustration svg{display:block;width:100%;height:100%}
+.hv-site .hv-planning-unified .hv-planning-panel>summary{gap:20px}
+.hv-planning-panel>summary>.hv-planning-illustration+svg{width:18px;height:18px}
+@media(hover:hover){.hv-planning-panel>summary:hover .hv-planning-illustration{transform:translateY(-2px)}}
+@media(max-width:600px){.hv-planning-illustration{flex-basis:42px;width:42px;height:42px}.hv-site .hv-planning-unified .hv-planning-panel>summary{gap:10px}.hv-planning-panel>summary strong{font-size:clamp(23px,6vw,32px)}.hv-planning-panel>summary>.hv-planning-number{min-width:20px}}
+@media(prefers-reduced-motion:reduce){.hv-planning-illustration{transition:none;transform:none!important}}
+@media(forced-colors:active){.hv-planning-illustration{filter:none}.hv-planning-illustration svg g{stroke:CanvasText}}
