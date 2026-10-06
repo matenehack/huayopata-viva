@@ -10,9 +10,9 @@ Ambas piezas sustituyen las imágenes estáticas repetidas del explorador de eta
 ## Fotografías verificadas, pendientes de incorporación
 
 - Nevado Verónica. Munihuayopata. Publicación 21/09/2015, EXIF 26/05/2012. https://commons.wikimedia.org/wiki/File:NEVADO_LA_VERONICA.jpg. CC BY-SA 4.0.
-- Wamanmarka, vista del conjunto distinta de la portada. Munihuayopata. Publicación 21/09/2015, EXIF 07/05/2014. https://commons.wikimedia.org/wiki/File:HUAMANMARCA.jpg. CC BY-SA 4.0.
+- Wamanmarka: incorporada el 06/10/2026 mediante descarga del original y archivos estáticos del repositorio. Ver chapter-complements.md.
 
-La descarga desde el entorno de trabajo respondió 403. La revisión automática rechazó desplegar un importador temporal con permisos de escritura elevados en Supabase. No se publicó la función ni se alteraron permisos/RLS. Estos archivos NO se incorporaron; no mostrarlos como entregados.
+La descarga desde el entorno de trabajo respondió 403. La revisión automática rechazó desplegar un importador temporal con permisos de escritura elevados en Supabase. No se publicó la función ni se alteraron permisos/RLS. En esa etapa no se incorporaron. La incorporación posterior de Wamanmarka se documenta arriba; Verónica sigue pendiente.
 
 ## Material local encontrado; pedir licencia y originales
 
