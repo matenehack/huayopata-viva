@@ -1,0 +1,12 @@
+/* Un único revelado recto en la fotografía; lectura y controles estables. */
+.hv-heritage-explore{background:linear-gradient(180deg,#43382e 0%,#30362e 36%,#252f2a 100%)}
+.hv-heritage-explore :is(.hv-editorial-heading,.hv-heritage-reading){opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
+.hv-heritage-explore .hv-chapter-photo{border-radius:4px;outline:1px solid #d5c4a452;outline-offset:8px}
+.hv-heritage-explore .hv-chapter-photo:focus-visible{outline:3px solid #e4bb77;outline-offset:8px}
+.hv-heritage-explore .hv-chapter-complement-copy>span{color:#e4c79a}
+.hv-heritage-explore .hv-heritage-reading button{min-height:56px;border-color:#d5c4a447}
+@media(prefers-reduced-motion:no-preference){
+ .hv-heritage-explore .hv-chapter-photo.is-stone-entering img{animation:hv-stone-entry 900ms cubic-bezier(.22,.61,.36,1) both}
+}
+@keyframes hv-stone-entry{from{clip-path:inset(0 0 12% 0);opacity:.65}to{clip-path:inset(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){.hv-heritage-explore .hv-chapter-photo img{animation:none!important;clip-path:none!important}}
