@@ -1,0 +1,13 @@
+.hv-process-explorer .hv-editorial-heading{display:grid;grid-template-columns:minmax(0,780px) 150px;align-items:center;gap:clamp(24px,5vw,80px);max-width:none}
+.hv-process-intro>span{font-size:11px;letter-spacing:.15em;font-weight:700}
+.hv-botanical-trace{display:block;width:150px;height:210px;color:#446444;opacity:.65;pointer-events:none;justify-self:end}
+.is-coffee .hv-botanical-trace{color:#d6aa78;opacity:.8}
+.hv-botanical-trace path{fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+@media(prefers-reduced-motion:no-preference){.hv-botanical-trace.is-drawing path{stroke-dasharray:1;animation:hv-botanical-draw 1400ms cubic-bezier(.22,.61,.36,1) both}}
+@keyframes hv-botanical-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+/* El trazo es el único movimiento decorativo del bloque. */
+.hv-process-explorer :is(.hv-editorial-heading,.hv-process-layout){opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
+.hv-process-explorer .hv-process-panel article{animation:none}
+@media(max-width:760px){.hv-process-explorer .hv-editorial-heading{grid-template-columns:minmax(0,1fr) 64px;gap:14px;align-items:start}.hv-botanical-trace{width:64px;height:100px;margin-top:8px}.hv-process-explorer .hv-editorial-heading h2{font-size:clamp(30px,7vw,48px)}.hv-process-explorer .hv-editorial-heading p{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.hv-botanical-trace path{animation:none!important;stroke-dasharray:none;stroke-dashoffset:0}}
+.hv-process-explorer:focus-within .hv-botanical-trace path{animation:none!important;stroke-dasharray:none;stroke-dashoffset:0}

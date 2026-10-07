@@ -18,3 +18,8 @@ Verificación de esta entrega: TypeScript, build y test:calendar. Revisar la gu�
 
 ## Paso 2 · Entrada conjunta de fauna y flora (7 de octubre de 2026)
 Las dos fotografías entran con el mismo disparador y duración (850 ms), mediante una máscara inferior curva que se abre y una variación suave de opacidad. No hay movimiento de texto, pies de foto, controles, zoom ni carrusel. Se ejecuta una sola vez por montaje del capítulo, sin reactivarse al subir y bajar. El grupo es visible por defecto: sin IntersectionObserver o con movimiento reducido permanece estático. El foco de teclado o el cambio a otra pestaña cancela el efecto y muestra el conjunto completo. No se incorporan archivos multimedia ni librerías adicionales. Se conservan el visor y los créditos.
+
+## Paso 3 · Té y café (7 de octubre de 2026)
+Dos ilustraciones SVG editoriales diferenciadas: brote con hojas para té y rama con frutos para café. Se ubican junto al encabezado del explorador de etapas, fuera de los documentales. Son decorativas, ocultas a tecnologías de asistencia y no pretenden identificar especies o variedades. Un solo trazo animado durante 1,4 segundos, al entrar en pantalla, una vez por montaje. Se retiran los revelados del encabezado y del conjunto de etapas y la entrada animada del panel, para mantener una jerarquía de movimiento única. Las operaciones de botones conservan su respuesta visual.
+
+Movimiento reducido, falta de IntersectionObserver, foco de teclado o interacción con el bloque muestran el trazo completo. No hay animación en bucle, zoom, reproducción automática añadida, librerías nuevas ni imágenes descargadas. Rutas provisionales, Supabase y calendario quedan fuera de este cambio.
