@@ -1,0 +1,16 @@
+/* Paso 1: montaña → bosque. Una sola capa decorativa; lectura estable. */
+.hv-topic-abra-malaga .hv-altitude{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(180deg,#dbe3e2 0%,#d4dfd8 48%,#c6d6c8 100%);color:#193e32}
+.hv-topic-abra-malaga .hv-altitude::before{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background:radial-gradient(ellipse at 20% 15%,#fff9,transparent 65%);opacity:.18}
+.hv-topic-abra-malaga .hv-biodiversity{background:linear-gradient(180deg,#c6d6c8 0%,#e7e8db 32%,#eeeadd 100%)}
+/* El vídeo de portada conserva el movimiento principal. No se animan
+   por separado títulos, columnas, tarjetas o fotos en este primer tramo. */
+.hv-topic-abra-malaga :is(.hv-story-intro,.hv-altitude [data-reveal],.hv-nature [data-reveal]){opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
+.hv-topic-abra-malaga .hv-wildlife-open img{transition:none;transform:none}
+@supports (animation-timeline:view()){
+ @media(prefers-reduced-motion:no-preference){
+  .hv-topic-abra-malaga .hv-altitude{view-timeline-name:--mountain-descent;view-timeline-axis:block}
+  .hv-topic-abra-malaga .hv-altitude::before{animation:hv-mountain-mist linear both;animation-timeline:--mountain-descent;animation-range:entry 0% exit 70%}
+ }
+}
+@keyframes hv-mountain-mist{from{opacity:.3;transform:translateY(-16px)}to{opacity:0;transform:translateY(16px)}}
+@media(prefers-reduced-motion:reduce){.hv-topic-abra-malaga .hv-altitude::before{animation:none;transform:none;opacity:.12}}

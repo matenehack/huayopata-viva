@@ -10,6 +10,7 @@ import './interaction-refinement.css';
 import './territorial-palette.css';
 import './tactile-controls.css';
 import './cultural-controls.css';
+import './mountain-descent.css';
 const base=import.meta.env.BASE_URL;
 const path=decodeURIComponent(location.pathname.slice(base.length)).replace(/\/$/,'');
 function App(){
