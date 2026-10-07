@@ -15,3 +15,6 @@
 5. Planifica: estabilizar la interfaz y retirar efectos decorativos.
 
 Verificación de esta entrega: TypeScript, build y test:calendar. Revisar la guía pública tras GitHub Actions. No se afirma una auditoría completa de cinco anchos de pantalla.
+
+## Paso 2 · Entrada conjunta de fauna y flora (7 de octubre de 2026)
+Las dos fotografías entran con el mismo disparador y duración (850 ms), mediante una máscara inferior curva que se abre y una variación suave de opacidad. No hay movimiento de texto, pies de foto, controles, zoom ni carrusel. Se ejecuta una sola vez por montaje del capítulo, sin reactivarse al subir y bajar. El grupo es visible por defecto: sin IntersectionObserver o con movimiento reducido permanece estático. El foco de teclado o el cambio a otra pestaña cancela el efecto y muestra el conjunto completo. No se incorporan archivos multimedia ni librerías adicionales. Se conservan el visor y los créditos.

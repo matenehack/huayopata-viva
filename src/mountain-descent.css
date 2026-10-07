@@ -14,3 +14,11 @@
 }
 @keyframes hv-mountain-mist{from{opacity:.3;transform:translateY(-16px)}to{opacity:0;transform:translateY(16px)}}
 @media(prefers-reduced-motion:reduce){.hv-topic-abra-malaga .hv-altitude::before{animation:none;transform:none;opacity:.12}}
+/* Paso 2: ambas fotografías comparten disparador y ritmo, sin escalonar
+   tarjetas ni animar pies, títulos o botones. El contenido es visible por defecto. */
+@media(prefers-reduced-motion:no-preference){
+ .hv-topic-abra-malaga .hv-biodiversity-grid.hv-forest-entering .hv-wildlife-open img{animation:hv-forest-arrival 850ms cubic-bezier(.22,.61,.36,1) both}
+}
+@keyframes hv-forest-arrival{from{opacity:.65;clip-path:inset(0 0 7% 0 round 0 0 12% 8%)}to{opacity:1;clip-path:inset(0 0 0 0 round 0)}}
+@media(prefers-reduced-motion:reduce){.hv-topic-abra-malaga .hv-biodiversity-grid .hv-wildlife-open img{animation:none!important;clip-path:none;opacity:1}}
+.hv-topic-abra-malaga .hv-biodiversity-grid:focus-within .hv-wildlife-open img{animation:none!important;clip-path:none;opacity:1}

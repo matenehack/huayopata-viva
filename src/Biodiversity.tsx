@@ -1,4 +1,4 @@
-import {useRef,useState} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import {Expand,X} from 'lucide-react';
 import {sitePath} from './lib/site';
 import './biodiversity.css';
@@ -16,4 +16,26 @@ export function WildlifePhoto({id}:{id:keyof typeof photos}){
  <dialog ref={dialog} className="hv-wildlife-dialog" aria-label={`Fotografía de ${p.species}`}><button autoFocus onClick={()=>dialog.current?.close()} aria-label="Cerrar fotografía"><X/></button><img loading="lazy" decoding="async" src={src(1280)} alt={p.alt} width={p.width} height={p.height}/><p><i>{p.species}</i> · Abra Málaga<br/>{p.author} · {p.license}</p></dialog>
  </figure>
 }
-export default function Biodiversity(){return <section className="hv-biodiversity" id="biodiversidad" aria-labelledby="biodiversity-title"><header><span>FLORA Y FAUNA · ABRA MÁLAGA</span><h2 id="biodiversity-title">Observar de cerca.<br/><em>Mantener la distancia.</em></h2><p>Dos registros fotográficos del paso de Abra Málaga. Cada imagen conserva su lugar, fecha y autor; no representa un avistamiento garantizado durante la visita.</p></header><div className="hv-biodiversity-grid"><WildlifePhoto id="cinclodes"/><WildlifePhoto id="ourisia"/></div><p className="hv-biodiversity-note">Observa desde los senderos autorizados. No recolectes plantas ni alimentes aves. Confirma el acceso con responsables locales antes de salir.</p></section>}
+export default function Biodiversity(){
+ const group=useRef<HTMLDivElement>(null);
+ useEffect(()=>{
+  const node=group.current;
+  if(!node||!('IntersectionObserver' in window))return;
+  const preference=window.matchMedia('(prefers-reduced-motion: reduce)');
+  let observer:IntersectionObserver|undefined;
+  let finished=false;
+  const finish=()=>{finished=true;node.classList.remove('hv-forest-entering');observer?.disconnect()};
+  const start=()=>{
+   if(finished||preference.matches||document.hidden)return;
+   node.classList.add('hv-forest-entering');observer?.disconnect();
+  };
+  const visibility=()=>{if(document.hidden)finish()};
+  const preferenceChanged=()=>{if(preference.matches)finish()};
+  if(!preference.matches){observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting))start()},{rootMargin:'0px 0px -8% 0px',threshold:0});observer.observe(node)}
+  node.addEventListener('animationend',finish);
+  node.addEventListener('focusin',finish);
+  preference.addEventListener('change',preferenceChanged);
+  document.addEventListener('visibilitychange',visibility);
+  return()=>{observer?.disconnect();node.classList.remove('hv-forest-entering');node.removeEventListener('animationend',finish);node.removeEventListener('focusin',finish);preference.removeEventListener('change',preferenceChanged);document.removeEventListener('visibilitychange',visibility)};
+ },[]);
+ return <section className="hv-biodiversity" id="biodiversidad" aria-labelledby="biodiversity-title"><header><span>FLORA Y FAUNA · ABRA MÁLAGA</span><h2 id="biodiversity-title">Observar de cerca.<br/><em>Mantener la distancia.</em></h2><p>Dos registros fotográficos del paso de Abra Málaga. Cada imagen conserva su lugar, fecha y autor; no representa un avistamiento garantizado durante la visita.</p></header><div ref={group} className="hv-biodiversity-grid"><WildlifePhoto id="cinclodes"/><WildlifePhoto id="ourisia"/></div><p className="hv-biodiversity-note">Observa desde los senderos autorizados. No recolectes plantas ni alimentes aves. Confirma el acceso con responsables locales antes de salir.</p></section>}
