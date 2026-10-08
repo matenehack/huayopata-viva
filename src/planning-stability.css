@@ -1,0 +1,10 @@
+/* La consulta práctica se mantiene estable; color y foco siguen respondiendo. */
+#planifica [data-reveal]{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
+#planifica .hv-planning-illustration{transform:none!important;transition:none!important}
+#planifica :is(.vd-result,.vd-useful>button,.vd-category,.vd-primary,.vd-list-icon){transform:none!important;transition:background-color 150ms ease,border-color 150ms ease,color 150ms ease!important}
+#planifica .vd-pin-wrap .vd-pin{transform:none!important;transition:background-color 150ms ease!important}
+#planifica .vd-pin svg{transform:none!important}
+#planifica .vd-pin-wrap.is-active .vd-pin{outline:3px solid #9c6238;outline-offset:3px}
+#planifica .vd-pin-wrap:hover .vd-pin{background:#70422f}
+#planifica .hv-planning-panel>summary:focus-visible{outline:3px solid #9c6238;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){#planifica *{transition:none!important}}

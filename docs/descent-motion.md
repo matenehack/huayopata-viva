@@ -29,3 +29,6 @@ Transición cromática entre tierra y piedra, con marco fino en la fotografía m
 
 ## Paso 5 · Comunidades y calendario (7 de octubre de 2026, Perú)
 La guía conecta el archivo de Huyro con el calendario dinámico compartido. Se reemplaza el bloque aislado de Huamanmarca Raymi por dos próximas fechas, con enlaces a sus fichas, estados anuales y respaldo existente. No se añaden fotografías sin permiso ni anuncios de programas futuros. El archivo histórico se identifica como imagen del lugar. Una entrada breve de esa fotografía, una vez por montaje; textos y controles estables. Foco, interacción, pestaña oculta y movimiento reducido cancelan el efecto. Portada conserva sus dos eventos editoriales, sin duplicar implementación. No se modifican datos, Supabase, rutas ni vídeos.
+
+## Paso 6 · Planifica (7 de octubre de 2026, Perú)
+Se conserva la estructura ya unificada de guía, mapa y FAQ. Se retiran revelados, desplazamientos decorativos de iconos, tarjetas y marcadores, manteniendo colores, foco y estados activos. El mapa actualiza agrupaciones y ubicación sin animación de vuelo. Se preservan carga diferida, recuperación, favoritos, filtros y emergencias. No se alteran datos ni rutas de 1/2/3 días.
