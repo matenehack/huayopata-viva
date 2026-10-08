@@ -28,3 +28,21 @@
 
 .hv-global-nav .hv-global-links{gap:clamp(13px,1.7vw,27px)}
 @media(min-width:851px) and (max-width:1150px){.hv-global-nav .hv-global-links{gap:9px}}
+
+/* Descubre: flecha precisa y entrada secuencial de las historias. */
+.hv-story-menu .hv-discovery-chevron{display:block;transition:transform 240ms cubic-bezier(.2,.8,.2,1)}
+.hv-story-menu[open] .hv-discovery-chevron{transform:rotate(180deg)}
+.hv-global-nav .hv-story-menu>nav{transform-origin:top center;animation:hv-discovery-panel 240ms ease-out both}
+.hv-story-menu[open] nav>a{animation:hv-discovery-item 300ms cubic-bezier(.2,.8,.2,1) both}
+.hv-story-menu[open] nav>a:nth-of-type(2){animation-delay:45ms}
+.hv-story-menu[open] nav>a:nth-of-type(3){animation-delay:90ms}
+.hv-story-menu[open] nav>a:nth-of-type(4){animation-delay:135ms}
+.hv-story-menu[open] nav>a:nth-of-type(5){animation-delay:180ms}
+.hv-mobile-group[open] .hv-global-sub>a{animation:hv-discovery-item 300ms ease-out both}
+.hv-mobile-group[open] .hv-global-sub>a:nth-child(2){animation-delay:45ms}
+.hv-mobile-group[open] .hv-global-sub>a:nth-child(3){animation-delay:90ms}
+.hv-mobile-group[open] .hv-global-sub>a:nth-child(4){animation-delay:135ms}
+.hv-mobile-group[open] .hv-global-sub>a:nth-child(5){animation-delay:180ms}
+@keyframes hv-discovery-panel{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes hv-discovery-item{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.hv-story-menu .hv-discovery-chevron{transition:none}.hv-global-nav .hv-story-menu>nav,.hv-story-menu[open] nav>a,.hv-mobile-group[open] .hv-global-sub>a{animation:none}}
