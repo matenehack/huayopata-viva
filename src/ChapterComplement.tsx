@@ -11,14 +11,14 @@ export default function ChapterComplement({tema}:{tema:keyof typeof records}){
  const p=records[tema],modal=useRef<HTMLDialogElement>(null),[failed,setFailed]=useState(false);
  const photo=useRef<HTMLButtonElement>(null);
  useEffect(()=>{
-  const node=photo.current;if(tema!=='wamanmarka'||!node)return;
+  const node=photo.current;if(!node)return;
   const preference=window.matchMedia('(prefers-reduced-motion: reduce)');
   let observer:IntersectionObserver|undefined;
-  const finish=()=>{node.classList.remove('is-stone-entering');observer?.disconnect()};
+  const finish=()=>{node.classList.remove('is-stone-entering','is-community-entering');observer?.disconnect()};
   const change=()=>{if(preference.matches)finish()};
   const hidden=()=>{if(document.hidden)finish()};
   if(!preference.matches&&'IntersectionObserver' in window){
-   observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){node.classList.add('is-stone-entering');observer?.disconnect()}},{threshold:.2});observer.observe(node);
+   observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){node.classList.add(tema==='wamanmarka'?'is-stone-entering':'is-community-entering');observer?.disconnect()}},{threshold:.2});observer.observe(node);
   }
   node.addEventListener('animationend',finish);node.addEventListener('focus',finish);node.addEventListener('pointerdown',finish);
   preference.addEventListener('change',change);document.addEventListener('visibilitychange',hidden);

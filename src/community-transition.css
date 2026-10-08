@@ -1,0 +1,12 @@
+.hv-topic-comunidades .hv-community-editorial{background:#e5dcc6;color:#193e32;padding-bottom:clamp(36px,5vw,72px)}
+.hv-topic-comunidades .hv-community-editorial [data-reveal]{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
+.hv-topic-comunidades .hv-community-grid article{background:transparent;border-top:1px solid #193e3233;border-radius:0;padding-left:0;padding-right:24px}
+.hv-topic-comunidades .hv-community-grid article>svg{color:#95572f}
+.hv-community-calendar{background:linear-gradient(#e5dcc6,#f4f0d8)}
+.hv-community-calendar .cal-upcoming{padding-top:clamp(36px,5vw,72px)}
+.hv-community-calendar .cal-section-heading{border-top:1px solid #193e3233;padding-top:clamp(32px,5vw,64px)}
+.hv-community-calendar .hv-event-edition{animation:none!important}
+@media(prefers-reduced-motion:no-preference){.hv-topic-comunidades .hv-chapter-photo.is-community-entering img{animation:hv-community-photo 850ms ease-out both}}
+@keyframes hv-community-photo{from{opacity:.65;clip-path:inset(0 0 8% 0 round 4px)}to{opacity:1;clip-path:inset(0 round 4px)}}
+@media(prefers-reduced-motion:reduce){.hv-topic-comunidades .hv-chapter-photo img{animation:none!important;clip-path:none!important}}
+@media(max-width:760px){.hv-topic-comunidades .hv-community-grid article{padding:24px 0}.hv-community-calendar .cal-section-heading{gap:24px}}

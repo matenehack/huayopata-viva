@@ -26,3 +26,6 @@ Movimiento reducido, falta de IntersectionObserver, foco de teclado o interacci�
 
 ## Paso 4 · Wamanmarka (7 de octubre de 2026)
 Transición cromática entre tierra y piedra, con marco fino en la fotografía municipal existente. Un único revelado recto de la fotografía durante 900 ms, una vez al entrar en pantalla. Sin zoom, parallax ni desplazamiento del texto. Encabezado y selector de elementos estables. Reduced motion, foco, interacción y pestaña oculta cancelan el efecto; sin IntersectionObserver la fotografía sigue visible. Se conserva el visor, Escape, fuentes y archivo original. No se alteran vídeos, datos arqueológicos, rutas provisionales ni Supabase.
+
+## Paso 5 · Comunidades y calendario (7 de octubre de 2026, Perú)
+La guía conecta el archivo de Huyro con el calendario dinámico compartido. Se reemplaza el bloque aislado de Huamanmarca Raymi por dos próximas fechas, con enlaces a sus fichas, estados anuales y respaldo existente. No se añaden fotografías sin permiso ni anuncios de programas futuros. El archivo histórico se identifica como imagen del lugar. Una entrada breve de esa fotografía, una vez por montaje; textos y controles estables. Foco, interacción, pestaña oculta y movimiento reducido cancelan el efecto. Portada conserva sus dos eventos editoriales, sin duplicar implementación. No se modifican datos, Supabase, rutas ni vídeos.
