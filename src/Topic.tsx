@@ -87,11 +87,11 @@ export default function TopicPage({tema}:{tema:string}) {
   const topic = topics[tema];
   if (!topic) return <main className="hv-story-page hv-story-missing"><a href={sitePath("/")}>← Volver a Huayopata Viva</a><h1>Esta historia aún no está disponible.</h1></main>;
   return <main className={"hv-story-page hv-topic-"+tema}>
-    <SiteHeader section="stories"/><a className="hv-story-back" href={sitePath(`/#${chapterIds[tema]}`)}>← Volver al recorrido cinematográfico</a>
+    <SiteHeader section="stories"/>
     <section className="hv-story-hero" style={{ backgroundImage: `url('${topicImage(tema)}')` }} aria-labelledby="story-title">
       <div><span>{topic.number} · {topic.eyebrow}</span><h1 id="story-title">{topic.title}</h1><p>{topic.intro}</p><a href="#historia">Consultar información ↓</a></div>
     </section>
-    <nav className="hv-story-toc" aria-label="Contenido de esta historia"><a href="#historia">Datos del lugar</a><a href="#experiencias">Actividades</a><a href="#visita">Antes de ir</a></nav>
+    <nav className="hv-story-toc" aria-label="Contenido de esta historia"><a className="hv-return-button" href={sitePath(`/#${chapterIds[tema]}`)} aria-label="Regresar al capítulo en la portada"><span aria-hidden="true">←</span> Regresar</a><a href="#historia">Datos del lugar</a><a href="#experiencias">Actividades</a><a href="#visita">Antes de ir</a></nav>
     <section className="hv-story-intro" data-reveal id="historia"><span>HUAYOPATA · CUSCO</span><p>{topic.passage}</p></section>
     <TopicExperience tema={tema}/>{tema!=='te'&&tema!=='cafe'&&<TopicFilm tema={tema}/>}
     <section className="hv-story-visit" data-reveal id="visita" aria-labelledby="visit-title"><div><span>ANTES DE IR</span><h2 id="visit-title">Prepara la visita.</h2><p>Confirma acceso, atención y condiciones del recorrido.</p><a href={sitePath(tema==="te"||tema==="cafe"?`/?tema=${tema}#mapa`:"/#mapa")}>{tema==="te"?"Consultar lugares relacionados con el té":tema==="cafe"?"Consultar lugares relacionados con el café":"Ver mapa y servicios"} ↗</a></div><ul>{topic.visit.map(item => <li key={item}>{item}</li>)}</ul></section>

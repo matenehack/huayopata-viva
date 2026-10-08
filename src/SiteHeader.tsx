@@ -3,6 +3,7 @@ import {sitePath} from './lib/site';
 import './site-header.css';
 import './visual-cleanup.css';
 import './editorial-refinement.css';
+import './control-layout.css';
 type Section='home'|'stories'|'calendar';
 const stories=[['abra-malaga','Abra Málaga'],['te','Té'],['cafe','Café'],['wamanmarka','Wamanmarka'],['comunidades','Comunidades']];
 export default function SiteHeader({section='home'}:{section?:Section}){
