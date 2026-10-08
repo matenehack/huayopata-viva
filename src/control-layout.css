@@ -2,6 +2,7 @@
 .hv-site .scroll-scrub__route{top:auto!important;bottom:24px;left:50%;right:auto;transform:translateX(-50%);justify-content:center;gap:4px;width:max-content;max-width:calc(100% - 32px);padding:6px;background:#062f26ed;border:1px solid #ffffff35;border-radius:18px;box-shadow:0 8px 28px #0003}
 .hv-site .scroll-scrub__route-button{white-space:nowrap;background:transparent;border-color:transparent;border-radius:12px;padding:11px 16px;font-size:13px;font-weight:650;transition:background 180ms ease,color 180ms ease,transform 120ms ease}
 .hv-site .scroll-scrub__route-button:active{transform:scale(.96)}
+.hv-site .scroll-scrub__route-button:focus-visible{outline:3px solid #f4f0d8;outline-offset:2px}
 .hv-site .scroll-scrub__chapter-pin{padding-top:110px;padding-bottom:110px}
 .hv-site .scroll-scrub__copy{width:min(560px,48vw)}
 .hv-site .scroll-scrub__title{font-size:clamp(38px,5vw,72px);line-height:1.06;max-width:13ch;text-wrap:balance}
