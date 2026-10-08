@@ -20,3 +20,119 @@
 .hv-arrival-grid a:active,.hv-nature-grid article>a:active,.hv-story-page .hv-process-tabs button:active,.hv-story-page .hv-process-next:active,.hv-site .hv-valley-actions a:active,.cal-site .cal-info-card .cal-editorial-link:active{transform:scale(.97)}
 @media(max-width:600px){.hv-site .hv-planning-unified .hv-planning-panel>summary{padding:18px 12px;gap:9px}.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card{padding:15px 12px;gap:12px}.hv-topic-emblem{flex-basis:42px;width:42px;height:42px}.hv-discovery-card>.hv-topic-label strong{font-size:22px}}
 @media(prefers-reduced-motion:reduce){.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card,.hv-arrival-grid a,.hv-nature-grid article>a,.hv-story-page .hv-altitude a,.hv-story-page .hv-festival>a,.hv-story-page .hv-process-tabs button,.hv-story-page .hv-process-next,.cal-site .cal-info-card .cal-editorial-link{transition:none!important;transform:none!important}}
+
+/* Full editorial finish. Explicit module scopes preserve the provisional routes. */
+.hv-site .hv-discovery .hv-local-gallery{background:#f8f4e9;padding-top:clamp(72px,8vw,120px)}
+.hv-site .hv-discovery .hv-territory-spread{gap:clamp(32px,6vw,96px)}
+.hv-site .hv-discovery .hv-territory-copy h2{font-size:clamp(38px,4.7vw,68px);letter-spacing:-.045em;line-height:1.09}
+.hv-site .hv-discovery .hv-territory-copy h2 em{color:#62714d}
+.hv-site .hv-discovery .hv-territory-copy>p{max-width:37ch;font-size:16px;line-height:1.8;color:#405b4c}
+.hv-site .hv-discovery .hv-territory-note{border-left:3px solid #ad7851;background:#ede8d8;padding:20px 24px;border-radius:0 14px 14px 0;margin-top:32px}
+.hv-site .hv-discovery .hv-territory-spread .hv-gallery-feature{border-radius:22px 22px 80px 22px;min-height:580px;margin-top:0;box-shadow:0 24px 55px #173c3017;border:0}
+.hv-site .hv-gallery-feature strong{font-size:clamp(30px,3.2vw,46px);line-height:1.12}
+.hv-site .hv-gallery-feature figcaption{padding:32px 32px 42px}
+.hv-site .hv-gallery-expand{border-radius:12px;background:#143d30ed;min-height:44px}
+.hv-site .hv-territorial-archive{padding-top:35px;border-top:1px solid #cdd2bd}
+.hv-site .hv-territorial-archive header{max-width:620px;margin-bottom:32px}
+.hv-site .hv-territorial-archive header p{font-size:15px;color:#4e6351}
+.hv-site .hv-territorial-photos{gap:24px}
+.hv-site .hv-territorial-photos figure{background:#fffdf5;border:1px solid #e3e4d5;border-radius:18px;overflow:hidden;box-shadow:0 8px 24px #173c3008}
+.hv-site .hv-territorial-photos button{border-radius:0;background:#e8eadd}
+.hv-site .hv-territorial-photos figcaption{padding:24px}
+.hv-site .hv-territorial-photos h4{font-size:29px}
+.hv-site .hv-territorial-photos small{color:#87513b;font-weight:700}
+.hv-site .hv-territorial-photos a{display:inline-flex;align-items:center;min-height:44px;color:#48604b}
+.hv-site .hv-discovery .hv-story-index{margin-top:64px;padding-top:40px;gap:4vw}
+.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card{border-radius:16px;background:#fffdf6;box-shadow:0 2px 0 #d9decf;border-color:#dce0d2;min-height:92px}
+.hv-site .hv-discovery .hv-story-index .hv-topic-emblem{border-radius:50%;background:#e7eddc}
+.hv-site .hv-discovery .hv-story-index .hv-topic-label small{color:#53634f;font-size:12px;line-height:1.5}
+.hv-site .hv-discovery .hv-gallery-credit,.hv-site .hv-archive-license{color:#5a6656;font-size:11px;line-height:1.8}
+
+/* Dates and cultural information share the same paper, ink and rhythm. */
+.hv-site .cal-upcoming{background:#f8f4e9;padding:clamp(64px,8vw,110px) 7%}
+.hv-site .cal-upcoming .hv-event-edition{border-radius:20px;min-height:320px;padding:32px;background:#e8eddd;border:1px solid #cad4bc;box-shadow:0 6px 0 #dce3d0}
+.hv-site .cal-upcoming .hv-event-edition:nth-child(2){background:#f0e4d1;border-color:#dfcdb1;box-shadow:0 6px 0 #e6d7bd}
+.hv-site .cal-upcoming .hv-event-edition>time{margin-bottom:28px;padding-bottom:25px;border-bottom:1px solid #6b805940}
+.hv-site .cal-upcoming .hv-event-edition h3{font-size:clamp(28px,3vw,42px);max-width:22ch;line-height:1.15}
+.hv-site .cal-upcoming .hv-event-edition .hv-event-arrow{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid #7a856355}
+.cal-site .cal-shell{max-width:1320px;margin-inline:auto}
+.cal-site :is(.cal-card,.cal-info-card,.cal-schools,.cal-program-pending){border-radius:18px;border:1px solid #d9ddcd;box-shadow:0 8px 24px #153d3008}
+.cal-site .cal-card{background:#fffdf6;overflow:hidden}
+.cal-site .cal-card-image{border-radius:0}
+.cal-site .cal-card-copy{padding:26px}
+.cal-site .cal-card-copy h3{line-height:1.16;letter-spacing:-.025em}
+.cal-site .cal-filters{padding:24px;background:#e9eddf;border:1px solid #d2dac6;border-radius:18px}
+.cal-site .cal-filters select,.cal-site .cal-month-nav select{background:#fffdf7;border:1px solid #adb99d;border-radius:10px;padding:12px;color:#163e30;max-width:100%}
+.cal-site .cal-month-grid{border-radius:16px;overflow:hidden;border:1px solid #d2dac6}
+.cal-site .cal-day{border-radius:0;background:#fffdf7}
+.cal-site .cal-day-selected{background:#183f32;color:#fffdf5}
+.cal-site .cal-agenda-item{border-radius:12px;padding-inline:18px;margin-bottom:8px;background:#fffdf580}
+.cal-site .cal-empty,.cal-site .cal-photo-pending{border-radius:16px;padding:28px;line-height:1.7}
+.cal-site .cal-event-main p{line-height:1.8;max-width:70ch}
+.cal-site .cal-event-main h2{letter-spacing:-.025em;line-height:1.15}
+
+/* Practical tools have calmer surfaces and clear open/closed states. */
+.hv-site .hv-planning-bridge{padding-block:clamp(65px,8vw,110px);border-top:1px solid #ffffff15}
+.hv-site .hv-planning-bridge h2{font-size:clamp(38px,5vw,68px);line-height:1.12}
+.hv-site .hv-planning-unified{background:#f0f2e8}
+.hv-site .hv-planning-unified .hv-planning-panels{border-top:0;display:grid;gap:16px}
+.hv-site .hv-planning-unified .hv-planning-panel{border:1px solid #cbd5bf;border-radius:18px;background:#fafbf5;box-shadow:0 3px 0 #dbe1d2;overflow:clip}
+.hv-site .hv-planning-unified .hv-planning-panel>summary{min-height:110px;padding:22px 26px;border-radius:17px;box-shadow:none;background:transparent;margin:0}
+.hv-site .hv-planning-unified .hv-planning-panel[open]>summary{background:#e3ead9;border-bottom:1px solid #ccd6be;border-radius:17px 17px 0 0}
+.hv-site .hv-planning-unified .hv-planning-panel>summary strong{font-size:clamp(25px,2.7vw,35px)}
+.hv-site .hv-planning-unified .hv-planning-body{padding-top:24px}
+.hv-site .hv-planning-unified .hv-arrival-grid article{padding:20px;background:transparent}
+.hv-site .hv-planning-unified .hv-arrival-grid p{line-height:1.8;color:#405b4c}
+.hv-site .hv-planning-unified .vd .vd-map{border-radius:16px}
+.hv-site .hv-planning-unified .vd :is(.vd-empty,.vd-map-error){border-radius:14px;padding:24px;line-height:1.7}
+.hv-site .hv-planning-unified .vd .vd-detail{border-radius:16px;border-color:#cbd5bf;box-shadow:0 12px 32px #173d3014}
+.hv-site .hv-planning-unified .vd .vd-search input{border-radius:12px;min-height:48px}
+
+/* Thematic guides: warmer paper, quieter navigation, stronger reading hierarchy. */
+.hv-story-page .hv-story-toc{background:#fbf8ee;border-bottom:1px solid #d2d9c6;box-shadow:0 4px 18px #183d3008}
+.hv-story-page .hv-story-toc a:not(.hv-return-button){border-radius:10px;padding:10px 14px;line-height:1.4}
+.hv-story-page .hv-story-toc a:not(.hv-return-button):hover{background:#e6ecdd;color:#163e30}
+.hv-story-page .hv-editorial-heading h2{letter-spacing:-.035em;line-height:1.12;max-width:22ch}
+.hv-story-page .hv-editorial-heading p{max-width:60ch;line-height:1.75}
+.hv-story-page .hv-process-panel{background:#fcf9ef;border:1px solid #cdd7be;box-shadow:0 12px 30px #153d300b}
+.hv-story-page .hv-process-panel article{line-height:1.75}
+.hv-story-page .hv-process-layout>.hv-guide-film{background:#f8f5e9;box-shadow:0 12px 30px #153d300d;border:1px solid #d6ddcb}
+.hv-story-page .hv-story-visit{background:#f4f1e5}
+.hv-story-page .hv-story-visit p{line-height:1.75}
+.hv-story-page .hv-story-next{background:#e9eddf}
+.hv-story-page .hv-story-next a{border-radius:12px;transition:background 180ms ease}
+.hv-story-page .hv-story-next a:hover{background:#dbe4ce}
+.hv-story-page .hv-story-footer,.cal-site .cal-footer{background:#0d2d24;color:#eff1e3;border-top:1px solid #57715d}
+.hv-global-nav .hv-story-menu>nav{border-radius:18px;border-color:#ffffff30;box-shadow:0 20px 45px #00170e40;padding:20px 16px}
+.hv-global-nav .hv-story-menu nav>a{width:100%;padding:12px 16px;border:0;border-radius:10px;text-align:left;justify-content:flex-start}
+.hv-global-nav .hv-story-menu nav>a:hover{background:#ffffff12;color:#efcf94}
+.hv-global-nav .hv-story-menu small{padding:0 16px 8px;color:#e5c37e}
+.hv-site .scroll-scrub__actions .hv-story-button{border-radius:14px;padding:15px 22px;box-shadow:inset 0 1px 0 #fff6,0 3px 0 #987443;line-height:1.4}
+.hv-site .scroll-scrub__actions .hv-story-button:active{transform:translateY(2px);box-shadow:inset 0 1px 0 #fff6,0 1px 0 #987443}
+@media(max-width:800px){
+ .hv-site .hv-discovery .hv-territory-spread{grid-template-columns:1fr}
+ .hv-site .hv-discovery .hv-territory-spread .hv-gallery-feature{min-height:480px;border-radius:18px 18px 50px 18px}
+ .hv-site .hv-discovery .hv-story-index{grid-template-columns:1fr;gap:20px}
+ .hv-site .hv-territorial-photos{gap:16px}
+ .hv-site .hv-territorial-photos figcaption{padding:18px}
+ .hv-site .hv-planning-unified .hv-planning-panel>summary{padding:20px 16px;gap:12px}
+ .cal-site .cal-filters{padding:18px}
+}
+@media(max-width:550px){
+ .hv-site .hv-discovery .hv-local-gallery{padding:56px 6% 40px}
+ .hv-site .hv-discovery .hv-territory-copy{padding:0}
+ .hv-site .hv-discovery .hv-territory-copy h2{font-size:38px}
+ .hv-site .hv-discovery .hv-territory-copy>p{font-size:15px}
+ .hv-site .hv-discovery .hv-territory-spread .hv-gallery-feature{min-height:440px}
+ .hv-site .hv-gallery-feature figcaption{padding:24px 24px 34px}
+ .hv-site .hv-discovery .hv-story-index.hv-gallery-side nav{grid-template-columns:1fr}
+ .hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card{min-height:84px}
+ .hv-site .cal-upcoming{padding:56px 6%}
+ .hv-site .cal-upcoming .hv-event-edition{padding:24px;min-height:300px}
+ .hv-site .hv-planning-unified .hv-planning-body{padding:20px 14px 24px}
+ .hv-site .hv-planning-unified .hv-arrival-grid article{padding:16px 0}
+ .hv-story-page .hv-story-toc{gap:6px;padding:10px 12px}
+ .hv-story-page .hv-story-toc a:not(.hv-return-button){padding:10px 8px;font-size:11px}
+ .cal-site .cal-card-copy{padding:22px}
+}
+@media(prefers-reduced-motion:reduce){.hv-story-page .hv-story-next a,.hv-site .scroll-scrub__actions .hv-story-button{transition:none;transform:none!important}}
