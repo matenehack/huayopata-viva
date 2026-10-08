@@ -391,13 +391,20 @@ export function ScrollScrub({
         segment.visible = opacity > 0.001;
         segment.layer.style.opacity = String(opacity);
         segment.layer.style.zIndex = String(index + 1);
-        segment.layer.style.setProperty("--ss-media-offset", reduceMotion || isMobile() ? "0px" : `${(local - 0.5) * 24}px`);
+        // Native playback already supplies motion; avoid transforming a
+        // full-screen video on every scroll frame.
+        segment.layer.style.setProperty("--ss-media-offset", "0px");
 
+        // Retain at most three neighboring buffers. Leaving the cinematic
+        // stage pauses them; it must not discard a clip we may return to.
         const nearby = Math.abs(index - currentIndex) <= 1;
-        if (!nearby || !stageVisible) {
+        if (!nearby) {
           if (segment.video) unloadClip(segment);
-        } else if (y > segment.start - 1.5 * viewportHeight && y < segment.end + 1.5 * viewportHeight) {
-          loadClip(segment);
+        } else if (stageVisible) {
+          // Start the next download at the beginning of the current chapter,
+          // rather than waiting until its crossfade. Do not eagerly download
+          // the previous chapter when jumping directly to a distant scene.
+          if (index === currentIndex || index === currentIndex + 1) loadClip(segment);
         }
       }
 
@@ -426,7 +433,7 @@ export function ScrollScrub({
         if (!video) continue;
         const visible = segment.visible && stageVisible && !document.hidden && (!video.loop || segment === playbackSegment);
         if (segment.scene?.playback === "autoplay") {
-          if (visible && segment.ready && video.paused && !video.dataset.playPending && !video.dataset.playBlocked) {
+          if (visible && segment.ready && video.readyState >= 3 && video.paused && !video.dataset.playPending && !video.dataset.playBlocked) {
             video.dataset.playPending = "true";
             void video.play().catch((error: DOMException) => {
               if (error.name === "NotAllowedError") video.dataset.playBlocked = "true";
