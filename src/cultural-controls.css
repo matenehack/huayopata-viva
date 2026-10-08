@@ -136,3 +136,141 @@
  .cal-site .cal-card-copy{padding:22px}
 }
 @media(prefers-reduced-motion:reduce){.hv-story-page .hv-story-next a,.hv-site .scroll-scrub__actions .hv-story-button{transition:none;transform:none!important}}
+
+/* Whole-site art direction: mountain, cultivation, heritage, community, travel. */
+.hv-story-page{--chapter-accent:#6f8056;--chapter-tint:#edf1e4}
+.hv-story-page.hv-topic-abra-malaga{--chapter-accent:#426a70;--chapter-tint:#e5eeeb}
+.hv-story-page.hv-topic-cafe{--chapter-accent:#956345;--chapter-tint:#f0e4d8}
+.hv-story-page.hv-topic-wamanmarka{--chapter-accent:#857457;--chapter-tint:#eae6dc}
+.hv-story-page.hv-topic-comunidades{--chapter-accent:#a45f45;--chapter-tint:#f1e5d8}
+.hv-site .scroll-scrub__copy{padding-left:24px;border-left:2px solid #e5c37e99}
+.hv-site .scroll-scrub__eyebrow{letter-spacing:.19em;color:#edcf94}
+.hv-site .scroll-scrub__title{font-family:Georgia,serif;font-weight:400;letter-spacing:-.045em;line-height:1.06}
+.hv-site .scroll-scrub__body{font-size:17px;color:#f4f3e9;text-shadow:0 1px 8px #001d1760}
+.hv-story-page .hv-story-hero{min-height:78svh;padding:140px 7% 72px;align-items:end}
+.hv-story-page .hv-story-hero:before{background:linear-gradient(90deg,#072a22ed 0%,#072a22a3 50%,#072a2214 100%),linear-gradient(0deg,#08291f80,transparent 60%)}
+.hv-story-page .hv-story-hero>div{max-width:900px;border-left:2px solid #e5c37e;padding-left:30px}
+.hv-story-page .hv-story-hero h1{font-size:clamp(42px,6.5vw,94px);line-height:1.06;letter-spacing:-.04em;max-width:18ch}
+.hv-story-page .hv-story-hero p{font-size:17px;line-height:1.75;max-width:62ch;color:#f3f3e6}
+.hv-story-page .hv-story-hero span{color:#e5c37e}
+.hv-story-page .hv-story-hero a{padding:14px 20px;border:1px solid #edcf9480;border-radius:12px;background:#f6edda;color:#123c30;box-shadow:0 3px 0 #9a8255;min-height:48px}
+.hv-story-page .hv-story-intro{padding:clamp(50px,7vw,100px) 7%;grid-template-columns:1fr 3fr;gap:5vw;background:#faf7ef;border-bottom:1px solid #dce0d1}
+.hv-story-page .hv-story-intro>span{color:var(--chapter-accent);line-height:1.7}
+.hv-story-page .hv-story-intro>p{font-size:clamp(24px,2.7vw,40px);line-height:1.4;max-width:38ch}
+.hv-story-page .hv-process-explorer.is-tea{background:linear-gradient(135deg,#eaf0df,#cadbbb)}
+.hv-story-page .hv-process-explorer.is-coffee{background:linear-gradient(125deg,#362a25,#654534);color:#faf1e3}
+.hv-story-page .hv-process-explorer.is-coffee .hv-process-panel{background:#f5ede1;color:#422e25;border-color:#c7a589}
+.hv-story-page .hv-process-tabs{gap:8px;padding:8px;background:#183c2d0b;border-radius:16px}
+.hv-story-page .hv-process-tabs button{flex:1;padding:12px;min-height:48px;border-color:transparent;justify-content:center}
+.hv-story-page .hv-process-panel article{padding:28px 8px 12px}
+.hv-story-page .hv-process-panel article h3{font-size:clamp(30px,3.4vw,46px)}
+.hv-story-page .hv-process-next{margin-top:24px;padding:12px 18px;border:1px solid #b9c6a6;background:#e7eedb;color:#193e32;border-radius:12px}
+.hv-story-page .hv-altitude{background:#e4edeb;color:#1c4447;border-block:1px solid #c3d4ce}
+.hv-story-page .hv-altitude h2{font-size:clamp(36px,4.6vw,64px);line-height:1.1}
+.hv-story-page .hv-altitude li{background:#f8faf2;padding:22px 26px;border-radius:14px;margin-bottom:18px;box-shadow:0 3px 0 #c7d8ce}
+.hv-story-page .hv-biodiversity{background:#e6eee6}
+.hv-story-page .hv-biodiversity header{display:grid;grid-template-columns:1fr 1fr;gap:16px 40px;max-width:none;align-items:end}
+.hv-story-page .hv-biodiversity header>span{grid-column:1/-1;color:#426a59}
+.hv-story-page .hv-biodiversity h2{margin:0;font-size:clamp(34px,4.3vw,60px)}
+.hv-story-page .hv-biodiversity header p{font-size:15px;line-height:1.8}
+.hv-story-page .hv-wildlife-photo{background:#fcfaf0;border:1px solid #d5deca;border-radius:20px;overflow:hidden;box-shadow:0 14px 30px #193e320b}
+.hv-story-page .hv-wildlife-open{border-radius:0}
+.hv-story-page .hv-wildlife-photo figcaption{padding:24px}
+.hv-story-page .hv-biodiversity-note{padding:24px;border:1px solid #cad6be;background:#f1f5e9;border-radius:14px;max-width:none}
+.hv-story-page .hv-chapter-complement{background:var(--chapter-tint);gap:6vw;padding-block:72px}
+.hv-story-page .hv-chapter-complement h2{font-size:clamp(32px,3.8vw,54px);letter-spacing:-.03em}
+.hv-story-page .hv-chapter-complement dl>div{padding:20px 22px;background:#fffdf575;border:1px solid #bfc9b550;border-radius:12px;margin-bottom:10px}
+.hv-story-page .hv-chapter-photo{border-radius:18px;box-shadow:0 14px 35px #123c3017}
+.hv-story-page .hv-heritage-explore{background:#29352e;color:#f4efdf;padding-block:80px}
+.hv-story-page .hv-heritage-explore>.hv-chapter-complement{background:transparent;padding-block:28px}
+.hv-story-page .hv-heritage-explore .hv-chapter-complement dl>div{background:#ffffff08;border-color:#ddd5bd30}
+.hv-story-page .hv-heritage-reading{gap:40px}
+.hv-story-page .hv-heritage-reading article{padding:28px;border:1px solid #b9b29d40;border-radius:16px;background:#ffffff05}
+.hv-story-page .hv-community-editorial{background:#f1e4d3;color:#3d4733}
+.hv-story-page .hv-community-grid article{background:#fbf7ee;border:1px solid #d3c9b4;border-radius:20px;padding:32px;box-shadow:0 5px 0 #e2d5bf}
+.hv-story-page .hv-valley-experiences{background:#e6edde}
+.hv-story-page .hv-valley-experience-grid>article{border:1px solid #c2cfb5;border-radius:20px;background:#f8f9ef;padding:28px;overflow:hidden}
+.hv-story-page .hv-topic-film{border-block:8px solid #f3edde}
+.hv-story-page .hv-topic-film>div{padding:40px 7%;background:linear-gradient(transparent,#051b15f5)}
+.hv-story-page .hv-story-visit{padding:72px 7%;background:var(--chapter-tint);gap:6vw;align-items:start}
+.hv-story-page .hv-story-visit h2{font-size:clamp(36px,4vw,56px);line-height:1.1}
+.hv-story-page .hv-story-visit ul{border:0;counter-reset:visit}
+.hv-story-page .hv-story-visit li{position:relative;padding:22px 24px 22px 62px;margin-bottom:12px;background:#fffdf3;border:1px solid #cbd2bf;border-radius:14px;font-size:16px;line-height:1.7;counter-increment:visit}
+.hv-story-page .hv-story-visit li:before{content:counter(visit,decimal-leading-zero);position:absolute;left:20px;top:23px;color:var(--chapter-accent);font:italic 20px Georgia,serif}
+.hv-story-page .hv-story-next{padding:72px 7%;background:#f9f5eb}
+.hv-story-page .hv-story-next>div:last-child{display:grid;grid-template-columns:1fr 1fr;gap:16px;border:0;margin-top:32px}
+.hv-story-page .hv-story-next>div:last-child a{grid-template-columns:76px 1fr 20px;gap:16px;padding:18px;border:1px solid #d3d9c5;background:#eef1e4;border-radius:16px}
+.hv-story-page .hv-story-next a img{width:76px;height:94px;object-fit:cover;border-radius:10px}
+.hv-story-page .hv-story-next a span:first-of-type{display:none}
+.hv-story-page .hv-story-next a strong{font-size:25px;line-height:1.2}
+
+/* Calendar landing and event pages receive their own complete treatment. */
+.cal-site .cal-hero{min-height:560px;height:76svh;max-height:800px}
+.cal-site .cal-hero-copy{padding-top:80px;padding-bottom:65px}
+.cal-site .cal-hero h1{font-size:clamp(42px,6vw,84px);line-height:1.08;letter-spacing:-.035em}
+.cal-site .cal-hero-copy>p:not(.cal-eyebrow){max-width:48ch;line-height:1.8}
+.cal-site .cal-credit{background:#e9e5d8;line-height:1.8}
+.cal-site .cal-event-hero{height:65svh;min-height:460px;max-height:700px}
+.cal-site .cal-event-heading h1{font-size:clamp(40px,6vw,80px);line-height:1.08;max-width:18ch}
+.cal-site .cal-event-body{gap:48px;padding-top:60px}
+.cal-site .cal-info-card{background:#e9eedf;padding:30px;border-top:4px solid #8b6a43}
+.cal-site .cal-program-pending{background:#ede9da;padding:28px;border-left:4px solid #9b704c;line-height:1.8}
+.cal-site .cal-activities article{padding:24px;border:1px solid #d2d9c4;border-radius:16px;background:#fffdf5;margin-bottom:14px}
+.cal-site .cal-sources{padding:24px;border-radius:16px;background:#e9eddf;line-height:1.9}
+.cal-site .cal-school-grid a{background:#fffdf5;padding:22px;border:1px solid #d6dccb;line-height:1.6}
+.cal-site .cal-secondary>summary{background:#e8eddd;padding:22px;border-radius:14px}
+.cal-site .cal-secondary{border-top:0}
+
+/* Directory, contact cards, practical information and footer. */
+.hv-site .hv-planning-unified .vd .vd-directory-head{border-top:0;gap:30px}
+.hv-site .hv-planning-unified .vd .vd-directory-head h2{font-size:clamp(32px,3.8vw,52px);line-height:1.12}
+.hv-site .hv-planning-unified .vd .vd-map-layout{border-radius:20px;border:1px solid #bfcbb0;box-shadow:0 12px 32px #173d3010;background:#fbfcf5}
+.hv-site .hv-planning-unified .vd .vd-result{margin:8px;border:1px solid #d4dcc8;border-radius:12px;background:#fafbf5;overflow:hidden}
+.hv-site .hv-planning-unified .vd .vd-result.is-selected{background:#dce9ce;border-color:#617e4d;box-shadow:inset 3px 0 0 #42663b}
+.hv-site .hv-planning-unified .vd .vd-select{padding:18px 12px;min-height:100px}
+.hv-site .hv-planning-unified .vd .vd-select strong{font-size:17px;line-height:1.35}
+.hv-site .hv-planning-unified .vd .vd-filters button{border-radius:10px;min-height:44px}
+.hv-site .hv-planning-unified .vd .vd-detail{background:#f6f8ef;padding:28px}
+.hv-site .hv-planning-unified .vd .vd-detail-head h3{font:400 30px/1.15 Georgia,serif}
+.hv-site .hv-planning-unified .vd .vd-emergency{background:#f6ebe1;border-radius:20px;border-top-width:4px;margin-top:36px}
+.hv-site .hv-planning-unified .vd .vd-emergency-contacts article{padding:24px;border-radius:14px;background:#fffaf4}
+.hv-site .hv-planning-unified .vd .vd-emergency-call{padding:10px 14px;border-radius:10px;background:#f1ddd1;border:1px solid #d9b3a1;font-size:24px}
+.hv-site .hv-planning-unified .hv-faq details{background:#fffdf4;border:1px solid #cdd7bd;border-radius:12px;padding:18px 22px;margin:10px 0}
+.hv-site .hv-planning-unified .hv-faq summary{min-height:44px;align-content:center;font-size:17px}
+.hv-site .hv-planning-unified .hv-faq p{font-size:15px;line-height:1.8;padding-block:12px}
+.hv-site .hv-footer,.hv-story-page .hv-story-footer,.cal-site .cal-footer{padding:60px 7%;background:#0b2c23;color:#e9eddf;border-top:1px solid #56745e}
+.hv-site .hv-footer strong,.hv-story-page .hv-story-footer>a{font:400 clamp(26px,3vw,40px)/1.2 Georgia,serif;letter-spacing:-.02em}
+.hv-site .hv-footer a,.hv-story-page .hv-story-footer div a{min-height:44px;line-height:1.6;padding-block:8px}
+@media(max-width:800px){
+ .hv-story-page .hv-story-hero{min-height:78svh;padding:110px 6% 54px}
+ .hv-story-page .hv-story-hero>div{padding-left:20px}
+ .hv-story-page .hv-story-intro{display:block;padding:48px 6%}
+ .hv-story-page .hv-biodiversity header{grid-template-columns:1fr}
+ .hv-story-page .hv-story-next>div:last-child{grid-template-columns:1fr}
+ .hv-story-page .hv-story-visit{display:block;padding:54px 6%}
+ .hv-story-page .hv-story-visit ul{margin-top:28px}
+ .hv-story-page .hv-heritage-reading article{padding:22px}
+ .cal-site .cal-event-body{gap:28px}
+ .hv-site .hv-planning-unified .vd .vd-detail{padding:20px}
+}
+@media(max-width:550px){
+ .hv-site .scroll-scrub__copy{padding-left:16px}
+ .hv-site .scroll-scrub__title{font-size:clamp(32px,9vw,46px)}
+ .hv-site .scroll-scrub__body{font-size:15px;line-height:1.65}
+ .hv-story-page .hv-story-hero h1{font-size:42px}
+ .hv-story-page .hv-story-hero p{font-size:15px;line-height:1.7}
+ .hv-story-page .hv-process-tabs{display:grid;grid-template-columns:1fr 1fr}
+ .hv-story-page .hv-process-tabs button{font-size:13px;padding:10px}
+ .hv-story-page .hv-chapter-complement{padding:48px 6%}
+ .hv-story-page .hv-wildlife-photo figcaption{padding:20px}
+ .hv-story-page .hv-community-grid article,.hv-story-page .hv-valley-experience-grid>article{padding:22px}
+ .hv-story-page .hv-story-next{padding:54px 6%}
+ .hv-story-page .hv-story-next a strong{font-size:21px}
+ .hv-story-page .hv-story-next>div:last-child a{padding:14px;gap:12px;grid-template-columns:60px 1fr 18px}
+ .hv-story-page .hv-story-next a img{width:60px;height:80px}
+ .cal-site .cal-hero{min-height:540px;height:auto}
+ .cal-site .cal-hero-copy{padding:60px 24px}
+ .cal-site .cal-event-heading h1{font-size:40px}
+ .cal-site .cal-event-hero{min-height:420px}
+ .hv-site .hv-footer,.hv-story-page .hv-story-footer,.cal-site .cal-footer{padding:44px 6%}
+}
