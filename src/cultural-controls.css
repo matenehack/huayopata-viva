@@ -274,3 +274,42 @@
  .cal-site .cal-event-hero{min-height:420px}
  .hv-site .hv-footer,.hv-story-page .hv-story-footer,.cal-site .cal-footer{padding:44px 6%}
 }
+
+/* Interaction finish: shared tactile language without animating reading content. */
+:is(.hv-story-page,.cal-site,.hv-planning-unified,.hv-discovery) :is(a,button,summary,input,select):focus-visible{outline:3px solid #bc873e;outline-offset:4px;scroll-margin-block:100px}
+.hv-story-page .hv-heritage-reading button{min-height:58px;padding:16px 20px;border:1px solid #d5d6bd45;border-radius:12px;margin-bottom:10px;background:#ffffff08;color:#f4efdf;transition:background .18s,border-color .18s,transform .18s}
+.hv-story-page .hv-heritage-reading button[aria-pressed=true]{background:#e6dcc1;color:#22372d;border-color:#e6dcc1;box-shadow:inset 0 1px 0 #fff8}
+.hv-story-page .hv-topic-film button{min-height:48px;padding:12px 20px;gap:12px;border-radius:14px;border:1px solid #eee5ce80;background:#f8f3e9;color:#173e32;box-shadow:0 3px 0 #a8ad96;transition:transform .16s,box-shadow .16s}
+.hv-story-page .hv-story-next a{transition:background .18s,border-color .18s,transform .18s}
+.cal-site .cal-agenda-item{border:1px solid #d7deca;gap:20px;transition:background .18s,border-color .18s,transform .18s}
+.cal-site .cal-agenda-item time{font-variant-numeric:tabular-nums;color:#76573a}
+.hv-planning-unified .vd-detail-actions :is(a,button){min-height:46px;border-radius:12px;padding:12px 16px;line-height:1.4;transition:background .18s,transform .16s,box-shadow .16s}
+.hv-planning-unified .vd-detail-actions .vd-primary{background:#214d3b;color:#fffdf4;box-shadow:0 3px 0 #102e22}
+:is(.hv-story-page .hv-topic-film button,.hv-story-page .hv-heritage-reading button,.hv-planning-unified .vd-detail-actions a,.hv-planning-unified .vd-detail-actions button):active{transform:translateY(2px);box-shadow:none}
+:is(.hv-story-page,.cal-site,.hv-planning-unified) button:disabled{cursor:not-allowed;opacity:.55;box-shadow:none}
+.hv-story-page :is(.hv-chapter-photo figcaption,.hv-story-visit p),.cal-site .cal-event-main p{overflow-wrap:break-word}
+@media(hover:hover){
+ .hv-story-page .hv-story-next a:hover{background:#e4ead8;border-color:#92a37f;transform:translateY(-2px)}
+ .cal-site .cal-agenda-item:hover{background:#edf1e2;border-color:#93a57f;transform:translateX(3px)}
+ .hv-story-page .hv-heritage-reading button:not([aria-pressed=true]):hover{background:#ffffff18;border-color:#d5d6bd90}
+ .hv-planning-unified .vd-detail-actions .vd-primary:hover{background:#316147}
+}
+@media(max-width:600px){
+ .hv-site .hv-discovery .hv-territory-spread .hv-gallery-feature{min-height:390px;border-radius:18px 18px 48px 18px}
+ .hv-site .hv-gallery-feature figcaption{padding:24px}
+ .hv-site .hv-territorial-photos figcaption{padding:20px}
+ .hv-site .cal-upcoming .hv-event-edition{min-height:250px;padding:24px}
+ .hv-site .hv-planning-unified .hv-planning-panel>summary{padding:20px 16px;min-height:96px}
+ .hv-site .hv-planning-unified .hv-planning-panel>summary strong{font-size:26px;line-height:1.2}
+ .hv-site .hv-planning-unified .vd .vd-detail-head h3{font-size:26px;overflow-wrap:break-word}
+ .hv-planning-unified .vd-detail-actions{gap:10px;flex-wrap:wrap}
+ .hv-planning-unified .vd-detail-actions .vd-primary{justify-content:center;width:100%}
+ .cal-site .cal-filters{padding:18px;gap:16px}
+ .cal-site .cal-agenda-item{padding:18px 14px;gap:12px}
+ .cal-site .cal-info-card{padding:24px}
+ .hv-story-page .hv-story-visit li{padding:20px 18px 20px 54px}
+ .hv-story-page .hv-story-visit li:before{left:16px;top:21px}
+}
+@media(prefers-reduced-motion:reduce){
+ .hv-story-page .hv-story-next a,.hv-story-page .hv-topic-film button,.hv-story-page .hv-heritage-reading button,.cal-site .cal-agenda-item,.hv-planning-unified .vd-detail-actions :is(a,button){transition:none;transform:none}
+}
