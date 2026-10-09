@@ -313,3 +313,36 @@
 @media(prefers-reduced-motion:reduce){
  .hv-story-page .hv-story-next a,.hv-story-page .hv-topic-film button,.hv-story-page .hv-heritage-reading button,.cal-site .cal-agenda-item,.hv-planning-unified .vd-detail-actions :is(a,button){transition:none;transform:none}
 }
+
+/* Reflow: content determines height; narrow screens retain every control. */
+.cal-site .cal-hero{height:auto;max-height:none}
+.cal-site .cal-hero-copy{padding-bottom:90px}
+.cal-site .cal-event-hero{height:auto;min-height:65svh;max-height:none;display:flex;align-items:flex-end}
+.cal-site .cal-event-heading{position:relative;inset:auto;width:100%;padding:150px clamp(24px,6vw,110px) 54px}
+.cal-site .cal-event-heading h1{overflow-wrap:break-word}
+.cal-site .cal-filters{grid-template-columns:repeat(3,minmax(0,1fr)) auto}
+.cal-site .cal-filters label,.cal-site .cal-agenda-item>div,.hv-story-page .hv-story-next a strong{min-width:0;overflow-wrap:break-word}
+.cal-site .cal-toolbar{flex-wrap:wrap}
+.cal-site .cal-month-nav{flex-wrap:wrap;max-width:100%}
+.cal-site .cal-month-nav button{min-width:44px;min-height:44px}
+.hv-story-page .hv-story-next>div:last-child a{grid-template-columns:76px minmax(0,1fr) 20px}
+.hv-story-page .hv-story-next>div:last-child a:hover{padding-left:18px}
+@media(max-width:850px){
+ .cal-site .cal-filters{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+ .cal-site .cal-filters{grid-template-columns:minmax(0,1fr)}
+ .cal-site .cal-month-nav{display:grid;grid-template-columns:44px minmax(0,1fr) 76px 44px;gap:6px}
+ .cal-site .cal-month-nav>button:last-child{grid-column:1/-1;border-radius:10px;background:#e7eddb}
+ .cal-site .cal-month-nav select,.cal-site .cal-month-nav label:last-of-type select{width:100%;max-width:100%;padding:10px 4px;font-size:14px}
+ .cal-site .cal-month-nav button{padding:8px}
+ .cal-site .cal-hero{min-height:0}
+ .cal-site .cal-hero-copy{padding:52px 24px 86px}
+ .cal-site .cal-event-hero{min-height:420px}
+ .cal-site .cal-event-heading{padding:100px 24px 40px}
+ .cal-site .cal-event-heading h1{font-size:clamp(32px,9vw,40px)}
+ .hv-story-page .hv-story-hero h1{font-size:clamp(34px,9vw,42px);overflow-wrap:break-word}
+ .hv-story-page .hv-story-next>div:last-child a{grid-template-columns:60px minmax(0,1fr) 18px}
+ .hv-story-page .hv-story-next>div:last-child a:hover{padding-left:14px}
+ .hv-story-page .hv-story-next a strong{font-size:clamp(18px,5.4vw,22px)}
+}
