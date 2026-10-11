@@ -346,3 +346,8 @@
  .hv-story-page .hv-story-next>div:last-child a:hover{padding-left:14px}
  .hv-story-page .hv-story-next a strong{font-size:clamp(18px,5.4vw,22px)}
 }
+
+/* User-supplied interactive artwork, separate from documentary media. */
+.hv-story-page .hv-tea-gold{padding:clamp(48px,7vw,96px) 7%;background:#ece9d9;color:#203e30}
+.hv-tea-gold header{max-width:720px;margin-bottom:28px}.hv-tea-gold header>span{font-size:11px;letter-spacing:.14em;font-weight:700;color:#725c32}.hv-tea-gold h2{font:400 clamp(32px,4vw,58px)/1.1 Georgia,serif;margin:16px 0}.hv-tea-gold p{font-size:16px;line-height:1.7;max-width:60ch}.hv-tea-gold figure{margin:0}.hv-tea-gold iframe{display:block;width:100%;aspect-ratio:1024/572;border:0;border-radius:20px;background:#253c2d;box-shadow:0 16px 40px #203e301a}.hv-tea-gold figcaption{font:12px/1.7 system-ui;color:#5b6250;max-width:85ch;padding-top:16px}
+@media(max-width:550px){.hv-story-page .hv-tea-gold{padding:44px 5%}.hv-tea-gold iframe{border-radius:12px}}
