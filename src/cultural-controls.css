@@ -351,3 +351,35 @@
 .hv-story-page .hv-tea-gold{padding:clamp(48px,7vw,96px) 7%;background:#ece9d9;color:#203e30}
 .hv-tea-gold header{max-width:720px;margin-bottom:28px}.hv-tea-gold header>span{font-size:11px;letter-spacing:.14em;font-weight:700;color:#725c32}.hv-tea-gold h2{font:400 clamp(32px,4vw,58px)/1.1 Georgia,serif;margin:16px 0}.hv-tea-gold p{font-size:16px;line-height:1.7;max-width:60ch}.hv-tea-gold figure{margin:0}.hv-tea-gold iframe{display:block;width:100%;aspect-ratio:1024/572;border:0;border-radius:20px;background:#253c2d;box-shadow:0 16px 40px #203e301a}.hv-tea-gold figcaption{font:12px/1.7 system-ui;color:#5b6250;max-width:85ch;padding-top:16px}
 @media(max-width:550px){.hv-story-page .hv-tea-gold{padding:44px 5%}.hv-tea-gold iframe{border-radius:12px}}
+
+/* Editorial composition: photographs and open reading surfaces. */
+.hv-site .hv-discovery .hv-territory-spread{grid-template-columns:minmax(0,.8fr) minmax(0,1.35fr);align-items:center;gap:6vw}
+.hv-site .hv-discovery .hv-territory-spread .hv-gallery-feature{border-radius:4px;box-shadow:none;min-height:520px}
+.hv-site .hv-discovery .hv-territory-note{background:transparent;border-left:0;border-top:1px solid #c9cdbb;border-radius:0;padding:20px 0;margin-top:28px}
+.hv-site .hv-discovery .hv-story-index.hv-gallery-side{display:block;padding-top:32px;margin-top:40px;border-top:1px solid #c9cdbb}
+.hv-site .hv-discovery .hv-story-index>div{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:24px}
+.hv-site .hv-discovery .hv-story-index h3{font-size:clamp(28px,3vw,42px);margin:0}.hv-site .hv-discovery .hv-story-index h3 br{display:none}
+.hv-site .hv-discovery .hv-story-index.hv-gallery-side nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0}
+.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card{display:flex;flex-direction:column;align-items:flex-start;gap:16px;min-height:176px;border:0;border-left:1px solid #c9cdbb;border-radius:0;background:transparent;box-shadow:none;padding:20px;position:relative}
+.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card:first-child{border-left:0}
+.hv-site .hv-discovery .hv-story-index .hv-topic-emblem{background:transparent;width:auto;height:30px;flex-basis:auto;border-radius:0}
+.hv-site .hv-discovery .hv-story-index .hv-topic-label strong{font-size:25px}.hv-site .hv-discovery .hv-story-index .hv-topic-label small{display:block;margin-top:8px;line-height:1.6}
+.hv-site .hv-discovery .hv-story-index .hv-discovery-card>svg{position:absolute;right:14px;top:18px;background:transparent;width:28px;height:28px;padding:5px}
+.hv-site .hv-territorial-photos figure{border:0;border-radius:0;box-shadow:none;background:transparent}
+.hv-site .hv-territorial-photos figcaption{padding:20px 0}
+.hv-story-page .hv-process-layout{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(30px,5vw,76px);align-items:start}
+.hv-story-page .hv-process-layout>.hv-guide-film{background:transparent;border-radius:4px;overflow:visible}
+.hv-story-page .hv-guide-film-screen{overflow:hidden;border-radius:4px}
+.hv-story-page .hv-guide-film figcaption{padding:24px 0;color:inherit}
+.hv-story-page .hv-process-panel,.hv-story-page .is-coffee .hv-process-panel{padding:0;background:transparent;color:inherit;border:0;box-shadow:none;border-radius:0}
+.hv-story-page .hv-process-tabs{background:transparent;padding:0 0 22px;border-bottom:1px solid currentColor;border-radius:0;gap:8px}
+.hv-story-page .hv-process-tabs button{background:transparent;border:1px solid currentColor;color:inherit;box-shadow:none;border-radius:8px}
+.hv-story-page .hv-process-tabs button[aria-selected=true]{background:#f7f1df;color:#203c2d;border-color:#f7f1df;box-shadow:none}
+.hv-story-page .is-tea .hv-process-tabs button[aria-selected=true]{background:#214936;color:#fff8e6;border-color:#214936}
+.hv-story-page .hv-process-panel article{padding:26px 0 0}.hv-story-page .hv-process-panel article>span{margin-bottom:20px}
+.hv-story-page .hv-process-panel article>svg{display:none}
+.hv-story-page .hv-process-panel h3{margin:18px 0;font-size:clamp(34px,4vw,56px)}
+.hv-story-page .hv-process-next{color:inherit;border-color:currentColor;background:transparent}
+@media(hover:hover){.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card:hover{background:#e8eddd;transform:none;box-shadow:none}}
+@media(max-width:900px){.hv-site .hv-discovery .hv-territory-spread{grid-template-columns:1fr}.hv-site .hv-discovery .hv-story-index.hv-gallery-side nav{grid-template-columns:repeat(3,minmax(0,1fr))}.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card{border:0;border-bottom:1px solid #c9cdbb}.hv-story-page .hv-process-layout{grid-template-columns:1fr}.hv-story-page .hv-process-layout>.hv-guide-film{max-width:760px;width:100%}}
+@media(max-width:550px){.hv-site .hv-discovery .hv-territory-spread .hv-gallery-feature{min-height:380px}.hv-site .hv-discovery .hv-story-index>div{display:block}.hv-site .hv-discovery .hv-story-index h3{margin-top:12px}.hv-site .hv-discovery .hv-story-index.hv-gallery-side nav{grid-template-columns:repeat(2,minmax(0,1fr))}.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card{padding:18px 12px;min-height:154px}.hv-site .hv-discovery .hv-story-index .hv-topic-label strong{font-size:22px}.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card:last-child{grid-column:1/-1;min-height:124px}.hv-story-page .hv-process-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.hv-story-page .hv-process-tabs button{justify-content:center}}
