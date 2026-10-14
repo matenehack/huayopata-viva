@@ -88,9 +88,7 @@
 .hv-story-page .hv-story-toc a:not(.hv-return-button):hover{background:#e6ecdd;color:#163e30}
 .hv-story-page .hv-editorial-heading h2{letter-spacing:-.035em;line-height:1.12;max-width:22ch}
 .hv-story-page .hv-editorial-heading p{max-width:60ch;line-height:1.75}
-.hv-story-page .hv-process-panel{background:#fcf9ef;border:1px solid #cdd7be;box-shadow:0 12px 30px #153d300b}
 .hv-story-page .hv-process-panel article{line-height:1.75}
-.hv-story-page .hv-process-layout>.hv-guide-film{box-shadow:0 12px 30px #153d300d;border:1px solid #d6ddcb}
 .hv-story-page .hv-story-visit p{line-height:1.75}
 .hv-story-page .hv-story-next a{border-radius:12px}
 .hv-story-page .hv-story-next a:hover{background:#dbe4ce}
@@ -151,7 +149,6 @@
 .hv-story-page .hv-story-intro>p{font-size:clamp(24px,2.7vw,40px);line-height:1.4;max-width:38ch}
 .hv-story-page .hv-process-explorer.is-tea{background:linear-gradient(135deg,#eaf0df,#cadbbb)}
 .hv-story-page .hv-process-explorer.is-coffee{background:linear-gradient(125deg,#362a25,#654534);color:#faf1e3}
-.hv-story-page .hv-process-explorer.is-coffee .hv-process-panel{background:#f5ede1;color:#422e25;border-color:#c7a589}
 .hv-story-page .hv-process-tabs button{flex:1;padding:12px;min-height:48px;border-color:transparent;justify-content:center}
 .hv-story-page .hv-process-panel article h3{font-size:clamp(30px,3.4vw,46px)}
 .hv-story-page .hv-process-next{margin-top:24px;padding:12px 18px;border:1px solid #b9c6a6;border-radius:12px}
@@ -357,13 +354,16 @@
 .hv-site .hv-territorial-photos figure{border:0;border-radius:0;box-shadow:none;background:transparent}
 .hv-site .hv-territorial-photos figcaption{padding:20px 0}
 .hv-story-page .hv-process-layout{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(30px,5vw,76px);align-items:start}
-.hv-story-page .hv-process-layout>.hv-guide-film{background:transparent;border-radius:4px;overflow:visible}
+.hv-story-page .hv-process-layout>.hv-guide-film{background:transparent;border:0;box-shadow:none;border-radius:4px;overflow:visible}
 .hv-story-page .hv-guide-film-screen{overflow:hidden;border-radius:4px}
 .hv-story-page .hv-guide-film figcaption{padding:24px 0;color:inherit}
-.hv-story-page .hv-process-panel,.hv-story-page .is-coffee .hv-process-panel{padding:0;background:transparent;color:inherit;border:0;box-shadow:none;border-radius:0}
-.hv-story-page .hv-process-tabs{background:transparent;padding:0 0 22px;border-bottom:1px solid currentColor;border-radius:0;gap:8px}
+/* Keep surface, ink and padding together: coffee must not inherit a bare card. */
+.hv-story-page .hv-process-panel{padding:clamp(24px,3vw,44px);background:#f8f3e8;color:#243e30;border:1px solid #ffffff30;box-shadow:0 12px 30px #14251a0b;border-radius:20px;min-width:0}
+.hv-story-page .is-coffee .hv-process-panel{background:#f6ede1;color:#422e25}
+.hv-story-page .hv-process-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));background:transparent;padding:0 0 24px;border-bottom:1px solid #93857445;border-radius:0;gap:10px}
+.hv-story-page .is-coffee .hv-process-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
 .hv-story-page .hv-process-tabs button{background:transparent;border:1px solid currentColor;color:inherit;box-shadow:none;border-radius:8px}
-.hv-story-page .hv-process-tabs button[aria-selected=true]{background:#f7f1df;color:#203c2d;border-color:#f7f1df;box-shadow:none}
+.hv-story-page .hv-process-tabs button[aria-selected=true]{background:#674631;color:#fff8eb;border-color:#674631;box-shadow:0 2px 5px #422e2520}
 .hv-story-page .is-tea .hv-process-tabs button[aria-selected=true]{background:#214936;color:#fff8e6;border-color:#214936}
 .hv-story-page .hv-process-panel article{padding:26px 0 0}.hv-story-page .hv-process-panel article>span{margin-bottom:20px}
 .hv-story-page .hv-process-panel article>svg{display:none}
@@ -371,7 +371,7 @@
 .hv-story-page .hv-process-next{color:inherit;border-color:currentColor;background:transparent}
 @media(hover:hover){.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card:hover{background:#e8eddd;transform:none;box-shadow:none}}
 @media(max-width:900px){.hv-site .hv-discovery .hv-territory-spread{grid-template-columns:1fr}.hv-site .hv-discovery .hv-story-index.hv-gallery-side nav{grid-template-columns:repeat(3,minmax(0,1fr))}.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card{border:0;border-bottom:1px solid #c9cdbb}.hv-story-page .hv-process-layout{grid-template-columns:1fr}.hv-story-page .hv-process-layout>.hv-guide-film{max-width:760px;width:100%}}
-@media(max-width:550px){.hv-site .hv-discovery .hv-territory-spread .hv-gallery-feature{min-height:380px}.hv-site .hv-discovery .hv-story-index>div{display:block}.hv-site .hv-discovery .hv-story-index h3{margin-top:12px}.hv-site .hv-discovery .hv-story-index.hv-gallery-side nav{grid-template-columns:repeat(2,minmax(0,1fr))}.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card{padding:18px 12px;min-height:154px}.hv-site .hv-discovery .hv-story-index .hv-topic-label strong{font-size:22px}.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card:last-child{grid-column:1/-1;min-height:124px}.hv-story-page .hv-process-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.hv-story-page .hv-process-tabs button{justify-content:center}}
+@media(max-width:550px){.hv-site .hv-discovery .hv-territory-spread .hv-gallery-feature{min-height:380px}.hv-site .hv-discovery .hv-story-index>div{display:block}.hv-site .hv-discovery .hv-story-index h3{margin-top:12px}.hv-site .hv-discovery .hv-story-index.hv-gallery-side nav{grid-template-columns:repeat(2,minmax(0,1fr))}.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card{padding:18px 12px;min-height:154px}.hv-site .hv-discovery .hv-story-index .hv-topic-label strong{font-size:22px}.hv-site .hv-discovery .hv-story-index.hv-gallery-side .hv-discovery-card:last-child{grid-column:1/-1;min-height:124px}.hv-story-page .hv-process-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.hv-story-page .is-coffee .hv-process-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.hv-story-page .hv-process-tabs button{justify-content:center}}
 
 /* Decorative valley relief: abstract lines, never a geographic map. */
 .hv-site .hv-discovery{background:#f5f0e3}
