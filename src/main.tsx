@@ -32,3 +32,5 @@ function App(){
  return calendarMatch?<Calendar slug={calendarMatch[1]}/>:path===''?<Home contentRevision={contentRevision}/>:match?<Topic tema={match[1]}/>:<main className="hv-story-page hv-story-missing"><h1>Página no encontrada</h1><a href={base}>Volver a Huayopata Viva</a></main>;
 }
 createRoot(document.getElementById('root')!).render(<App/>);
+
+import './map-access.css';
