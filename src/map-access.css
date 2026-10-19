@@ -14,3 +14,7 @@
 @media(max-width:850px){.hv-global-nav.hv-nav,.hv-site .hv-global-nav.hv-nav{grid-template-columns:minmax(0,1fr) auto auto;gap:14px}.hv-global-nav .hv-map-access{min-height:44px;padding:10px 12px;font-size:12px}}
 @media(max-width:420px){.hv-global-nav .hv-brand>span{display:none}.hv-global-nav.hv-nav,.hv-site .hv-global-nav.hv-nav{gap:12px}}
 @media(prefers-reduced-motion:reduce){.hv-global-nav .hv-map-access{transition:none;transform:none}}
+
+/* Keep the gold shortcut legible against legacy global hover/link rules. */
+.hv-global-nav.hv-nav a.hv-map-access,
+.hv-global-nav.hv-nav a.hv-map-access:is(:hover,:focus-visible,:active){color:#183b30!important;text-shadow:none}

@@ -170,3 +170,11 @@
  .vd .vd-map-invite h3{font-size:25px}
 }
 @media(prefers-reduced-motion:reduce){.vd .vd-detail-actions .vd-primary:hover{transform:none}}
+
+/* Explain the current scope without adding another row of action buttons. */
+.vd .vd-filter-context{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 20px;margin:0 0 16px;color:#435847;font:13px/1.6 system-ui}
+.vd .vd-filter-context p{margin:0;overflow-wrap:anywhere}
+.vd .vd-filter-context button{background:transparent;border:0;color:#70462e;text-decoration:underline;text-underline-offset:4px;min-height:44px;padding:6px 0;font:inherit}
+.vd .vd-search:focus-within{outline:2px solid #87513b;outline-offset:3px}
+.vd .vd-search input:focus-visible{outline:none}
+.vd .vd-empty button{display:block;margin:8px auto;max-width:100%;white-space:normal;overflow-wrap:anywhere}
