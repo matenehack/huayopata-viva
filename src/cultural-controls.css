@@ -144,9 +144,9 @@
 .hv-story-page .hv-story-hero p{font-size:17px;line-height:1.75;max-width:62ch;color:#f3f3e6}
 .hv-story-page .hv-story-hero span{color:#e5c37e}
 .hv-story-page .hv-story-hero a{padding:14px 20px;border:1px solid #edcf9480;border-radius:12px;background:#f6edda;color:#123c30;box-shadow:0 3px 0 #9a8255;min-height:48px}
-.hv-story-page .hv-story-intro{padding:clamp(50px,7vw,100px) 7%;grid-template-columns:1fr 3fr;gap:5vw;background:#faf7ef;border-bottom:1px solid #dce0d1}
+.hv-story-page .hv-story-intro{padding:clamp(40px,4.5vw,64px) 7%;grid-template-columns:1fr 3fr;gap:5vw;background:#faf7ef;border-bottom:1px solid #dce0d1}
 .hv-story-page .hv-story-intro>span{color:var(--chapter-accent);line-height:1.7}
-.hv-story-page .hv-story-intro>p{font-size:clamp(24px,2.7vw,40px);line-height:1.4;max-width:38ch}
+.hv-story-page .hv-story-intro>p{font-size:clamp(19px,1.65vw,24px);line-height:1.65;max-width:60ch}
 .hv-story-page .hv-process-explorer.is-tea{background:linear-gradient(135deg,#eaf0df,#cadbbb)}
 .hv-story-page .hv-process-explorer.is-coffee{background:linear-gradient(125deg,#362a25,#654534);color:#faf1e3}
 .hv-story-page .hv-process-tabs button{flex:1;padding:12px;min-height:48px;border-color:transparent;justify-content:center}

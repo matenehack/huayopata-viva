@@ -80,17 +80,19 @@ export const topics: Record<string, Topic> = {
 for(const [id,copy] of Object.entries(topicCopy))Object.assign(topics[id],copy);
 
 const chapterIds: Record<string, string> = { "abra-malaga": "abra", te: "tea", cafe: "coffee", wamanmarka: "wamanmarka", comunidades: "community" };
-const topicImage=(key:string)=>sitePath("assets/content/"+({"abra-malaga":"valley",te:"tea",cafe:"coffee",wamanmarka:"wamanmarka",comunidades:"culture"}[key]||"valley")+".webp");
+const topicImage=(key:string)=>key==="comunidades"?sitePath("assets/chapters/huyro-plaza-1280.webp"):sitePath("assets/content/"+({"abra-malaga":"valley",te:"tea",cafe:"coffee",wamanmarka:"wamanmarka",comunidades:"culture"}[key]||"valley")+".webp");
 const order = ["abra-malaga", "te", "cafe", "wamanmarka", "comunidades"];
 export default function TopicPage({tema}:{tema:string}) {
   useEditorialReveal(tema);
   const topic = topics[tema];
+  const readingLabel=tema==="te"?"Conocer el cultivo del té":tema==="cafe"?"Conocer el proceso del café":tema==="wamanmarka"?"Leer sobre Wamanmarka":tema==="comunidades"?"Conocer las actividades locales":"Conocer el área de conservación";
   if (!topic) return <main className="hv-story-page hv-story-missing"><a href={sitePath("/")}>← Volver a Huayopata Viva</a><h1>Esta historia aún no está disponible.</h1></main>;
   return <main className={"hv-story-page hv-topic-"+tema}>
     <SiteHeader section="stories"/>
     <section className="hv-story-hero" style={{ backgroundImage: `url('${topicImage(tema)}')` }} aria-labelledby="story-title">
-      <div><span>{topic.number} · {topic.eyebrow}</span><h1 id="story-title">{topic.title}</h1><p>{topic.intro}</p><a href="#historia">Consultar información ↓</a></div>
+      <div><span>{topic.number} · {topic.eyebrow}</span><h1 id="story-title">{topic.title}</h1><p>{topic.intro}</p><a href="#historia">{readingLabel} ↓</a></div>
     </section>
+    {tema==='comunidades'&&<p className="hv-topic-photo-credit">Plaza de Huyro · fotografía histórica de 2010 · fyal · <a href="https://commons.wikimedia.org/wiki/File:Huyro.jpg" target="_blank" rel="noreferrer">Fuente y licencia CC0 ↗</a>. La imagen muestra el lugar, no una celebración actual.</p>}
     <nav className="hv-story-toc" aria-label="Contenido de esta historia"><a className="hv-return-button" href={sitePath(`/#${chapterIds[tema]}`)} aria-label="Regresar al capítulo en la portada"><span aria-hidden="true">←</span> Regresar</a><a href="#historia">Datos del lugar</a><a href="#experiencias">Actividades</a><a href="#visita">Antes de ir</a></nav>
     <section className="hv-story-intro" data-reveal id="historia"><span>HUAYOPATA · CUSCO</span><p>{topic.passage}</p></section>
     <TopicExperience tema={tema}/>{tema!=='te'&&tema!=='cafe'&&<TopicFilm tema={tema}/>}

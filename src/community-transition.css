@@ -10,3 +10,10 @@
 @keyframes hv-community-photo{from{opacity:.65;clip-path:inset(0 0 8% 0 round 4px)}to{opacity:1;clip-path:inset(0 round 4px)}}
 @media(prefers-reduced-motion:reduce){.hv-topic-comunidades .hv-chapter-photo img{animation:none!important;clip-path:none!important}}
 @media(max-width:760px){.hv-topic-comunidades .hv-community-grid article{padding:24px 0}.hv-community-calendar .cal-section-heading{gap:24px}}
+
+/* Keep the archive and local activities adjacent in the same reading sequence. */
+.hv-topic-comunidades .hv-community-editorial{padding-top:clamp(32px,4vw,56px)}
+.hv-topic-comunidades .hv-chapter-complement{padding-bottom:clamp(28px,3vw,44px)}
+
+.hv-topic-photo-credit{margin:0;padding:12px 7%;background:#eee9d9;color:#3d5143;font:13px/1.6 system-ui}
+.hv-topic-photo-credit a{color:inherit;text-decoration:underline;text-underline-offset:4px;display:inline-block;min-height:32px;padding-block:4px}

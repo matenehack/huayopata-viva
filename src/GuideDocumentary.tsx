@@ -1,5 +1,5 @@
 import {useEffect,useRef,useState} from 'react';
-import {Play,ExternalLink,X} from 'lucide-react';
+import {Play,ExternalLink,X,Clapperboard} from 'lucide-react';
 import './guide-documentary.css';
 
 const films={
@@ -11,7 +11,7 @@ export default function GuideDocumentary({tema}:{tema:'te'|'cafe'}){
  useEffect(()=>{if(loaded)frame.current?.focus()},[loaded]);
  const close=()=>{setLoaded(false);requestAnimationFrame(()=>playButton.current?.focus())};
  return <figure className={'hv-guide-film '+(film.portrait?'is-portrait':'')}>
- <div className="hv-guide-film-screen">{loaded?<><iframe ref={frame} src={film.embed} title={film.title+' · '+film.author} allow="fullscreen; picture-in-picture; encrypted-media" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" onKeyDown={e=>{if(e.key==='Escape')close()}}/><button className="hv-guide-film-close" onClick={close}><X size={16}/> Cerrar reproductor</button></>:<button ref={playButton} className="hv-guide-film-launch" onClick={()=>setLoaded(true)} aria-label={'Cargar documental: '+film.title}>{!imageFailed&&<img src={film.poster} alt="" loading="lazy" decoding="async" onError={()=>setImageFailed(true)}/>}<span className="hv-guide-film-play"><Play size={28} aria-hidden="true"/></span><span className="hv-guide-film-prompt">Ver documental aquí</span></button>}</div>
+ <div className="hv-guide-film-screen">{loaded?<><iframe ref={frame} src={film.embed} title={film.title+' · '+film.author} allow="fullscreen; picture-in-picture; encrypted-media" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" onKeyDown={e=>{if(e.key==='Escape')close()}}/><button className="hv-guide-film-close" onClick={close}><X size={16}/> Cerrar reproductor</button></>:<button ref={playButton} className="hv-guide-film-launch" onClick={()=>setLoaded(true)} aria-label={'Cargar documental: '+film.title}>{!imageFailed&&<img src={film.poster} alt="" loading="lazy" decoding="async" onError={()=>setImageFailed(true)}/>}{imageFailed&&<span className="hv-guide-film-fallback"><Clapperboard size={30} aria-hidden="true"/><strong>Documental de {tema==='te'?'té':'café'} en Huayopata</strong><span>Vista previa no disponible</span></span>}<span className="hv-guide-film-play"><Play size={28} aria-hidden="true"/></span><span className="hv-guide-film-prompt">Ver documental aquí</span></button>}</div>
  <figcaption><span>{film.place}</span><h3>{film.title}</h3><p>{film.note}</p><small>{film.author} · {film.year} · Reproductor del autor. Se carga al pulsar.</small><a href={film.url} target="_blank" rel="noreferrer">Ver original en {tema==='te'?'Vimeo':'YouTube'} <ExternalLink size={14}/><span className="sr-only"> (nueva pestaña)</span></a></figcaption>
  </figure>
 }
