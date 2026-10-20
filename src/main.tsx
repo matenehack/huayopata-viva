@@ -34,3 +34,5 @@ function App(){
 createRoot(document.getElementById('root')!).render(<App/>);
 
 import './map-access.css';
+
+import './territorial-editorial.css';
