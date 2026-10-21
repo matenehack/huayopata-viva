@@ -1,0 +1,10 @@
+.hv-story-page .hv-valley-experience-grid .hv-bird-video{margin:24px 0;min-width:0;height:auto;background:#153d31;color:#f4efdc;border-radius:12px;overflow:hidden}
+.hv-bird-video video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#102c25;object-fit:contain}
+.hv-story-page .hv-bird-video figcaption{position:static;padding:18px 20px;color:#f4efdc;background:transparent;text-align:left}
+.hv-bird-video figcaption strong{display:block;font:600 14px/1.5 system-ui}
+.hv-bird-video figcaption span,.hv-bird-video figcaption small{display:block;font:12px/1.65 system-ui;margin-top:5px;color:#dce5d8}
+.hv-bird-video-error{min-height:230px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;padding:24px}
+.hv-bird-video-error p{flex-basis:100%;text-align:center;color:inherit!important}
+.hv-bird-video-error :is(a,button){min-height:44px;padding:10px 16px;color:#163d30;background:#f2e7cb;border:0;border-radius:8px;font:600 14px/1.5 system-ui}
+.hv-bird-record>summary{min-height:48px;cursor:pointer;padding-block:12px;font:600 14px/1.5 system-ui}
+.hv-bird-video :is(video,button,a):focus-visible,.hv-bird-record>summary:focus-visible{outline:3px solid #bd873e;outline-offset:4px}
